@@ -1,0 +1,118 @@
+/* ConciergeServices.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+.concierge-services-section {
+  position: relative;
+  width: 100%;
+  padding: 100px 5% 120px;
+  background-color: #080c11;
+  background-image: linear-gradient(180deg, rgba(8, 12, 17, 0.90) 0%, rgba(8, 12, 17, 0.94) 100%), url('../../assets/forest_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  box-sizing: border-box;
+}
+
+.concierge-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header */
+.concierge-header {
+  margin-bottom: 50px;
+}
+
+.concierge-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  color: #dfb76c;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.concierge-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #dfb76c;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* 4 Columns x 2 Rows Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 28px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 140px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(223, 183, 108, 0.3);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+}
+
+.service-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 10px;
+  letter-spacing: 0.3px;
+}
+
+.service-card-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  color: #8b929e;
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.service-card-dash {
+  width: 22px;
+  height: 1.5px;
+  background-color: #dfb76c;
+  margin-top: 18px;
+  border-radius: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1080px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  .concierge-heading {
+    font-size: 28px;
+  }
+}

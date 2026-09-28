@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
+import FeaturedDestinations from '../FeaturedDestinations/FeaturedDestinations';
+import ConciergeServices from '../ConciergeServices/ConciergeServices';
 import './Home.css';
 import flightImg from '../../assets/flight.png';
 import h1Img from '../../assets/h1.png';
@@ -17,14 +19,14 @@ const Home = () => {
     <div className="home-container">
       <Navbar />
       
-      {/* Hero Section with Sequential Animation */}
+      {/* 1. Hero Section with Sequential Animation */}
       <section 
         className="hero-section" 
         key={animKey}
         onClick={handleReplay}
         title="Click to replay animation"
       >
-        {/* Animated FLYBOOK Typography (Rotates -90deg -> -35deg -> 0deg) */}
+        {/* Animated FLYBOOK Typography */}
         <div className="hero-bg-text-wrapper">
           <h1 className="hero-bg-text">FLYBOOK</h1>
         </div>
@@ -35,7 +37,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Destinations / Cards Section */}
+      {/* 2. Destination Packages / Arched Cards Section */}
       <section className="destinations-section">
         {/* Decorative Path */}
         <div className="decorative-path">
@@ -89,6 +91,12 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* 3. Third Section: Featured Destinations (Kerala, Kashmir, Maldives, Dubai, Himachal, Europe) */}
+      <FeaturedDestinations />
+
+      {/* 4. Fourth Section: The Concierge Engine (Every service, engineered around you) */}
+      <ConciergeServices />
     </div>
   );
 };
