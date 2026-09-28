@@ -1,0 +1,329 @@
+/* Home.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700&display=swap');
+
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #0f1218;
+}
+
+/* =========================================
+   HERO SECTION (Exact Figma Blue Gradient)
+   ========================================= */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 750px;
+  max-height: 1024px;
+  background: linear-gradient(180deg, #024677 0%, #457699 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* ===================================================
+   BACKGROUND TYPOGRAPHY (FLYBOOK)
+   Starts Vertical (-90deg), Rotates to Diagonal (-35deg),
+   Then Settles to Horizontal (0deg)
+   =================================================== */
+.hero-bg-text-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-bg-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(5.5rem, 15vw, 13.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+  text-shadow: 0 10px 40px rgba(0, 30, 60, 0.2);
+  transform-origin: center center;
+  animation: flybookSequentialRotate 6.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes flybookSequentialRotate {
+  /* Phase 1: Vertical (-90deg) inside the contrails (Screenshot 1) */
+  0% {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+    transform: rotate(-90deg);
+  }
+  24% {
+    transform: rotate(-90deg);
+    opacity: 1;
+  }
+  /* Phase 2: Rotating Diagonally (-35deg, Screenshot 2) as flight passes off top */
+  35% {
+    transform: rotate(-35deg);
+    opacity: 1;
+  }
+  /* Phase 3: Settles Flat Horizontally (0deg, Screenshot 3) */
+  46% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  /* Phase 4: Stays settled and displayed prominently in full glory */
+  86% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  /* Reset for seamless loop */
+  93% {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  96% {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+/* ===================================================
+   FLIGHT TAKEOFF & VERTICAL MOTION
+   Starts from bottom, flies vertically through center,
+   exits top leaving contrails, then clears
+   =================================================== */
+.flight-animation-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 2;
+  pointer-events: none;
+  animation: flightSequentialTakeoff 6.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes flightSequentialTakeoff {
+  /* 0%: Flight starts low / below screen */
+  0% {
+    transform: translate(-50%, 75vh);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  /* 18% - 24%: Flight reaches Screenshot 1 position (nose under navbar, contrails over -90deg text) */
+  20% {
+    transform: translate(-50%, -15vh);
+    opacity: 1;
+  }
+  24% {
+    transform: translate(-50%, -17vh);
+    opacity: 1;
+  }
+  /* 35%: Aircraft flies off top, contrails trail down screen (Screenshot 2) */
+  35% {
+    transform: translate(-50%, -60vh);
+    opacity: 0.95;
+  }
+  /* 48%: Contrails exit out the top */
+  48% {
+    transform: translate(-50%, -130vh);
+    opacity: 0;
+  }
+  /* 88%: Remain off-screen while FLYBOOK is featured horizontally */
+  88% {
+    transform: translate(-50%, -130vh);
+    opacity: 0;
+  }
+  /* Reset back to start position */
+  93% {
+    transform: translate(-50%, 75vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, 75vh);
+    opacity: 0;
+  }
+}
+
+.hero-flight-img {
+  height: 140vh;
+  max-height: 1250px;
+  width: auto;
+  object-fit: contain;
+  margin-top: -12vh;
+  filter: drop-shadow(0 15px 35px rgba(0, 20, 50, 0.35));
+}
+
+/* =========================================
+   DESTINATIONS / CARDS SECTION
+   ========================================= */
+.destinations-section {
+  position: relative;
+  width: 100%;
+  background-color: #0f1218;
+  padding: 90px 5% 120px;
+  display: flex;
+  justify-content: center;
+  z-index: 5;
+}
+
+.destinations-section::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background-image: url('../../assets/h1.png');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.decorative-path {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cards-wrapper {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.destination-card {
+  background-color: #fcf9f2;
+  border-radius: 48px;
+  width: 330px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.6);
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 290px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 38px 38px 12px 12px;
+}
+
+.card-content {
+  padding: 10px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 15px 0 12px;
+}
+
+.card-content p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  color: #555555;
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+
+.card-btn {
+  background: transparent;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  padding: 10px 22px;
+  border-radius: 25px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-btn:hover {
+  background-color: #1a1a1a;
+  color: #fcf9f2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .cards-wrapper {
+    gap: 24px;
+  }
+  .destination-card {
+    width: calc(33.333% - 20px);
+    min-width: 270px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 600px;
+  }
+  .hero-bg-text {
+    font-size: clamp(3.5rem, 16vw, 6rem);
+  }
+  .hero-flight-img {
+    height: 120vh;
+    margin-top: -8vh;
+  }
+  .destination-card {
+    width: 100%;
+    max-width: 380px;
+  }
+}
