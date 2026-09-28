@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Navbar from '../Navbar/Navbar';
 import FeaturedDestinations from '../FeaturedDestinations/FeaturedDestinations';
 import ConciergeServices from '../ConciergeServices/ConciergeServices';
+import TravelExperience from '../TravelExperience/TravelExperience';
+import QuoteBanner from '../QuoteBanner/QuoteBanner';
+import FeaturedPackages from '../FeaturedPackages/FeaturedPackages';
 import './Home.css';
 import flightImg from '../../assets/flight.png';
 import h1Img from '../../assets/h1.png';
@@ -97,6 +100,15 @@ const Home = () => {
 
       {/* 4. Fourth Section: The Concierge Engine (Every service, engineered around you) */}
       <ConciergeServices />
+
+      {/* 5. Fifth Section: Travel, The Way It Should Feel (with h10 architecture image) */}
+      <TravelExperience />
+
+      {/* 6. Sixth Section: Quote Banner ("Collect Moments, Not Just Miles." with bgh image) */}
+      <QuoteBanner />
+
+      {/* 7. Seventh Section: Featured Packages (Find The Journey Made For You) */}
+      <FeaturedPackages />
     </div>
   );
 };

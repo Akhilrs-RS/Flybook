@@ -1,0 +1,89 @@
+/* FeaturedPackages.css */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
+
+.featured-packages-section {
+  position: relative;
+  width: 100%;
+  padding: 85px 5% 90px;
+  background-color: #080c11;
+  background-image: linear-gradient(180deg, rgba(8, 12, 17, 0.85) 0%, rgba(8, 12, 17, 0.95) 100%), url('../../assets/forest_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  box-sizing: border-box;
+}
+
+.packages-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.packages-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+}
+
+.packages-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.packages-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 6px;
+  opacity: 0.9;
+}
+
+.packages-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #dfb76c;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.packages-subtext {
+  font-family: 'Outfit', sans-serif;
+  font-style: italic;
+  font-size: 12px;
+  color: #8b929e;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.packages-view-all-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  padding: 9px 24px;
+  border-radius: 25px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.packages-view-all-btn:hover {
+  background: #dfb76c;
+  border-color: #dfb76c;
+  color: #080c11;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .packages-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .packages-heading {
+    font-size: 30px;
+  }
+}
