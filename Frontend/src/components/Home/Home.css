@@ -28,8 +28,8 @@
 
 /* ===================================================
    BACKGROUND TYPOGRAPHY (FLYBOOK)
-   Starts Vertical (-90deg), Rotates to Diagonal (-35deg),
-   Then Settles to Horizontal (0deg)
+   Starts hidden, appears vertically inside smoke,
+   rotates (-90deg -> -35deg -> 0deg), then locks horizontal
    =================================================== */
 .hero-bg-text-wrapper {
   position: absolute;
@@ -57,58 +57,63 @@
   white-space: nowrap;
   text-shadow: 0 10px 40px rgba(0, 30, 60, 0.2);
   transform-origin: center center;
-  animation: flybookSequentialRotate 6.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
+  animation: flybookSequentialRotate 7.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
   will-change: transform, opacity;
 }
 
 @keyframes flybookSequentialRotate {
-  /* Phase 1: Vertical (-90deg) inside the contrails (Screenshot 1) */
+  /* 0% - 17%: Flight-only phase, word is not visible */
   0% {
-    transform: rotate(-90deg);
+    transform: rotate(-90deg) scale(0.95);
     opacity: 0;
   }
-  6% {
-    opacity: 1;
-    transform: rotate(-90deg);
+  17% {
+    transform: rotate(-90deg) scale(0.95);
+    opacity: 0;
   }
-  24% {
-    transform: rotate(-90deg);
+  /* 22% - 35%: Smoke shoots down, word reveals fully written vertically (-90deg) */
+  22% {
+    transform: rotate(-90deg) scale(1);
     opacity: 1;
   }
-  /* Phase 2: Rotating Diagonally (-35deg, Screenshot 2) as flight passes off top */
   35% {
-    transform: rotate(-35deg);
+    transform: rotate(-90deg) scale(1);
     opacity: 1;
   }
-  /* Phase 3: Settles Flat Horizontally (0deg, Screenshot 3) */
-  46% {
-    transform: rotate(0deg);
+  /* 36% - 47%: Aircraft takes off, word rotates diagonally (-35deg, Screenshot 2) */
+  45% {
+    transform: rotate(-35deg) scale(1);
     opacity: 1;
   }
-  /* Phase 4: Stays settled and displayed prominently in full glory */
+  /* 48% - 56%: Word settles flat horizontally (0deg, Screenshot 3) */
+  55% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  /* 56% - 86%: Word stays prominently locked horizontally in full view */
   86% {
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(1);
     opacity: 1;
   }
-  /* Reset for seamless loop */
+  /* 87% - 94%: Smooth fade out before loop restart */
   93% {
     opacity: 0;
-    transform: rotate(0deg);
+    transform: rotate(0deg) scale(0.98);
   }
-  96% {
-    transform: rotate(-90deg);
+  97% {
     opacity: 0;
+    transform: rotate(-90deg) scale(0.95);
   }
   100% {
-    transform: rotate(-90deg);
     opacity: 0;
+    transform: rotate(-90deg) scale(0.95);
   }
 }
 
 /* ===================================================
    FLIGHT TAKEOFF & VERTICAL MOTION
-   Starts from bottom, flies vertically through center,
-   exits top leaving contrails, then clears
+   Starts centered with flight only, takes off upwards,
+   exits top, then resets
    =================================================== */
 .flight-animation-wrapper {
   position: absolute;
@@ -121,54 +126,50 @@
   align-items: flex-start;
   z-index: 2;
   pointer-events: none;
-  animation: flightSequentialTakeoff 6.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
+  animation: flightMotionLoop 7.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
   will-change: transform, opacity;
 }
 
-@keyframes flightSequentialTakeoff {
-  /* 0%: Flight starts low / below screen */
+@keyframes flightMotionLoop {
+  /* 0% - 35%: Aircraft is stationed in the center of the hero */
   0% {
-    transform: translate(-50%, 75vh);
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  /* 18% - 24%: Flight reaches Screenshot 1 position (nose under navbar, contrails over -90deg text) */
-  20% {
     transform: translate(-50%, -15vh);
     opacity: 1;
   }
-  24% {
-    transform: translate(-50%, -17vh);
+  35% {
+    transform: translate(-50%, -15vh);
     opacity: 1;
   }
-  /* 35%: Aircraft flies off top, contrails trail down screen (Screenshot 2) */
-  35% {
-    transform: translate(-50%, -60vh);
+  /* 36% - 50%: Takes off rapidly upwards, exiting past top edge */
+  48% {
+    transform: translate(-50%, -75vh);
     opacity: 0.95;
   }
-  /* 48%: Contrails exit out the top */
-  48% {
-    transform: translate(-50%, -130vh);
+  56% {
+    transform: translate(-50%, -140vh);
     opacity: 0;
   }
-  /* 88%: Remain off-screen while FLYBOOK is featured horizontally */
+  /* 57% - 88%: Stays off-screen while FLYBOOK is presented */
   88% {
-    transform: translate(-50%, -130vh);
+    transform: translate(-50%, -140vh);
     opacity: 0;
   }
-  /* Reset back to start position */
+  /* 89% - 96%: Resets position back to center while invisible */
   93% {
-    transform: translate(-50%, 75vh);
+    transform: translate(-50%, -15vh);
     opacity: 0;
   }
   100% {
-    transform: translate(-50%, 75vh);
-    opacity: 0;
+    transform: translate(-50%, -15vh);
+    opacity: 1;
   }
 }
 
+/* ===================================================
+   SMOKE / CONTRAIL EMERGENCE ANIMATION
+   At first: Flight ONLY (smoke clipped at engines).
+   Then: Smoke shoots downward rapidly.
+   =================================================== */
 .hero-flight-img {
   height: 140vh;
   max-height: 1250px;
@@ -176,6 +177,33 @@
   object-fit: contain;
   margin-top: -12vh;
   filter: drop-shadow(0 15px 35px rgba(0, 20, 50, 0.35));
+  animation: smokeEmergence 7.5s cubic-bezier(0.2, 0.8, 0.25, 1) infinite;
+  will-change: clip-path;
+}
+
+@keyframes smokeEmergence {
+  /* 0% - 17%: FLIGHT ONLY. Smoke clipped right at the engines/tail */
+  0% {
+    clip-path: inset(0 0 52% 0);
+  }
+  17% {
+    clip-path: inset(0 0 52% 0);
+  }
+  /* 18% - 30%: Smoke shoots downwards to full length */
+  28% {
+    clip-path: inset(0 0 0% 0);
+  }
+  /* 31% - 88%: Contrails remain full as flight climbs */
+  88% {
+    clip-path: inset(0 0 0% 0);
+  }
+  /* Reset back to flight-only for next loop */
+  94% {
+    clip-path: inset(0 0 52% 0);
+  }
+  100% {
+    clip-path: inset(0 0 52% 0);
+  }
 }
 
 /* =========================================
