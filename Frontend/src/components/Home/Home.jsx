@@ -5,6 +5,8 @@ import ConciergeServices from '../ConciergeServices/ConciergeServices';
 import TravelExperience from '../TravelExperience/TravelExperience';
 import QuoteBanner from '../QuoteBanner/QuoteBanner';
 import FeaturedPackages from '../FeaturedPackages/FeaturedPackages';
+import WhyFlybook from '../WhyFlybook/WhyFlybook';
+import Testimonials from '../Testimonials/Testimonials';
 import './Home.css';
 import flightImg from '../../assets/flight.png';
 import h1Img from '../../assets/h1.png';
@@ -107,8 +109,14 @@ const Home = () => {
       {/* 6. Sixth Section: Quote Banner ("Collect Moments, Not Just Miles." with bgh image) */}
       <QuoteBanner />
 
-      {/* 7. Seventh Section: Featured Packages (Find The Journey Made For You) */}
+      {/* 7. Seventh Section: Featured Packages (Find The Journey Made For You with h11 to h16) */}
       <FeaturedPackages />
+
+      {/* 8. Eighth Section: Why Choose Flybook (with h17 image) */}
+      <WhyFlybook />
+
+      {/* 9. Ninth Section: Testimonials */}
+      <Testimonials />
     </div>
   );
 };
