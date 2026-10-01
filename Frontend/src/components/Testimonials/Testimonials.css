@@ -4,10 +4,7 @@
   position: relative;
   width: 100%;
   padding: 85px 5% 100px;
-  background-color: #080c11;
-  background-image: linear-gradient(180deg, rgba(8, 12, 17, 0.88) 0%, rgba(8, 12, 17, 0.96) 100%), url('../../assets/forest_bg.jpg');
-  background-size: cover;
-  background-position: center;
+  background: transparent;
   box-sizing: border-box;
   text-align: center;
 }

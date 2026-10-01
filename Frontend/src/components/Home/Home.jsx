@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Navbar from '../Navbar/Navbar';
 import FeaturedDestinations from '../FeaturedDestinations/FeaturedDestinations';
 import ConciergeServices from '../ConciergeServices/ConciergeServices';
 import TravelExperience from '../TravelExperience/TravelExperience';
@@ -22,8 +21,6 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <Navbar />
-      
       {/* 1. Hero Section with Sequential Animation */}
       <section 
         className="hero-section" 
@@ -109,14 +106,17 @@ const Home = () => {
       {/* 6. Sixth Section: Quote Banner ("Collect Moments, Not Just Miles." with bgh image) */}
       <QuoteBanner />
 
-      {/* 7. Seventh Section: Featured Packages (Find The Journey Made For You with h11 to h16) */}
-      <FeaturedPackages />
+      {/* 7 to 9: Lower Home Section with Continuous hb.png Background */}
+      <div className="home-packages-bottom-wrapper">
+        {/* 7. Seventh Section: Featured Packages (Find The Journey Made For You with h11 to h16) */}
+        <FeaturedPackages />
 
-      {/* 8. Eighth Section: Why Choose Flybook (with h17 image) */}
-      <WhyFlybook />
+        {/* 8. Eighth Section: Why Choose Flybook (with h17 image) */}
+        <WhyFlybook />
 
-      {/* 9. Ninth Section: Testimonials */}
-      <Testimonials />
+        {/* 9. Ninth Section: Testimonials */}
+        <Testimonials />
+      </div>
     </div>
   );
 };
