@@ -3,8 +3,8 @@
 
 .about-page {
   width: 100%;
-  background-color: #0b1118;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #171d24;
   overflow-x: hidden;
 }
 
@@ -12,8 +12,8 @@
   font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: #dfb76c;
-  letter-spacing: 3px;
+  color: #a7824e;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
   margin-bottom: 12px;
   display: block;
@@ -23,256 +23,226 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(30px, 3.5vw, 44px);
   font-weight: 600;
-  color: #ffffff;
+  color: #171d24;
   margin: 0;
   line-height: 1.25;
 }
 
-/* 2. Story Section */
+/* 2. Philosophy Intro */
 .about-story-section {
-  padding: 100px 8% 90px;
-  background-color: #fbf9f4;
-  color: #171d24;
+  padding: 80px 8% 70px;
+  background-color: #fcfbf9;
+  border-bottom: 1px solid #f1ece4;
 }
 
 .about-story-container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
-.about-story-header {
-  margin-bottom: 50px;
-}
-
-.about-story-header .section-eyebrow {
-  color: #a7824e;
-}
-
-.about-story-header .section-title {
-  color: #171d24;
-}
-
-.about-story-grid {
+.about-story-header-split {
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: 60px;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 10px;
 }
 
-.about-story-image-wrap {
-  position: relative;
-  border-radius: 28px;
+.about-story-paragraphs p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0 0 16px;
+}
+
+/* 3. Split Mission Block (Matching Figma) */
+.about-mission-section {
+  width: 100%;
+  background-color: #16241c;
+}
+
+.about-mission-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+}
+
+.about-mission-img-wrap {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
-  height: 520px;
 }
 
-.about-story-img {
+.about-mission-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s ease;
 }
 
-.about-story-img:hover {
-  transform: scale(1.03);
+.about-mission-text-block {
+  padding: 80px 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
 }
 
-.about-story-badge {
-  position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(11, 17, 24, 0.85);
-  backdrop-filter: blur(10px);
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.about-story-badge span {
+.mission-tag {
   font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 600;
+  letter-spacing: 3px;
   color: #dfb76c;
-  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 14px;
 }
 
-.about-story-text-wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.about-story-quote {
+.mission-statement {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(24px, 2.4vw, 32px);
-  font-weight: 600;
-  color: #171d24;
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 500;
+  font-style: italic;
   line-height: 1.35;
-  margin: 0;
-  border-left: 3px solid #dfb76c;
-  padding-left: 20px;
+  color: #ffffff;
+  margin: 0 0 20px;
 }
 
-.about-story-text-wrap p {
+.mission-body {
   font-family: 'Outfit', sans-serif;
-  font-size: 15px;
+  font-size: 14.5px;
   line-height: 1.75;
-  color: #555f6e;
-  margin: 0;
+  color: #cbd5e1;
+  margin: 0 0 28px;
 }
 
-.about-story-signature {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.vision-sub-block {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 18px;
 }
 
-.founder-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  font-weight: 600;
-  color: #171d24;
-}
-
-.founder-role {
+.vision-tag {
   font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  color: #8892a0;
-  letter-spacing: 0.5px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #dfb76c;
+  display: block;
+  margin-bottom: 6px;
 }
 
-/* 3. Stats Section */
+.vision-sub-block p {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* 4. Stats Section */
 .about-stats-section {
-  padding: 80px 8%;
-  background-color: #0d141d;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 90px 8%;
+  background-color: #ffffff;
 }
 
 .about-stats-container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
 .stats-header {
-  text-align: center;
-  margin-bottom: 45px;
+  margin-bottom: 50px;
 }
 
 .stats-header-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(26px, 2.6vw, 36px);
+  font-size: 32px;
   font-weight: 600;
-  color: #ffffff;
-  margin: 0 0 10px;
-}
-
-.stats-header-sub {
-  font-family: 'Outfit', sans-serif;
-  font-size: 14.5px;
-  color: #8c97a7;
+  color: #171d24;
   margin: 0;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 30px;
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 32px 24px;
-  text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  padding: 30px 24px;
+  background-color: #fbf9f4;
+  border-radius: 18px;
+  border: 1px solid #f1ece4;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.3s ease;
 }
 
 .stat-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(223, 183, 108, 0.35);
+  transform: translateY(-4px);
 }
 
 .stat-number {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(38px, 4vw, 52px);
+  font-size: 44px;
   font-weight: 700;
-  color: #dfb76c;
-  display: block;
-  margin-bottom: 8px;
+  color: #171d24;
   line-height: 1;
 }
 
 .stat-label {
   font-family: 'Outfit', sans-serif;
   font-size: 13.5px;
-  color: #9aa4b2;
-  line-height: 1.45;
+  color: #64748b;
+  font-weight: 500;
 }
 
-/* 4. Values Section */
+/* 5. Values Section */
 .about-values-section {
-  padding: 100px 8%;
-  background-color: #fbf9f4;
-  color: #171d24;
+  padding: 80px 8% 100px;
+  background-color: #fcfbf9;
+  border-top: 1px solid #f1ece4;
 }
 
 .about-values-container {
-  max-width: 1200px;
+  max-width: 1140px;
   margin: 0 auto;
 }
 
 .values-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.values-header .section-eyebrow {
-  color: #a7824e;
-}
-
-.values-header .section-title {
-  color: #171d24;
-}
-
-.values-subtitle {
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  color: #636e7d;
-  margin-top: 10px;
+  margin-bottom: 50px;
 }
 
 .values-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 36px;
 }
 
 .value-card {
-  background: #ffffff;
-  border-radius: 24px;
-  padding: 44px 34px;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  background-color: #ffffff;
+  padding: 36px 32px;
+  border-radius: 20px;
+  border: 1px solid #f1ece4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .value-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
 }
 
 .value-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 28px;
-  font-weight: 600;
-  color: #dfb76c;
-  margin-bottom: 18px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #a7824e;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
 }
 
 .value-title {
@@ -280,87 +250,87 @@
   font-size: 22px;
   font-weight: 600;
   color: #171d24;
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 }
 
 .value-desc {
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
-  color: #5c6776;
-  line-height: 1.65;
+  line-height: 1.7;
+  color: #475569;
   margin: 0;
 }
 
-/* 5. CTA Section */
+/* 6. Pre-Footer CTA */
 .about-cta-section {
+  position: relative;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.about-cta-overlay {
+  background: rgba(11, 17, 24, 0.75);
+  backdrop-filter: blur(2px);
   padding: 100px 8%;
-  background: linear-gradient(180deg, #0b1118 0%, #080d14 100%);
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .about-cta-container {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
 .about-cta-title {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(32px, 3.8vw, 48px);
-  font-weight: 600;
+  font-weight: 500;
   color: #ffffff;
   margin: 0 0 16px;
 }
 
 .about-cta-desc {
   font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  color: #9aa4b2;
-  margin: 0 0 36px;
-  line-height: 1.6;
+  font-size: 15px;
+  color: #e2e8f0;
+  margin: 0 0 32px;
+  line-height: 1.7;
 }
 
 .about-cta-btn {
-  display: inline-block;
   background-color: #dfb76c;
-  color: #171d24;
+  color: #121820;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
   font-weight: 600;
   padding: 14px 34px;
   border-radius: 30px;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(223, 183, 108, 0.3);
+  display: inline-block;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(223, 183, 108, 0.35);
 }
 
 .about-cta-btn:hover {
-  background-color: #ebd18e;
+  background-color: #eed08f;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(223, 183, 108, 0.45);
 }
 
-@media (max-width: 1024px) {
-  .about-story-grid {
+@media (max-width: 900px) {
+  .about-story-header-split {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px;
   }
-  .about-story-image-wrap {
-    height: 380px;
+  .about-mission-split {
+    grid-template-columns: 1fr;
+  }
+  .about-mission-img-wrap {
+    height: 320px;
   }
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .values-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-story-section, .about-values-section, .about-cta-section {
-    padding: 70px 6%;
-  }
-  .stats-grid {
     grid-template-columns: 1fr;
   }
 }

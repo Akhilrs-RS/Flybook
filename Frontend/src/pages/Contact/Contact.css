@@ -3,77 +3,81 @@
 
 .contact-page {
   width: 100%;
-  background-color: #0b1118;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #171d24;
   overflow-x: hidden;
 }
 
 .contact-main-section {
-  padding: 90px 8% 100px;
-  background-color: #fbf9f4;
-  color: #171d24;
+  padding: 80px 8% 60px;
+  background-color: #ffffff;
 }
 
 .contact-container {
-  max-width: 1250px;
+  max-width: 1140px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 70px;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 60px;
   align-items: flex-start;
 }
 
-/* Left Column: Direct Info */
-.contact-info-col {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-info-col .section-eyebrow {
-  color: #a7824e;
+/* Left Column */
+.contact-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #b08d5c;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
 }
 
 .contact-info-heading {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(30px, 3.4vw, 42px);
+  font-size: clamp(28px, 3.2vw, 40px);
   font-weight: 600;
   color: #171d24;
   margin: 0 0 16px;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .contact-info-intro {
   font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  color: #555f6e;
+  font-size: 14.5px;
   line-height: 1.7;
+  color: #475569;
   margin: 0 0 36px;
 }
 
 .contact-channels-list {
   display: flex;
   flex-direction: column;
-  gap: 26px;
-  margin-bottom: 40px;
+  gap: 24px;
 }
 
 .channel-item {
   display: flex;
-  gap: 18px;
+  gap: 16px;
   align-items: flex-start;
 }
 
 .channel-icon-wrap {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
-  background-color: #f0eae0;
-  color: #a7824e;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
   flex-shrink: 0;
+}
+
+.channel-icon {
+  font-size: 20px;
+  color: #b08d5c;
 }
 
 .channel-text {
@@ -86,88 +90,26 @@
   font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: #a7824e;
   letter-spacing: 1.5px;
+  color: #b08d5c;
   text-transform: uppercase;
 }
 
 .channel-text p {
   font-family: 'Outfit', sans-serif;
-  font-size: 14.5px;
-  color: #2b3340;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.whatsapp-callout {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background-color: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-  padding: 20px 24px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-}
-
-.whatsapp-icon-circle {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background-color: #25d366;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  flex-shrink: 0;
-}
-
-.whatsapp-info {
-  flex: 1;
-}
-
-.whatsapp-info h4 {
-  font-family: 'Outfit', sans-serif;
   font-size: 14px;
-  font-weight: 600;
-  color: #171d24;
-  margin: 0 0 2px;
-}
-
-.whatsapp-info p {
-  font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  color: #636e7d;
+  color: #334155;
   margin: 0;
+  line-height: 1.5;
 }
 
-.whatsapp-btn {
-  background: transparent;
-  color: #128c7e;
-  font-family: 'Outfit', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: transform 0.2s ease;
-}
-
-.whatsapp-btn:hover {
-  transform: translateX(3px);
-}
-
-/* Right Column: Inquiry Form Card */
-.contact-form-col {
-  width: 100%;
-}
-
+/* Right Column: Form Card */
 .form-card {
   background: #ffffff;
-  border-radius: 28px;
-  padding: 45px 40px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 40px 44px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
 }
 
 .form-card-title {
@@ -175,247 +117,246 @@
   font-size: 26px;
   font-weight: 600;
   color: #171d24;
-  margin: 0 0 8px;
+  margin: 0 0 6px;
 }
 
 .form-card-sub {
   font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  color: #6a7585;
-  margin: 0 0 32px;
-  line-height: 1.5;
+  font-size: 13.5px;
+  color: #64748b;
+  margin: 0 0 28px;
 }
 
 .inquiry-form {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
 }
 
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 18px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 8px;
 }
 
 .form-group label {
   font-family: 'Outfit', sans-serif;
-  font-size: 10.5px;
+  font-size: 11px;
   font-weight: 600;
-  color: #6a7585;
   letter-spacing: 1px;
+  color: #475569;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  width: 100%;
   padding: 13px 16px;
-  background-color: #f8f9fa;
-  border: 1px solid #e2e6eb;
-  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
-  color: #171d24;
+  color: #1e293b;
   outline: none;
   transition: all 0.25s ease;
-  box-sizing: border-box;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #a7824e;
-  background-color: #ffffff;
-  box-shadow: 0 2px 10px rgba(167, 130, 78, 0.15);
-}
-
-.form-group textarea {
-  resize: vertical;
+  border-color: #dfb76c;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(223, 183, 108, 0.15);
 }
 
 .form-submit-btn {
   background-color: #dfb76c;
   color: #121820;
-  border: none;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  padding: 15px 28px;
+  padding: 15px 30px;
   border-radius: 12px;
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(223, 183, 108, 0.3);
-  margin-top: 10px;
+  transition: all 0.25s ease;
+  margin-top: 8px;
+  box-shadow: 0 4px 14px rgba(223, 183, 108, 0.3);
 }
 
 .form-submit-btn:hover {
-  background-color: #ebd18e;
+  background-color: #eed08f;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(223, 183, 108, 0.4);
 }
 
 .form-success-banner {
   text-align: center;
   padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
 }
 
 .success-icon {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  font-size: 26px;
+  background: #dfb76c;
+  color: #121820;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 8px;
-}
-
-.form-success-banner h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 22px;
-  color: #171d24;
-  margin: 0;
-}
-
-.form-success-banner p {
-  font-family: 'Outfit', sans-serif;
-  font-size: 14px;
-  color: #555f6e;
-  line-height: 1.6;
-  max-width: 440px;
-  margin: 0 0 16px;
+  font-size: 24px;
+  margin: 0 auto 18px;
+  font-weight: 700;
 }
 
 .reset-form-btn {
-  background: transparent;
-  color: #a7824e;
-  border: 1px solid #a7824e;
-  padding: 9px 20px;
-  border-radius: 20px;
+  margin-top: 20px;
+  background: #171d24;
+  color: #ffffff;
+  border: none;
   font-family: 'Outfit', sans-serif;
-  font-size: 12.5px;
-  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
-/* 3. Location / Map Section */
-.contact-map-section {
-  padding: 0 8% 100px;
-  background-color: #fbf9f4;
+/* 3. Location Banner Split (Matching Figma Contact Artboard) */
+.contact-location-banner-section {
+  padding: 20px 8% 100px;
+  background-color: #ffffff;
 }
 
-.contact-map-container {
-  max-width: 1250px;
+.contact-location-banner-container {
+  max-width: 1140px;
   margin: 0 auto;
 }
 
-.map-card-wrapper {
-  position: relative;
-  width: 100%;
-  height: 380px;
-  border-radius: 28px;
+.location-split-card {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  border-radius: 22px;
   overflow: hidden;
-  background: #111a24;
-  background-image: 
-    radial-gradient(circle at 75% 40%, rgba(223, 183, 108, 0.08) 0%, transparent 50%),
-    linear-gradient(rgba(17, 26, 36, 0.7), rgba(17, 26, 36, 0.9)),
-    url('../../assets/hb.png');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  padding: 50px;
-  box-sizing: border-box;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
 }
 
-.map-card-overlay-info {
-  background: rgba(11, 17, 24, 0.9);
-  backdrop-filter: blur(12px);
-  padding: 36px 38px;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  max-width: 420px;
+.location-stone-info {
+  background-color: #f1ede5;
+  padding: 48px 44px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: center;
 }
 
-.map-badge {
+.location-eyebrow {
   font-family: 'Outfit', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
-  color: #dfb76c;
-  letter-spacing: 2px;
+  letter-spacing: 2.5px;
+  color: #a7824e;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 }
 
-.map-card-overlay-info h3 {
+.location-heading {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
-  color: #ffffff;
-  margin: 4px 0 2px;
+  color: #171d24;
+  margin: 0 0 14px;
 }
 
-.map-card-overlay-info p {
+.location-address {
   font-family: 'Outfit', sans-serif;
-  font-size: 13.5px;
-  color: #9aa4b2;
-  line-height: 1.5;
-  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 24px;
 }
 
-.directions-link {
+.location-directions-btn {
+  align-self: flex-start;
   font-family: 'Outfit', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #dfb76c;
+  color: #a7824e;
   text-decoration: none;
-  transition: transform 0.2s ease;
   display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(167, 130, 78, 0.4);
+  padding-bottom: 2px;
+  transition: all 0.25s ease;
 }
 
-.directions-link:hover {
-  transform: translateX(4px);
+.location-directions-btn:hover {
+  color: #171d24;
+  border-bottom-color: #171d24;
+  gap: 10px;
 }
 
-@media (max-width: 1024px) {
+.location-map-graphic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background-color: #e5e9ec;
+}
+
+.location-iframe-map {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  border: none;
+}
+
+.location-pin-callout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(17, 24, 39, 0.9);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.pin-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e53e3e;
+  box-shadow: 0 0 8px #e53e3e;
+}
+
+@media (max-width: 860px) {
   .contact-container {
     grid-template-columns: 1fr;
-    gap: 50px;
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-main-section, .contact-map-section {
-    padding: 60px 6%;
+    gap: 40px;
   }
   .form-row {
     grid-template-columns: 1fr;
   }
-  .form-card {
-    padding: 30px 22px;
+  .location-split-card {
+    grid-template-columns: 1fr;
   }
-  .map-card-wrapper {
-    height: 300px;
-    padding: 20px;
+  .location-stone-info {
+    padding: 32px 24px;
   }
-  .map-card-overlay-info {
-    padding: 24px;
-    max-width: 100%;
+  .location-map-graphic {
+    height: 240px;
   }
 }

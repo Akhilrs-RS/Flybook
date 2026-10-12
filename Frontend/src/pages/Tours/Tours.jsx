@@ -4,113 +4,135 @@ import PageHero from '../../components/Common/PageHero';
 import heroToursImg from '../../assets/hero_tours.jpg';
 import amalfiImg from '../../assets/dest_amalfi.jpg';
 import pagodaImg from '../../assets/about_pagoda.jpg';
-import rajasthanImg from '../../assets/h13.png';
-import maldivesImg from '../../assets/h6.jpg';
-import swissImg from '../../assets/hero_services.jpg';
-import ladakhImg from '../../assets/h11.png';
+import rajasthanImg from '../../assets/dest_rajasthan.jpg';
+import maldivesImg from '../../assets/dest_maldives.jpg';
+import swissTrainImg from '../../assets/hero_tours.jpg';
+import heritageImg from '../../assets/hero_about.jpg';
 import './Tours.css';
 
 const categories = [
-  'All Tours',
-  'Adventure Escapes',
-  'Romantic Getaways',
-  'Cultural Heritage',
-  'Island & Beach',
+  'All Packages',
+  'Cultural',
+  'Nature & Wildlife',
+  'Beach & Coast',
+  'Adventure',
   'Scenic Rail'
 ];
 
-const toursData = [
+const mainTours = [
   {
     id: 1,
-    title: 'Amalfi Coast & Capri Retreat',
-    category: 'Romantic Getaways',
+    title: 'Amalfi Serenade',
+    location: 'Italy',
+    category: 'Beach & Coast',
     duration: '8 Days / 7 Nights',
     price: '$3,850',
-    location: 'Italy',
     image: amalfiImg,
-    description: 'Cliffside villas in Positano, private sunset sails across Capri, and hand-selected lemon grove tastings.',
-    highlights: ['Private Riva boat charter', '5-star cliffside suites', 'Exclusive Pompeii historian']
+    description: 'Sun-drenched cliffs and pastel seaside dreams along the dramatic Italian coastline.',
+    highlights: ['Private Riva boat charters', '5-star cliffside suites', 'Exclusive lemon estate tastings']
   },
   {
     id: 2,
-    title: 'Kyoto Zen & Historic Japan',
-    category: 'Cultural Heritage',
+    title: 'Kyoto & Ancient Honshu',
+    location: 'Japan',
+    category: 'Cultural',
     duration: '10 Days / 9 Nights',
     price: '$4,900',
-    location: 'Japan',
     image: pagodaImg,
-    description: 'Immerse in ancient cedar forests, private tea ceremonies with Zen masters, and Michelin kaiseki dining.',
+    description: 'Quiet bamboo groves, classical wooden shrines, and Zen meditation with master monks.',
     highlights: ['Ryokan with private onsen', 'Shinkansen First Class', 'Private Gion geisha walk']
   },
   {
     id: 3,
-    title: 'Royal Rajasthan & Desert Forts',
-    category: 'Cultural Heritage',
+    title: 'Rajasthan Palaces & Forts',
+    location: 'India',
+    category: 'Cultural',
     duration: '7 Days / 6 Nights',
     price: '$2,650',
-    location: 'India',
     image: rajasthanImg,
-    description: 'Grand palaces of Jaipur and Udaipur, private desert stargazing under Thar skies, and royal hospitality.',
-    highlights: ['Heritage palace stays', 'Royal vintage car transfer', 'Private amber fort evening']
+    description: 'Golden fortresses, regal havelis, and desert sunsets across the legendary land of kings.',
+    highlights: ['Heritage palace suites', 'Private Amber Fort evening', 'Vintage royal car transfers']
   },
   {
     id: 4,
-    title: 'Private Atolls & Overwater Serenity',
-    category: 'Island & Beach',
+    title: 'Maldives Haven',
+    location: 'Maldives',
+    category: 'Beach & Coast',
     duration: '6 Days / 5 Nights',
     price: '$5,200',
-    location: 'Maldives',
     image: maldivesImg,
-    description: 'Pristine turquoise waters, seaplane transfers, private coral reef dives, and barefoot luxury living.',
-    highlights: ['Overwater sunset villa', 'Seaplane scenic transfers', 'Private sandbank dinner']
-  },
+    description: 'Pristine turquoise lagoons, barefoot luxury, and overwater sundecks under canopy stars.',
+    highlights: ['Overwater sunset villa', 'Scenic seaplane transfers', 'Private sandbank dinner']
+  }
+];
+
+const splitTours = [
   {
     id: 5,
-    title: 'Swiss Glacier Express & Alpine Peaks',
+    title: 'The Grand Alpine Tour',
+    location: 'Switzerland',
     category: 'Scenic Rail',
     duration: '9 Days / 8 Nights',
     price: '$4,400',
-    location: 'Switzerland',
-    image: swissImg,
-    description: 'Panorama rail journeys through mountain viaducts, Zermatt Matterhorn vistas, and boutique chalets.',
-    highlights: ['Excellence Class Glacier rail', 'Matterhorn sunrise cable car', 'Alpine spa sanctuaries']
+    image: swissTrainImg,
+    description: 'Glacier Express Excellence Class and breathtaking viaduct mountain rail passes.',
+    highlights: ['Excellence Class Glacier rail', 'Matterhorn sunrise cable car']
   },
   {
     id: 6,
-    title: 'High Himalayas & Sacred Monasteries',
-    category: 'Adventure Escapes',
+    title: 'Heritage Heartland',
+    location: 'Udaipur & Rajasthan',
+    category: 'Cultural',
     duration: '8 Days / 7 Nights',
-    price: '$2,250',
-    location: 'Ladakh',
-    image: ladakhImg,
-    description: 'Ancient cliffside gompas, Nubra Valley sand dunes under snow peaks, and peaceful Pangong Lake shores.',
-    highlights: ['Luxury glamping camps', 'Chauffeured 4x4 expedition', 'High altitude pass crossing']
+    price: '$2,800',
+    image: heritageImg,
+    description: 'Illuminated marble waterfront palaces, royal courtyards, and sunset boat safaris.',
+    highlights: ['Lake palace private suite', 'Private historian accompaniment']
   }
 ];
 
 const Tours = () => {
-  const [activeCategory, setActiveCategory] = useState('All Tours');
+  const [activeCategory, setActiveCategory] = useState('All Packages');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredTours = activeCategory === 'All Tours'
-    ? toursData
-    : toursData.filter(t => t.category === activeCategory);
+  const filterItem = (tour) => {
+    const matchesCategory = activeCategory === 'All Packages' || tour.category === activeCategory;
+    const matchesSearch = tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          tour.location.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  };
+
+  const filteredMain = mainTours.filter(filterItem);
+  const filteredSplit = splitTours.filter(filterItem);
 
   return (
     <div className="tours-page">
       {/* 1. Hero */}
       <PageHero
-        subtitle="CURATED EXPEDITIONS"
-        title="Curated journeys, made for you."
-        tagline="Hand-picked itineraries across the world’s most mesmerizing destinations, planned with unhurried precision."
+        subtitle="CURATED EXPEDITIONS & BESPOKE PACKAGES"
+        title="Curated journeys made for you."
+        tagline="Handcrafted itineraries balancing unhurried discovery, authentic local intimacy, and effortless luxury."
         bgImage={heroToursImg}
-        minHeight="62vh"
+        minHeight="60vh"
       />
 
-      {/* 2. Main Catalog Section */}
+      {/* 2. Catalog Section */}
       <section className="tours-catalog-section">
         <div className="tours-catalog-container">
           
-          {/* Category Filter Pills */}
+          {/* Search Bar */}
+          <div className="tours-search-wrapper">
+            <span className="search-icon">🔍</span>
+            <input
+              type="text"
+              placeholder="Search destinations or packages..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="tours-search-input"
+            />
+          </div>
+
+          {/* Filter Bar */}
           <div className="tours-filter-bar">
             {categories.map((cat, idx) => (
               <button
@@ -123,40 +145,82 @@ const Tours = () => {
             ))}
           </div>
 
-          {/* Cards Grid */}
-          <div className="tours-grid">
-            {filteredTours.map(tour => (
-              <div key={tour.id} className="tour-package-card">
-                <div className="tour-card-img-wrap">
-                  <img src={tour.image} alt={tour.title} className="tour-card-img" />
-                  <span className="tour-card-badge">{tour.duration}</span>
-                  <span className="tour-card-location">{tour.location}</span>
+          {/* Wide Showcase Cards */}
+          <div className="tours-wide-list">
+            {filteredMain.map(tour => (
+              <div key={tour.id} className="tour-wide-card">
+                <div className="tour-wide-img-wrap">
+                  <img src={tour.image} alt={tour.title} className="tour-wide-img" />
+                  <span className="tour-wide-badge">{tour.location.toUpperCase()}</span>
                 </div>
-
-                <div className="tour-card-body">
-                  <span className="tour-card-category">{tour.category}</span>
-                  <h3 className="tour-card-title">{tour.title}</h3>
-                  <p className="tour-card-desc">{tour.description}</p>
-
-                  <div className="tour-card-highlights">
-                    {tour.highlights.map((h, i) => (
-                      <span key={i} className="highlight-tag">✓ {h}</span>
-                    ))}
+                <div className="tour-wide-content">
+                  <div className="tour-wide-header">
+                    <div>
+                      <span className="tour-meta-category">{tour.category}</span>
+                      <h3 className="tour-wide-title">{tour.title}</h3>
+                    </div>
+                    <div className="tour-wide-pricing">
+                      <span className="tour-price-from">From</span>
+                      <span className="tour-price-val">{tour.price}</span>
+                      <span className="tour-duration-sub">{tour.duration}</span>
+                    </div>
                   </div>
-
-                  <div className="tour-card-footer">
-                    <div className="tour-price-wrap">
-                      <span className="price-label">Starting from</span>
-                      <span className="price-val">{tour.price} <small>/ person</small></span>
+                  <p className="tour-wide-desc">{tour.description}</p>
+                  <div className="tour-wide-footer">
+                    <div className="tour-highlights-row">
+                      {tour.highlights.map((h, i) => (
+                        <span key={i} className="tour-highlight-tag">✦ {h}</span>
+                      ))}
                     </div>
                     <Link to="/contact" className="tour-inquire-btn">
-                      View Itinerary &rarr;
+                      Inquire About Journey &rarr;
                     </Link>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Side by side cards (Row 5 & 6) */}
+          {filteredSplit.length > 0 && (
+            <div className="tours-split-grid">
+              {filteredSplit.map(tour => (
+                <div key={tour.id} className="tour-half-card">
+                  <div className="tour-half-img-wrap">
+                    <img src={tour.image} alt={tour.title} className="tour-half-img" />
+                    <span className="tour-wide-badge">{tour.location.toUpperCase()}</span>
+                  </div>
+                  <div className="tour-half-content">
+                    <span className="tour-meta-category">{tour.category}</span>
+                    <h3 className="tour-half-title">{tour.title}</h3>
+                    <p className="tour-half-desc">{tour.description}</p>
+                    <div className="tour-half-footer">
+                      <div className="tour-price-box">
+                        <span className="tour-price-val">{tour.price}</span>
+                        <span className="tour-duration-sub">{tour.duration}</span>
+                      </div>
+                      <Link to="/contact" className="tour-inquire-btn">
+                        Inquire &rarr;
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {filteredMain.length === 0 && filteredSplit.length === 0 && (
+            <div className="tours-empty-state">
+              <h3>No journeys found</h3>
+              <p>Try clearing your search query or choosing another category filter.</p>
+              <button 
+                onClick={() => { setActiveCategory('All Packages'); setSearchQuery(''); }}
+                className="reset-tours-btn"
+              >
+                Reset Filters
+              </button>
+            </div>
+          )}
 
         </div>
       </section>

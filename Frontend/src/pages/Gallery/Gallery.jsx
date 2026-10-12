@@ -2,49 +2,63 @@ import React, { useState } from 'react';
 import PageHero from '../../components/Common/PageHero';
 import heroGalleryImg from '../../assets/hero_gallery.jpg';
 import pagodaImg from '../../assets/about_pagoda.jpg';
-import maldivesImg from '../../assets/h6.jpg';
+import maldivesImg from '../../assets/dest_maldives.jpg';
 import trainImg from '../../assets/hero_tours.jpg';
 import amalfiImg from '../../assets/dest_amalfi.jpg';
 import greatWallImg from '../../assets/hero_destinations.jpg';
 import citadelImg from '../../assets/hero_about.jpg';
 import londonImg from '../../assets/hero_contact.jpg';
-import alpineImg from '../../assets/hero_services.jpg';
-import rajasthanImg from '../../assets/h13.png';
-import varanasiImg from '../../assets/h14.png';
-import dubaiImg from '../../assets/h7.jpg';
-import munnarImg from '../../assets/h16.png';
+import alpsImg from '../../assets/dest_alps.jpg';
+import rajasthanImg from '../../assets/dest_rajasthan.jpg';
+import eiffelImg from '../../assets/gallery_eiffel.jpg';
+import tajImg from '../../assets/gallery_taj.jpg';
 import './Gallery.css';
 
 const filterCategories = [
-  'All Moments',
-  'Mountains & Alpine',
-  'Coastal & Islands',
-  'Heritage & Palaces',
-  'Urban & Architecture'
+  'All',
+  'Nature',
+  'Asia',
+  'Africa',
+  'Europe',
+  'Americas',
+  'Middle East'
 ];
 
-const galleryItems = [
-  { id: 1, title: 'Autumn Sanctuary in Kyoto', location: 'Japan', category: 'Heritage & Palaces', image: pagodaImg, span: 'tall' },
-  { id: 2, title: 'Azure Waters of Ari Atoll', location: 'Maldives', category: 'Coastal & Islands', image: maldivesImg, span: 'wide' },
-  { id: 3, title: 'Landwasser Viaduct Rail Pass', location: 'Switzerland', category: 'Mountains & Alpine', image: trainImg, span: 'tall' },
-  { id: 4, title: 'Sunlit Cliffs of Positano', location: 'Italy', category: 'Coastal & Islands', image: amalfiImg, span: 'normal' },
-  { id: 5, title: 'Great Wall Golden Ridge', location: 'China', category: 'Heritage & Palaces', image: greatWallImg, span: 'wide' },
-  { id: 6, title: 'Mist Over Alhambra Citadel', location: 'Spain', category: 'Heritage & Palaces', image: citadelImg, span: 'normal' },
-  { id: 7, title: 'Westminster Bridge at Sunset', location: 'United Kingdom', category: 'Urban & Architecture', image: londonImg, span: 'tall' },
-  { id: 8, title: 'Morning Reflections on Alpine Lake', location: 'Banff / Alberta', category: 'Mountains & Alpine', image: alpineImg, span: 'wide' },
-  { id: 9, title: 'Amber Citadel Palace Gates', location: 'Rajasthan, India', category: 'Heritage & Palaces', image: rajasthanImg, span: 'normal' },
-  { id: 10, title: 'Sacred Ganges at Daybreak', location: 'Varanasi, India', category: 'Heritage & Palaces', image: varanasiImg, span: 'tall' },
-  { id: 11, title: 'Futuristic Dusk Over Downtown', location: 'Dubai, UAE', category: 'Urban & Architecture', image: dubaiImg, span: 'normal' },
-  { id: 12, title: 'Emerald Terraces of Munnar', location: 'Kerala, India', category: 'Mountains & Alpine', image: munnarImg, span: 'wide' }
+// Curated 3 columns matching Figma Gallery artboard
+const columnOne = [
+  { id: 1, title: 'Amalfi Coast Haven', location: 'Italy', region: 'Europe', image: amalfiImg },
+  { id: 2, title: 'Maldives Overwater Sanctuary', location: 'Maldives', region: 'Asia', image: maldivesImg },
+  { id: 3, title: 'Amber Citadel Palace', location: 'Rajasthan, India', region: 'Asia', image: rajasthanImg },
+  { id: 4, title: 'Mediterranean Cliffs', location: 'Italy', region: 'Europe', image: amalfiImg }
+];
+
+const columnTwo = [
+  { id: 5, title: 'Autumn Pagoda Sanctuary', location: 'Kyoto, Japan', region: 'Asia', image: pagodaImg },
+  { id: 6, title: 'Matterhorn Alpine Majesty', location: 'Swiss Alps', region: 'Europe', image: alpsImg },
+  { id: 7, title: 'Udaipur Waterfront Palace', location: 'India', region: 'Asia', image: citadelImg },
+  { id: 8, title: 'Landwasser Mountain Viaduct', location: 'Switzerland', region: 'Europe', image: trainImg }
+];
+
+const columnThree = [
+  { id: 9, title: 'Great Wall Golden Ridge', location: 'China', region: 'Asia', image: greatWallImg },
+  { id: 10, title: 'Eiffel Tower at Noon', location: 'Paris, France', region: 'Europe', image: eiffelImg },
+  { id: 11, title: 'Taj Mahal Sunrise Reflection', location: 'Agra, India', region: 'Asia', image: tajImg },
+  { id: 12, title: 'Westminster Bridge Sunset', location: 'London, UK', region: 'Europe', image: londonImg }
 ];
 
 const Gallery = () => {
-  const [activeFilter, setActiveFilter] = useState('All Moments');
+  const [activeFilter, setActiveFilter] = useState('All');
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const filteredItems = activeFilter === 'All Moments'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === activeFilter);
+  const filterList = (list) => {
+    if (activeFilter === 'All') return list;
+    if (activeFilter === 'Nature') return list.filter(i => ['Maldives', 'Swiss Alps'].includes(i.location));
+    return list.filter(i => i.region === activeFilter);
+  };
+
+  const col1Filtered = filterList(columnOne);
+  const col2Filtered = filterList(columnTwo);
+  const col3Filtered = filterList(columnThree);
 
   return (
     <div className="gallery-page">
@@ -57,11 +71,11 @@ const Gallery = () => {
         minHeight="60vh"
       />
 
-      {/* 2. Gallery Main Section */}
+      {/* 2. Gallery Section */}
       <section className="gallery-main-section">
         <div className="gallery-container">
           
-          {/* Filter Navigation */}
+          {/* Filter Bar */}
           <div className="gallery-filter-bar">
             {filterCategories.map((cat, idx) => (
               <button
@@ -74,36 +88,69 @@ const Gallery = () => {
             ))}
           </div>
 
-          {/* Masonry Collage Grid */}
-          <div className="gallery-masonry-grid">
-            {filteredItems.map(item => (
-              <div 
-                key={item.id} 
-                className={`gallery-item item-span-${item.span}`}
-                onClick={() => setSelectedPhoto(item)}
-              >
-                <img src={item.image} alt={item.title} className="gallery-item-img" />
-                <div className="gallery-item-overlay">
-                  <span className="gallery-location-tag">{item.location}</span>
-                  <h3 className="gallery-item-title">{item.title}</h3>
+          {/* 3 Column Masonry */}
+          <div className="gallery-columns-grid">
+            <div className="gallery-column">
+              {col1Filtered.map(item => (
+                <div 
+                  key={item.id} 
+                  className="gallery-photo-card"
+                  onClick={() => setSelectedPhoto(item)}
+                >
+                  <img src={item.image} alt={item.title} className="gallery-photo-img" />
+                  <div className="gallery-photo-overlay">
+                    <span className="gallery-photo-loc">{item.location}</span>
+                    <h4 className="gallery-photo-title">{item.title}</h4>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <div className="gallery-column">
+              {col2Filtered.map(item => (
+                <div 
+                  key={item.id} 
+                  className="gallery-photo-card"
+                  onClick={() => setSelectedPhoto(item)}
+                >
+                  <img src={item.image} alt={item.title} className="gallery-photo-img" />
+                  <div className="gallery-photo-overlay">
+                    <span className="gallery-photo-loc">{item.location}</span>
+                    <h4 className="gallery-photo-title">{item.title}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="gallery-column">
+              {col3Filtered.map(item => (
+                <div 
+                  key={item.id} 
+                  className="gallery-photo-card"
+                  onClick={() => setSelectedPhoto(item)}
+                >
+                  <img src={item.image} alt={item.title} className="gallery-photo-img" />
+                  <div className="gallery-photo-overlay">
+                    <span className="gallery-photo-loc">{item.location}</span>
+                    <h4 className="gallery-photo-title">{item.title}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* 3. Lightbox Modal */}
+      {/* Lightbox Modal */}
       {selectedPhoto && (
         <div className="gallery-lightbox-modal" onClick={() => setSelectedPhoto(null)}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <button className="lightbox-close" onClick={() => setSelectedPhoto(null)}>✕</button>
             <img src={selectedPhoto.image} alt={selectedPhoto.title} className="lightbox-img" />
-            <div className="lightbox-details">
-              <span className="lightbox-location">{selectedPhoto.location}</span>
-              <h3 className="lightbox-title">{selectedPhoto.title}</h3>
-              <span className="lightbox-category">{selectedPhoto.category}</span>
+            <div className="lightbox-caption">
+              <span className="lightbox-loc">{selectedPhoto.location}</span>
+              <h3>{selectedPhoto.title}</h3>
             </div>
           </div>
         </div>

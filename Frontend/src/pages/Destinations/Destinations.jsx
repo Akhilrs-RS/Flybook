@@ -4,9 +4,9 @@ import PageHero from '../../components/Common/PageHero';
 import heroDestImg from '../../assets/hero_destinations.jpg';
 import amalfiImg from '../../assets/dest_amalfi.jpg';
 import pagodaImg from '../../assets/about_pagoda.jpg';
-import rajasthanImg from '../../assets/h13.png';
-import maldivesImg from '../../assets/h6.jpg';
-import swissImg from '../../assets/hero_services.jpg';
+import rajasthanImg from '../../assets/dest_rajasthan.jpg';
+import maldivesImg from '../../assets/dest_maldives.jpg';
+import swissImg from '../../assets/dest_alps.jpg';
 import './Destinations.css';
 
 const regions = [
@@ -30,7 +30,7 @@ const destinationList = [
   },
   {
     id: 'kyoto',
-    name: 'Kyoto & Nara',
+    name: 'Kyoto',
     country: 'Japan',
     region: 'Asia & Far East',
     image: pagodaImg,
@@ -40,7 +40,7 @@ const destinationList = [
   },
   {
     id: 'rajasthan',
-    name: 'Royal Rajasthan',
+    name: 'Rajasthan',
     country: 'India',
     region: 'Indian Subcontinent',
     image: rajasthanImg,
@@ -50,7 +50,7 @@ const destinationList = [
   },
   {
     id: 'maldives',
-    name: 'The Maldives',
+    name: 'Maldives',
     country: 'Indian Ocean',
     region: 'Island Sanctuaries',
     image: maldivesImg,
