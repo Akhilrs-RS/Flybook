@@ -1,5 +1,5 @@
 /* Navbar.css */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
 
 .navbar {
   position: absolute;
@@ -7,16 +7,52 @@
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: flex-end; /* Keep CTA on right, pill centered absolute */
+  justify-content: space-between;
   align-items: center;
   padding: 24px 5%;
-  z-index: 20;
+  z-index: 50;
   box-sizing: border-box;
 }
 
-/* Optional subtle logo container to balance */
 .navbar-brand-space {
-  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar-logo-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(9, 28, 48, 0.35);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.navbar-logo-badge span {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.navbar-brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
 }
 
 .navbar-links-pill {
@@ -25,45 +61,55 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  background-color: rgba(9, 28, 48, 0.45);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-  padding: 10px 32px;
+  background-color: rgba(9, 28, 48, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
+  padding: 8px 24px;
   border-radius: 40px;
-  gap: 28px;
+  gap: 20px;
 }
 
-.navbar-links-pill a {
-  color: #ffffff;
+.navbar-links-pill .nav-item {
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 12px;
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
   letter-spacing: 0.3px;
-  transition: color 0.2s ease, opacity 0.2s ease;
+  padding: 4px 6px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
-.navbar-links-pill a:hover {
+.navbar-links-pill .nav-item:hover {
   color: #dfb76c;
 }
 
-/* Prototype warm golden button with subtle rounded corners */
+.navbar-links-pill .nav-item.active {
+  color: #dfb76c;
+  font-weight: 600;
+}
+
 .navbar-btn {
   background-color: #dfb76c;
   color: #171717;
   border: none;
-  padding: 11px 22px;
+  text-decoration: none;
+  padding: 10px 20px;
   border-radius: 6px;
   font-weight: 600;
   font-family: 'Outfit', sans-serif;
-  font-size: 13px;
+  font-size: 12.5px;
   letter-spacing: 0.2px;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-btn:hover {
@@ -72,11 +118,8 @@
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .navbar-links-pill {
     display: none;
-  }
-  .navbar {
-    justify-content: flex-end;
   }
 }

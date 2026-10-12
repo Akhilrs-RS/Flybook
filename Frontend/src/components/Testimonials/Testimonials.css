@@ -1,99 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 .testimonials-section {
   position: relative;
   width: 100%;
-  padding: 85px 5% 100px;
-  background: transparent;
+  min-height: 520px;
+  padding: 105px 4% 115px;
+  background-color: #0b141a;
+  background-image: 
+    radial-gradient(ellipse at 50% 55%, rgba(10, 16, 22, 0.42) 0%, rgba(8, 14, 20, 0.28) 50%, rgba(5, 10, 15, 0.35) 100%),
+    url('../../assets/testimonials_bg.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
   box-sizing: border-box;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.45);
+  overflow: hidden;
 }
 
 .testimonials-container {
-  max-width: 900px;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 2;
 }
 
 .testimonials-heading {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', Georgia, serif;
   font-size: 38px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 32px;
+  margin: 0 0 54px;
   letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .testimonial-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  min-height: 160px;
+  max-width: 1350px;
+  width: 100%;
 }
 
 .testimonial-tagline {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 22px;
-  font-weight: 500;
-  color: #dfb76c;
-  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 22px;
   letter-spacing: 0.3px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .testimonial-quote {
-  font-family: 'Outfit', sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.65;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
   margin: 0;
-  max-width: 780px;
+  max-width: 1300px;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
 }
 
 .testimonial-author {
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
   font-weight: 500;
-  color: #dfb76c;
-  margin: 8px 0 0;
-  letter-spacing: 1px;
+  color: #ffffff;
+  margin: 26px 0 0;
+  letter-spacing: 0.4px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-.testimonials-indicators {
-  display: flex;
-  gap: 10px;
-  margin-top: 36px;
+@media (max-width: 1280px) {
+  .testimonial-quote {
+    white-space: normal;
+    font-size: 23px;
+    max-width: 950px;
+  }
 }
 
-.indicator-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.indicator-dot.active {
-  background: #dfb76c;
-  width: 24px;
-  border-radius: 4px;
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  .testimonials-section {
+    padding: 85px 4% 90px;
+  }
   .testimonials-heading {
-    font-size: 30px;
+    font-size: 34px;
+    margin-bottom: 40px;
+  }
+  .testimonial-quote {
+    font-size: 21px;
   }
   .testimonial-tagline {
     font-size: 18px;
   }
-  .testimonial-quote {
+  .testimonial-author {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 70px 6% 75px;
+    min-height: auto;
+  }
+  .testimonials-heading {
+    font-size: 28px;
+    margin-bottom: 26px;
+  }
+  .testimonial-tagline {
     font-size: 16px;
+    margin-bottom: 14px;
+  }
+  .testimonial-quote {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .testimonial-author {
+    font-size: 15px;
+    margin-top: 18px;
   }
 }

@@ -106,17 +106,17 @@ const Home = () => {
       {/* 6. Sixth Section: Quote Banner ("Collect Moments, Not Just Miles." with bgh image) */}
       <QuoteBanner />
 
-      {/* 7 to 9: Lower Home Section with Continuous hb.png Background */}
+      {/* 7 & 8: Lower Home Section with Panoramic Mountain Background (hb.png) */}
       <div className="home-packages-bottom-wrapper">
         {/* 7. Seventh Section: Featured Packages (Find The Journey Made For You with h11 to h16) */}
         <FeaturedPackages />
 
         {/* 8. Eighth Section: Why Choose Flybook (with h17 image) */}
         <WhyFlybook />
-
-        {/* 9. Ninth Section: Testimonials */}
-        <Testimonials />
       </div>
+
+      {/* 9. Ninth Section: Testimonials with Forest Road Background */}
+      <Testimonials />
     </div>
   );
 };

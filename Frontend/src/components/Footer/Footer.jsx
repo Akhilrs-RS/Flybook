@@ -1,8 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 import { MdOutlineLocationOn, MdOutlinePhone, MdOutlineEmail } from 'react-icons/md';
-import { IoPlayCircleOutline } from 'react-icons/io5';
 import { FiArrowUp } from 'react-icons/fi';
 
 const Footer = () => {
@@ -20,7 +20,9 @@ const Footer = () => {
         {/* Column 1: Brand */}
         <div className="footer-column brand-column">
           <div className="footer-logo-section">
-            <IoPlayCircleOutline className="footer-logo-icon" />
+            <Link to="/" className="footer-logo-badge" style={{ textDecoration: 'none' }}>
+              <span>F</span>
+            </Link>
             <div className="footer-logo-text">
               <h2>Flybook</h2>
               <p>TOURS & TRAVELS</p>
@@ -41,13 +43,13 @@ const Footer = () => {
         <div className="footer-column">
           <h3 className="footer-heading">NAVIGATE</h3>
           <ul className="footer-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Tours & Packages</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/tours">Tours & Packages</Link></li>
+            <li><Link to="/destinations">Destinations</Link></li>
+            <li><Link to="/services">Services</Link></li>
+            <li><Link to="/gallery">Gallery</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
 
@@ -55,14 +57,14 @@ const Footer = () => {
         <div className="footer-column">
           <h3 className="footer-heading">SERVICES</h3>
           <ul className="footer-links">
-            <li><a href="#">Domestic Tours</a></li>
-            <li><a href="#">International Tours</a></li>
-            <li><a href="#">Honeymoon Packages</a></li>
-            <li><a href="#">Pilgrimage Tours</a></li>
-            <li><a href="#">Air Ticketing</a></li>
-            <li><a href="#">Rail & Bus Ticketing</a></li>
-            <li><a href="#">Cab & Transport</a></li>
-            <li><a href="#">Travel Documentation</a></li>
+            <li><Link to="/services">Domestic Tours</Link></li>
+            <li><Link to="/services">International Tours</Link></li>
+            <li><Link to="/services">Honeymoon Packages</Link></li>
+            <li><Link to="/services">Pilgrimage Tours</Link></li>
+            <li><Link to="/services">Air Ticketing</Link></li>
+            <li><Link to="/services">Rail & Bus Ticketing</Link></li>
+            <li><Link to="/services">Cab & Transport</Link></li>
+            <li><Link to="/services">Travel Documentation</Link></li>
           </ul>
         </div>
 
