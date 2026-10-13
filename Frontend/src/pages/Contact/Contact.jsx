@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import PageHero from '../../components/Common/PageHero';
-import heroContactImg from '../../assets/hero_contact.jpg';
-import { MdOutlineLocationOn, MdOutlinePhone, MdOutlineEmail, MdOutlineAccessTime } from 'react-icons/md';
+import c1Img from '../../assets/c1.png';
+import c2Img from '../../assets/c2.png';
 import './Contact.css';
 
 const Contact = () => {
@@ -9,10 +8,11 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    destination: 'Amalfi Coast & Italy',
+    destination: '',
     travelDate: '',
-    travelers: '2',
-    notes: ''
+    travelers: '',
+    package: '',
+    message: ''
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -24,14 +24,22 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      {/* 1. Hero */}
-      <PageHero
-        subtitle="START A CONVERSATION"
-        title="Let's plan your next journey."
-        tagline="Tell us where your curiosity leads. Our bespoke travel architects will compose an itinerary tailored precisely to you."
-        bgImage={heroContactImg}
-        minHeight="60vh"
-      />
+      {/* 1. Hero Section */}
+      <section 
+        className="contact-hero-section"
+        style={{ backgroundImage: `url(${c1Img})` }}
+      >
+        <div className="contact-hero-overlay"></div>
+        <div className="contact-hero-container">
+          <span className="contact-hero-eyebrow">START A CONVERSATION</span>
+          <h1 className="contact-hero-title">
+            Let's plan your<br />next journey.
+          </h1>
+          <p className="contact-hero-tagline">
+            Tell us what you're dreaming of. Our travel designers will take it from here.
+          </p>
+        </div>
+      </section>
 
       {/* 2. Main Two-Column Contact Section */}
       <section className="contact-main-section">
@@ -39,137 +47,176 @@ const Contact = () => {
           
           {/* Left Column: Direct Info */}
           <div className="contact-info-col">
-            <span className="contact-eyebrow">REACH OUT DIRECTLY</span>
-            <h2 className="contact-info-heading">We'd love to hear from you.</h2>
-            <p className="contact-info-intro">
-              Whether you have a fully formed voyage in mind or simply a desire for somewhere untamed and beautiful, we begin with an unhurried consultation.
-            </p>
+            <span className="contact-eyebrow">COME SAY HELLO</span>
+            <h2 className="contact-info-heading">
+              We'd love to hear<br />from you.
+            </h2>
 
-            <div className="contact-channels-list">
-              <div className="channel-item">
-                <div className="channel-icon-wrap">
-                  <MdOutlineLocationOn className="channel-icon" />
-                </div>
-                <div className="channel-text">
-                  <span className="channel-label">FLAGSHIP CONCIERGE</span>
-                  <p>Flybook Tours & Travels, Connaught Place, New Delhi 110001, India</p>
-                </div>
+            <div className="contact-details-list">
+              <div className="contact-detail-block">
+                <span className="detail-label">EMAIL</span>
+                <a href="mailto:journeys@flybook.in" className="detail-value detail-link">
+                  journeys@flybook.in
+                </a>
               </div>
 
-              <div className="channel-item">
-                <div className="channel-icon-wrap">
-                  <MdOutlinePhone className="channel-icon" />
-                </div>
-                <div className="channel-text">
-                  <span className="channel-label">PHONE INQUIRIES</span>
-                  <p>+91 98765 43210 / +91 11 2345 6789</p>
-                </div>
+              <div className="contact-detail-block">
+                <span className="detail-label">VISIT</span>
+                <p className="detail-value">
+                  42 Residency Road<br />
+                  Bengaluru,<br />
+                  Karnataka 560025
+                </p>
               </div>
 
-              <div className="channel-item">
-                <div className="channel-icon-wrap">
-                  <MdOutlineEmail className="channel-icon" />
-                </div>
-                <div className="channel-text">
-                  <span className="channel-label">EMAIL CONCIERGE</span>
-                  <p>journeys@flybooktravels.com</p>
-                </div>
+              <div className="contact-detail-block">
+                <span className="detail-label">HOURS</span>
+                <p className="detail-value">
+                  Monday—Saturday<br />
+                  9:30 AM—7:00 PM
+                </p>
               </div>
 
-              <div className="channel-item">
-                <div className="channel-icon-wrap">
-                  <MdOutlineAccessTime className="channel-icon" />
-                </div>
-                <div className="channel-text">
-                  <span className="channel-label">OFFICE HOURS</span>
-                  <p>Mon – Sat: 9:30 AM – 7:00 PM IST (Private weekend consultations by appointment)</p>
-                </div>
+              <div className="contact-detail-block">
+                <span className="detail-label">CALL</span>
+                <a href="tel:+919876543210" className="detail-value detail-link">
+                  +91 98765 43210
+                </a>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Inquiry Form Card */}
+          {/* Right Column: Travel Enquiry Form Card */}
           <div className="contact-form-col">
-            <div className="form-card">
-              <h3 className="form-card-title">Send a message</h3>
-              <p className="form-card-sub">Share your travel vision and our concierge team will respond within 24 hours.</p>
+            <div className="travel-enquiry-card">
+              <h3 className="enquiry-card-title">TRAVEL ENQUIRY</h3>
 
               {submitted ? (
                 <div className="form-success-banner">
                   <div className="success-icon">✓</div>
-                  <h4>Inquiry Received with Pleasure</h4>
+                  <h4>Enquiry Received with Pleasure</h4>
                   <p>
-                    Thank you, {formData.name || 'valued traveler'}. A dedicated Flybook travel architect is reviewing your vision and will reach out shortly.
+                    Thank you, {formData.name || 'valued traveler'}. A dedicated Flybook travel designer will contact you within 24 hours.
                   </p>
                   <button className="reset-form-btn" onClick={() => setSubmitted(false)}>
-                    Send Another Request
+                    Send Another Enquiry
                   </button>
                 </div>
               ) : (
-                <form className="inquiry-form" onSubmit={handleSubmit}>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label>FULL NAME *</label>
+                <form className="travel-enquiry-form" onSubmit={handleSubmit}>
+                  {/* Row 1: Full Name & Email */}
+                  <div className="form-grid-row">
+                    <div className="form-field-group">
+                      <label className="field-label">FULL NAME</label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. Ananya Roy"
+                        placeholder="Your name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="field-input"
                       />
                     </div>
-                    <div className="form-group">
-                      <label>EMAIL ADDRESS *</label>
+                    <div className="form-field-group">
+                      <label className="field-label">EMAIL</label>
                       <input
                         type="email"
                         required
-                        placeholder="e.g. ananya@example.com"
+                        placeholder="your@email.com"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="field-input"
                       />
                     </div>
                   </div>
 
-                  <div className="form-row">
-                    <div className="form-group">
-                      <label>CONTACT NUMBER *</label>
+                  {/* Row 2: Phone Number & Travel Destination */}
+                  <div className="form-grid-row">
+                    <div className="form-field-group">
+                      <label className="field-label">PHONE NUMBER</label>
                       <input
                         type="tel"
-                        required
-                        placeholder="e.g. +91 98765 43210"
+                        placeholder="+91 00 0000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="field-input"
                       />
                     </div>
-                    <div className="form-group">
-                      <label>DESTINATION OF INTEREST</label>
-                      <select
+                    <div className="form-field-group">
+                      <label className="field-label">TRAVEL DESTINATION</label>
+                      <input
+                        type="text"
+                        placeholder="Where do you plan to go?"
                         value={formData.destination}
                         onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-                      >
-                        <option value="Amalfi Coast & Italy">Amalfi Coast & Italy</option>
-                        <option value="Kyoto & Historic Japan">Kyoto & Historic Japan</option>
-                        <option value="Royal Rajasthan & Desert">Royal Rajasthan & Desert</option>
-                        <option value="Private Atolls Maldives">Private Atolls Maldives</option>
-                        <option value="Swiss Alps & Scenic Rail">Swiss Alps & Scenic Rail</option>
-                        <option value="Other Bespoke Voyage">Other Bespoke Voyage</option>
-                      </select>
+                        className="field-input"
+                      />
                     </div>
                   </div>
 
-                  <div className="form-group">
-                    <label>SPECIAL REQUESTS OR TRIP VISION</label>
+                  {/* Row 3: Travel Date & Number of Travelers */}
+                  <div className="form-grid-row">
+                    <div className="form-field-group">
+                      <label className="field-label">TRAVEL DATE</label>
+                      <input
+                        type="text"
+                        placeholder="dd/mm/yyyy"
+                        value={formData.travelDate}
+                        onChange={(e) => setFormData({ ...formData, travelDate: e.target.value })}
+                        className="field-input"
+                      />
+                    </div>
+                    <div className="form-field-group">
+                      <label className="field-label">NUMBER OF TRAVELERS</label>
+                      <input
+                        type="text"
+                        placeholder="e.g. 2 travelers"
+                        value={formData.travelers}
+                        onChange={(e) => setFormData({ ...formData, travelers: e.target.value })}
+                        className="field-input"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Row 4: Preferred Package */}
+                  <div className="form-field-group full-width">
+                    <label className="field-label">PREFERRED PACKAGE</label>
+                    <div className="select-wrapper">
+                      <select
+                        value={formData.package}
+                        onChange={(e) => setFormData({ ...formData, package: e.target.value })}
+                        className="field-select"
+                      >
+                        <option value="">Select a curated tour</option>
+                        <option value="amalfi">Amalfi Coast & Southern Italy</option>
+                        <option value="kyoto">Kyoto & Traditional Japan</option>
+                        <option value="maldives">Maldives Luxury Overwater Atolls</option>
+                        <option value="swiss">Swiss Alps & Glacier Scenic Rail</option>
+                        <option value="rajasthan">Royal Rajasthan Heritage & Palaces</option>
+                        <option value="bespoke">Bespoke Custom Expedition</option>
+                      </select>
+                      <span className="select-arrow">▾</span>
+                    </div>
+                  </div>
+
+                  {/* Row 5: Message */}
+                  <div className="form-field-group full-width">
+                    <label className="field-label">MESSAGE</label>
                     <textarea
-                      rows="4"
-                      placeholder="Share your interests (e.g. private wine tours, anniversary dinner, quiet luxury)..."
-                      value={formData.notes}
-                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                      rows="3"
+                      placeholder="Tell us a little about the journey you have in mind..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="field-textarea"
                     />
                   </div>
 
-                  <button type="submit" className="form-submit-btn">
-                    Send Message &rarr;
-                  </button>
+                  {/* Submit Button */}
+                  <div className="form-action-row">
+                    <button type="submit" className="enquiry-submit-btn">
+                      SEND REQUEST &rarr;
+                    </button>
+                  </div>
                 </form>
               )}
             </div>
@@ -178,45 +225,23 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* 3. Location Banner Split (Matching Figma Contact Artboard) */}
-      <section className="contact-location-banner-section">
-        <div className="contact-location-banner-container">
-          <div className="location-split-card">
-            
-            {/* Left Warm Stone Block */}
-            <div className="location-stone-info">
-              <span className="location-eyebrow">LOCATION</span>
-              <h3 className="location-heading">Flybook at Bengaluru</h3>
-              <p className="location-address">
-                124 MG Road, Central Business District<br />
-                Bengaluru, Karnataka 560001
-              </p>
-              <a 
-                href="https://maps.google.com" 
-                target="_blank" 
-                rel="noreferrer" 
-                className="location-directions-btn"
-              >
-                Get Directions &rarr;
-              </a>
-            </div>
+      {/* 3. Studio Map Section */}
+      <section className="contact-studio-section">
+        <div className="contact-studio-container">
+          <div className="studio-text-col">
+            <span className="studio-eyebrow">OUR STUDIO</span>
+            <h2 className="studio-heading">
+              In the heart of<br />Bengaluru.
+            </h2>
+            <p className="studio-coords">12.9716° N, 77.5946° E</p>
+          </div>
 
-            {/* Right Map Graphic with Pin */}
-            <div className="location-map-graphic">
-              <iframe
-                title="Flybook Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985558907865!2d77.60742127599026!3d12.972792614856003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1681c2f0fcf7%3A0x6b86d9a244b7fcf7!2sMG%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-                className="location-iframe-map"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-              <div className="location-pin-callout">
-                <div className="pin-dot"></div>
-                <span>Flybook Flagship</span>
-              </div>
-            </div>
-
+          <div className="studio-map-col">
+            <img 
+              src={c2Img} 
+              alt="Flybook Bengaluru Studio Location Map" 
+              className="studio-map-image" 
+            />
           </div>
         </div>
       </section>

@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import PageHero from '../../components/Common/PageHero';
-import heroGalleryImg from '../../assets/hero_gallery.jpg';
-import pagodaImg from '../../assets/about_pagoda.jpg';
-import maldivesImg from '../../assets/dest_maldives.jpg';
-import trainImg from '../../assets/hero_tours.jpg';
-import amalfiImg from '../../assets/dest_amalfi.jpg';
-import greatWallImg from '../../assets/hero_destinations.jpg';
-import citadelImg from '../../assets/hero_about.jpg';
-import londonImg from '../../assets/hero_contact.jpg';
-import alpsImg from '../../assets/dest_alps.jpg';
-import rajasthanImg from '../../assets/dest_rajasthan.jpg';
-import eiffelImg from '../../assets/gallery_eiffel.jpg';
-import tajImg from '../../assets/gallery_taj.jpg';
+import g1Img from '../../assets/g1.png';
+import t2Img from '../../assets/t2.jpg';
+import d3Img from '../../assets/d3.jpg';
+import d5Img from '../../assets/d5.jpg';
+import d6Img from '../../assets/d6.jpg';
+import g3Img from '../../assets/g3.png';
+import t4Img from '../../assets/t4.jpg';
+import a1Img from '../../assets/a1.jpg';
+import g4Img from '../../assets/g4.png';
+import g5Img from '../../assets/g5.jpg';
+import t1Img from '../../assets/t1.jpg';
+import g7Img from '../../assets/g7.jpg';
+import g6Img from '../../assets/g6.png';
 import './Gallery.css';
 
 const filterCategories = [
@@ -26,24 +27,24 @@ const filterCategories = [
 
 // Curated 3 columns matching Figma Gallery artboard
 const columnOne = [
-  { id: 1, title: 'Amalfi Coast Haven', location: 'Italy', region: 'Europe', image: amalfiImg },
-  { id: 2, title: 'Maldives Overwater Sanctuary', location: 'Maldives', region: 'Asia', image: maldivesImg },
-  { id: 3, title: 'Amber Citadel Palace', location: 'Rajasthan, India', region: 'Asia', image: rajasthanImg },
-  { id: 4, title: 'Mediterranean Cliffs', location: 'Italy', region: 'Europe', image: amalfiImg }
+  { id: 1, title: 'Amalfi Coast Haven', location: 'Italy', region: 'Europe', image: t2Img },
+  { id: 2, title: 'Maldives Overwater Sanctuary', location: 'Maldives', region: 'Asia', image: d5Img },
+  { id: 3, title: 'Amber Citadel Palace', location: 'Rajasthan, India', region: 'Asia', image: t4Img },
+  { id: 4, title: 'Mediterranean Cliffs', location: 'Italy', region: 'Europe', image: g5Img },
+  { id: 5, title: 'Positano Coastal Vista', location: 'Italy', region: 'Europe', image: g7Img }
 ];
 
 const columnTwo = [
-  { id: 5, title: 'Autumn Pagoda Sanctuary', location: 'Kyoto, Japan', region: 'Asia', image: pagodaImg },
-  { id: 6, title: 'Matterhorn Alpine Majesty', location: 'Swiss Alps', region: 'Europe', image: alpsImg },
-  { id: 7, title: 'Udaipur Waterfront Palace', location: 'India', region: 'Asia', image: citadelImg },
-  { id: 8, title: 'Landwasser Mountain Viaduct', location: 'Switzerland', region: 'Europe', image: trainImg }
+  { id: 6, title: 'Autumn Pagoda Sanctuary', location: 'Kyoto, Japan', region: 'Asia', image: d3Img },
+  { id: 7, title: 'Matterhorn Alpine Majesty', location: 'Swiss Alps', region: 'Europe', image: d6Img },
+  { id: 8, title: 'Udaipur Waterfront Palace', location: 'India', region: 'Asia', image: a1Img },
+  { id: 9, title: 'Landwasser Mountain Viaduct', location: 'Switzerland', region: 'Europe', image: t1Img }
 ];
 
 const columnThree = [
-  { id: 9, title: 'Great Wall Golden Ridge', location: 'China', region: 'Asia', image: greatWallImg },
-  { id: 10, title: 'Eiffel Tower at Noon', location: 'Paris, France', region: 'Europe', image: eiffelImg },
-  { id: 11, title: 'Taj Mahal Sunrise Reflection', location: 'Agra, India', region: 'Asia', image: tajImg },
-  { id: 12, title: 'Westminster Bridge Sunset', location: 'London, UK', region: 'Europe', image: londonImg }
+  { id: 10, title: 'Eiffel Tower at Noon', location: 'Paris, France', region: 'Europe', image: g3Img },
+  { id: 11, title: 'Taj Mahal Sunrise Reflection', location: 'Agra, India', region: 'Asia', image: g4Img },
+  { id: 12, title: 'Burj Khalifa Sunset Skyline', location: 'Dubai, UAE', region: 'Middle East', image: g6Img }
 ];
 
 const Gallery = () => {
@@ -67,7 +68,7 @@ const Gallery = () => {
         subtitle="VISUAL CHRONICLES"
         title="A world worth seeing."
         tagline="A curated photographic collection of quiet moments, dramatic horizons, and bespoke journeys."
-        bgImage={heroGalleryImg}
+        bgImage={g1Img}
         minHeight="60vh"
       />
 
