@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/Common/PageHero';
-import heroToursImg from '../../assets/hero_tours.jpg';
-import amalfiImg from '../../assets/dest_amalfi.jpg';
-import pagodaImg from '../../assets/about_pagoda.jpg';
-import rajasthanImg from '../../assets/dest_rajasthan.jpg';
-import maldivesImg from '../../assets/dest_maldives.jpg';
-import swissTrainImg from '../../assets/hero_tours.jpg';
-import heritageImg from '../../assets/hero_about.jpg';
+import t1Img from '../../assets/t1.jpg';
+import t2Img from '../../assets/t2.jpg';
+import t3Img from '../../assets/t3.jpg';
+import t4Img from '../../assets/t4.jpg';
+import t5Img from '../../assets/t5.jpg';
+import a1Img from '../../assets/a1.jpg';
 import './Tours.css';
 
 const categories = [
@@ -27,7 +26,7 @@ const mainTours = [
     category: 'Beach & Coast',
     duration: '8 Days / 7 Nights',
     price: '$3,850',
-    image: amalfiImg,
+    image: t2Img,
     description: 'Sun-drenched cliffs and pastel seaside dreams along the dramatic Italian coastline.',
     highlights: ['Private Riva boat charters', '5-star cliffside suites', 'Exclusive lemon estate tastings']
   },
@@ -38,7 +37,7 @@ const mainTours = [
     category: 'Cultural',
     duration: '10 Days / 9 Nights',
     price: '$4,900',
-    image: pagodaImg,
+    image: t3Img,
     description: 'Quiet bamboo groves, classical wooden shrines, and Zen meditation with master monks.',
     highlights: ['Ryokan with private onsen', 'Shinkansen First Class', 'Private Gion geisha walk']
   },
@@ -49,7 +48,7 @@ const mainTours = [
     category: 'Cultural',
     duration: '7 Days / 6 Nights',
     price: '$2,650',
-    image: rajasthanImg,
+    image: t4Img,
     description: 'Golden fortresses, regal havelis, and desert sunsets across the legendary land of kings.',
     highlights: ['Heritage palace suites', 'Private Amber Fort evening', 'Vintage royal car transfers']
   },
@@ -60,7 +59,7 @@ const mainTours = [
     category: 'Beach & Coast',
     duration: '6 Days / 5 Nights',
     price: '$5,200',
-    image: maldivesImg,
+    image: t5Img,
     description: 'Pristine turquoise lagoons, barefoot luxury, and overwater sundecks under canopy stars.',
     highlights: ['Overwater sunset villa', 'Scenic seaplane transfers', 'Private sandbank dinner']
   }
@@ -74,7 +73,7 @@ const splitTours = [
     category: 'Scenic Rail',
     duration: '9 Days / 8 Nights',
     price: '$4,400',
-    image: swissTrainImg,
+    image: t1Img,
     description: 'Glacier Express Excellence Class and breathtaking viaduct mountain rail passes.',
     highlights: ['Excellence Class Glacier rail', 'Matterhorn sunrise cable car']
   },
@@ -85,7 +84,7 @@ const splitTours = [
     category: 'Cultural',
     duration: '8 Days / 7 Nights',
     price: '$2,800',
-    image: heritageImg,
+    image: a1Img,
     description: 'Illuminated marble waterfront palaces, royal courtyards, and sunset boat safaris.',
     highlights: ['Lake palace private suite', 'Private historian accompaniment']
   }
@@ -112,7 +111,7 @@ const Tours = () => {
         subtitle="CURATED EXPEDITIONS & BESPOKE PACKAGES"
         title="Curated journeys made for you."
         tagline="Handcrafted itineraries balancing unhurried discovery, authentic local intimacy, and effortless luxury."
-        bgImage={heroToursImg}
+        bgImage={t1Img}
         minHeight="60vh"
       />
 

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/Common/PageHero';
-import heroDestImg from '../../assets/hero_destinations.jpg';
-import amalfiImg from '../../assets/dest_amalfi.jpg';
-import pagodaImg from '../../assets/about_pagoda.jpg';
-import rajasthanImg from '../../assets/dest_rajasthan.jpg';
-import maldivesImg from '../../assets/dest_maldives.jpg';
-import swissImg from '../../assets/dest_alps.jpg';
+import d1Img from '../../assets/d1.png';
+import d2Img from '../../assets/d2.jpg';
+import d3Img from '../../assets/d3.jpg';
+import d4Img from '../../assets/d4.jpg';
+import d5Img from '../../assets/d5.jpg';
+import d6Img from '../../assets/d6.jpg';
 import './Destinations.css';
 
 const regions = [
@@ -23,7 +23,7 @@ const destinationList = [
     name: 'Amalfi Coast',
     country: 'Italy',
     region: 'Europe',
-    image: amalfiImg,
+    image: d2Img,
     tagline: 'Sun-drenched cliffs and pastel seaside dreams.',
     description: 'Carved into dramatic Italian limestone cliffs, the Amalfi Coast is an intoxicating blend of fragrant lemon groves, sapphire Mediterranean waters, and timeless Dolce Vita charm. Wander vertical alleys in Positano, savor cliffside dining, and cruise private grottos around Capri.',
     highlights: ['Private Riva boat charters', 'Cliffside boutique stays', 'Exclusive lemon estate tastings', 'Ravello garden concerts']
@@ -33,7 +33,7 @@ const destinationList = [
     name: 'Kyoto',
     country: 'Japan',
     region: 'Asia & Far East',
-    image: pagodaImg,
+    image: d3Img,
     tagline: 'Quiet bamboo groves, ancient shrines, and zen aesthetics.',
     description: 'Kyoto is the cultural heart of Japan, where thousands of classical wooden temples nestle against misty cedar mountains. Stroll historic Gion stone lanes at dusk, experience private Zen meditation with resident monks, and indulge in exquisite seasonal kaiseki.',
     highlights: ['Ryokan with private thermal baths', 'Private tea ceremony masters', 'Gion dusk geisha quarters', 'Autumn maple forest tours']
@@ -43,7 +43,7 @@ const destinationList = [
     name: 'Rajasthan',
     country: 'India',
     region: 'Indian Subcontinent',
-    image: rajasthanImg,
+    image: d4Img,
     tagline: 'Golden fortresses, regal havelis, and desert sunsets.',
     description: 'Step into a world of kings and poets. Rajasthan weaves a majestic tapestry of carved sandstone citadels, lake palaces illuminated by thousands of candles, and silent starry nights amid the sweeping Thar desert dunes.',
     highlights: ['Heritage palace suites', 'Private Amber Fort evening', 'Vintage royal car transfers', 'Private desert luxury camps']
@@ -53,7 +53,7 @@ const destinationList = [
     name: 'Maldives',
     country: 'Indian Ocean',
     region: 'Island Sanctuaries',
-    image: maldivesImg,
+    image: d5Img,
     tagline: 'Pristine turquoise lagoons and overwater sanctuaries.',
     description: 'A constellation of ringed coral atolls adrift in warm cerulean waters. The Maldives represents barefoot luxury in its purest expression — wake up to gentle waves below your wooden sundeck, swim with manta rays, and dine under canopy constellations.',
     highlights: ['Overwater sunset villas', 'Scenic seaplane flights', 'Private sandbank dining', 'Coral reef preservation dives']
@@ -63,7 +63,7 @@ const destinationList = [
     name: 'Swiss Alps',
     country: 'Switzerland',
     region: 'Europe',
-    image: swissImg,
+    image: d6Img,
     tagline: 'Mirror alpine lakes and snow-crested mountain peaks.',
     description: 'Glittering glaciers, pristine alpine meadows, and classic mountain rail routes. Switzerland invites you into dramatic panoramic peaks, world-class thermal wellness resorts, and tranquil lakeside evenings under the shadow of the Matterhorn.',
     highlights: ['Glacier Express Excellence Class', 'Matterhorn sunrise cable cars', 'Boutique alpine chalets', 'Historic mountain viaducts']
@@ -88,7 +88,7 @@ const Destinations = () => {
         subtitle="ICONIC LANDSCAPES & HIDDEN RETREATS"
         title="Where will you go next?"
         tagline="From sun-drenched coastal bluffs to snow-crested sanctuaries, explore destinations curated for genuine discovery."
-        bgImage={heroDestImg}
+        bgImage={d1Img}
         minHeight="62vh"
       />
 

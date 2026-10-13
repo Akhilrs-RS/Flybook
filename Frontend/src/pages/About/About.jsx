@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/Common/PageHero';
-import heroAboutImg from '../../assets/hero_about.jpg';
-import pagodaImg from '../../assets/about_pagoda.jpg';
-import ctaBgImg from '../../assets/dest_amalfi.jpg';
+import a1Img from '../../assets/a1.jpg';
+import a2Img from '../../assets/a2.jpg';
+import a3Img from '../../assets/a3.jpg';
 import './About.css';
 
 const statsData = [
@@ -39,7 +39,7 @@ const About = () => {
         subtitle="OUR PHILOSOPHY & STORY"
         title="About Flybook"
         tagline="We don't simply book destinations. We curate transformative human experiences."
-        bgImage={heroAboutImg}
+        bgImage={a1Img}
         minHeight="60vh"
       />
 
@@ -65,7 +65,7 @@ const About = () => {
       <section className="about-mission-section">
         <div className="about-mission-split">
           <div className="about-mission-img-wrap">
-            <img src={pagodaImg} alt="Kyoto Sanctuary" className="about-mission-img" />
+            <img src={a2Img} alt="Kyoto Golden Sanctuary" className="about-mission-img" />
           </div>
           <div className="about-mission-text-block">
             <span className="mission-tag">MISSION</span>
@@ -124,7 +124,7 @@ const About = () => {
       {/* 6. Call To Action Pre-Footer Banner */}
       <section 
         className="about-cta-section"
-        style={{ backgroundImage: `url(${ctaBgImg})` }}
+        style={{ backgroundImage: `url(${a3Img})` }}
       >
         <div className="about-cta-overlay">
           <div className="about-cta-container">

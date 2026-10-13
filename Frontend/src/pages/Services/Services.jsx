@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/Common/PageHero';
-import heroServicesImg from '../../assets/hero_services.jpg';
-import flightImg from '../../assets/hero_tours.jpg';
-import villaImg from '../../assets/dest_maldives.jpg';
-import bespokeImg from '../../assets/dest_amalfi.jpg';
-import visaImg from '../../assets/about_pagoda.jpg';
-import romanceImg from '../../assets/hero_about.jpg';
-import corporateImg from '../../assets/dest_rajasthan.jpg';
+import s1Img from '../../assets/s1.jpg';
+import t1Img from '../../assets/t1.jpg';
+import t5Img from '../../assets/t5.jpg';
+import t2Img from '../../assets/t2.jpg';
+import t3Img from '../../assets/t3.jpg';
+import a1Img from '../../assets/a1.jpg';
+import t4Img from '../../assets/t4.jpg';
 import './Services.css';
 
 const servicesList = [
@@ -16,42 +16,42 @@ const servicesList = [
     category: 'FLIGHTS & AVIATION',
     title: 'Flight Booking',
     desc: 'Bespoke routing for first, business, and private jet charters with seamless transfers, priority lounges, and baggage concierge.',
-    image: flightImg
+    image: t1Img
   },
   {
     num: '02',
     category: 'ACCOMMODATION',
     title: 'Hotels & Villas',
     desc: 'Hand-picked five-star sanctuaries, private island retreats, and historic palazzos with complimentary upgrades and welcome amenities.',
-    image: villaImg
+    image: t5Img
   },
   {
     num: '03',
     category: 'CURATED TOURS',
     title: 'Tailor-made Tours',
     desc: 'Private itineraries composed from scratch around your personal pace, secret landmark access, and licensed master guides.',
-    image: bespokeImg
+    image: t2Img
   },
   {
     num: '04',
     category: 'ADVISORY & PAPERWORK',
     title: 'Visa Assistance',
     desc: 'End-to-end documentation handling, embassy liaison, express filing, and comprehensive international travel protection.',
-    image: visaImg
+    image: t3Img
   },
   {
     num: '05',
     category: 'ROMANCE & RETREATS',
     title: 'Honeymoon Stays',
     desc: 'Enchanting romantic sanctuaries, private overwater dining, sunset boat charters, and curated couple wellness rituals.',
-    image: romanceImg
+    image: a1Img
   },
   {
     num: '06',
     category: 'EXECUTIVE EXPEDITIONS',
     title: 'Corporate Travel',
     desc: 'Precision planning for leadership summits, high-stakes retreats, delegation logistics, and consolidated enterprise billing.',
-    image: corporateImg
+    image: t4Img
   }
 ];
 
@@ -63,7 +63,7 @@ const Services = () => {
         subtitle="END-TO-END TRAVEL CONCIERGE"
         title="Every detail, beautifully handled."
         tagline="Considered service at every step. From the first spark of inspiration until your safe return home."
-        bgImage={heroServicesImg}
+        bgImage={s1Img}
         minHeight="60vh"
       />
 
