@@ -27,9 +27,55 @@
 }
 
 /* ===================================================
+   CONTINUOUS LOOPING SCENIC BACKGROUND VIDEO (h.mp4)
+   Preloads silently, fades in smoothly as flight exits
+   =================================================== */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.hero-section.video-active .hero-video-bg {
+  opacity: 1;
+}
+
+/* Luxury brand gradient scrim: Light top for dark headline, rich bottom for white description */
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: 
+    linear-gradient(180deg, 
+      rgba(255, 255, 255, 0.12) 0%, 
+      rgba(220, 230, 240, 0.02) 20%, 
+      rgba(15, 20, 28, 0.22) 50%, 
+      rgba(15, 20, 28, 0.6) 80%,
+      rgba(15, 20, 28, 0.85) 100%
+    );
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-section.video-active .hero-video-overlay {
+  opacity: 1;
+}
+
+/* ===================================================
    BACKGROUND TYPOGRAPHY (FLYBOOK)
    Starts hidden, appears vertically inside smoke,
-   rotates (-90deg -> -35deg -> 0deg), then locks horizontal
+   rotates (-90deg -> -35deg -> 0deg), then fades out as editorial content appears
    =================================================== */
 .hero-bg-text-wrapper {
   position: absolute;
@@ -37,13 +83,133 @@
   left: 50%;
   width: 100%;
   text-align: center;
-  z-index: 1;
+  z-index: 3;
   pointer-events: none;
   user-select: none;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.8s ease;
+}
+
+.hero-bg-text-wrapper.intro-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===================================================
+   FIGMA EDITORIAL HERO CONTENT (Revealed with Looping Video)
+   Exact match to screenshot: Eyebrow, 3-line dark serif title,
+   white description, and dual action buttons
+   =================================================== */
+.hero-editorial-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  padding: 85px 24px 0;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.hero-section.video-active .hero-editorial-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.hero-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #dfb76c;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 5.8vw, 5.4rem);
+  font-weight: 700;
+  color: #11141a;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin: 0 0 24px 0;
+  text-align: center;
+  text-shadow: 0 2px 20px rgba(255, 255, 255, 0.25);
+}
+
+.hero-description {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 1.65;
+  max-width: 650px;
+  margin: 0 auto 36px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+.hero-cta-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-cta-btn {
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  border-radius: 8px;
+  padding: 13px 30px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.hero-cta-btn.primary {
+  background-color: #dfb76c;
+  color: #171717;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+}
+
+.hero-cta-btn.primary:hover {
+  background-color: #ebd18e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.hero-cta-btn.secondary {
+  background-color: rgba(90, 105, 120, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta-btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
 
 .hero-bg-text {
@@ -55,65 +221,51 @@
   margin: 0;
   line-height: 1;
   white-space: nowrap;
-  text-shadow: 0 10px 40px rgba(0, 30, 60, 0.2);
+  text-shadow: 0 10px 40px rgba(0, 30, 60, 0.35);
   transform-origin: center center;
-  animation: flybookSequentialRotate 7.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
+  animation: flybookSequentialRotate 5.5s cubic-bezier(0.25, 1, 0.35, 1) forwards;
   will-change: transform, opacity;
 }
 
 @keyframes flybookSequentialRotate {
-  /* 0% - 17%: Flight-only phase, word is not visible */
+  /* 0% - 18%: Flight-only phase, word is not visible */
   0% {
     transform: rotate(-90deg) scale(0.95);
     opacity: 0;
   }
-  17% {
+  18% {
     transform: rotate(-90deg) scale(0.95);
     opacity: 0;
   }
-  /* 22% - 35%: Smoke shoots down, word reveals fully written vertically (-90deg) */
-  22% {
+  /* 24% - 38%: Smoke shoots down, word reveals fully written vertically (-90deg) */
+  24% {
     transform: rotate(-90deg) scale(1);
     opacity: 1;
   }
-  35% {
+  38% {
     transform: rotate(-90deg) scale(1);
     opacity: 1;
   }
-  /* 36% - 47%: Aircraft takes off, word rotates diagonally (-35deg, Screenshot 2) */
-  45% {
+  /* 39% - 54%: Aircraft takes off, word rotates diagonally (-35deg) */
+  50% {
     transform: rotate(-35deg) scale(1);
     opacity: 1;
   }
-  /* 48% - 56%: Word settles flat horizontally (0deg, Screenshot 3) */
-  55% {
+  /* 58% - 100%: Word settles flat horizontally (0deg) and remains locked in place over video */
+  62% {
     transform: rotate(0deg) scale(1);
     opacity: 1;
-  }
-  /* 56% - 86%: Word stays prominently locked horizontally in full view */
-  86% {
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
-  }
-  /* 87% - 94%: Smooth fade out before loop restart */
-  93% {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.98);
-  }
-  97% {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.95);
   }
   100% {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.95);
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
   }
 }
 
 /* ===================================================
    FLIGHT TAKEOFF & VERTICAL MOTION
    Starts centered with flight only, takes off upwards,
-   exits top, then resets
+   exits top, then stays cleared as scenic video plays
    =================================================== */
 .flight-animation-wrapper {
   position: absolute;
@@ -124,44 +276,41 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  z-index: 2;
+  z-index: 4;
   pointer-events: none;
-  animation: flightMotionLoop 7.5s cubic-bezier(0.25, 1, 0.35, 1) infinite;
+  animation: flightMotionTakeoff 5.5s cubic-bezier(0.25, 1, 0.35, 1) forwards;
   will-change: transform, opacity;
 }
 
-@keyframes flightMotionLoop {
-  /* 0% - 35%: Aircraft is stationed in the center of the hero */
+.flight-animation-wrapper.flight-done {
+  pointer-events: none;
+  visibility: hidden;
+  transition: visibility 0s 5.5s;
+}
+
+@keyframes flightMotionTakeoff {
+  /* 0% - 38%: Aircraft is stationed in the center of the hero */
   0% {
     transform: translate(-50%, -15vh);
     opacity: 1;
   }
-  35% {
+  38% {
     transform: translate(-50%, -15vh);
     opacity: 1;
   }
-  /* 36% - 50%: Takes off rapidly upwards, exiting past top edge */
-  48% {
+  /* 39% - 62%: Takes off rapidly upwards, exiting past top edge */
+  52% {
     transform: translate(-50%, -75vh);
     opacity: 0.95;
   }
-  56% {
+  65% {
     transform: translate(-50%, -140vh);
     opacity: 0;
   }
-  /* 57% - 88%: Stays off-screen while FLYBOOK is presented */
-  88% {
-    transform: translate(-50%, -140vh);
-    opacity: 0;
-  }
-  /* 89% - 96%: Resets position back to center while invisible */
-  93% {
-    transform: translate(-50%, -15vh);
-    opacity: 0;
-  }
+  /* 66% - 100%: Stays completely off-screen while scenic video loops */
   100% {
-    transform: translate(-50%, -15vh);
-    opacity: 1;
+    transform: translate(-50%, -140vh);
+    opacity: 0;
   }
 }
 
@@ -177,33 +326,62 @@
   object-fit: contain;
   margin-top: -12vh;
   filter: drop-shadow(0 15px 35px rgba(0, 20, 50, 0.35));
-  animation: smokeEmergence 7.5s cubic-bezier(0.2, 0.8, 0.25, 1) infinite;
+  animation: smokeEmergence 5.5s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
   will-change: clip-path;
 }
 
 @keyframes smokeEmergence {
-  /* 0% - 17%: FLIGHT ONLY. Smoke clipped right at the engines/tail */
+  /* 0% - 18%: FLIGHT ONLY. Smoke clipped right at the engines/tail */
   0% {
     clip-path: inset(0 0 52% 0);
   }
-  17% {
+  18% {
     clip-path: inset(0 0 52% 0);
   }
-  /* 18% - 30%: Smoke shoots downwards to full length */
-  28% {
+  /* 19% - 34%: Smoke shoots downwards to full length */
+  32% {
     clip-path: inset(0 0 0% 0);
   }
-  /* 31% - 88%: Contrails remain full as flight climbs */
-  88% {
-    clip-path: inset(0 0 0% 0);
-  }
-  /* Reset back to flight-only for next loop */
-  94% {
-    clip-path: inset(0 0 52% 0);
-  }
+  /* 35% - 100%: Contrails remain full as flight climbs */
   100% {
-    clip-path: inset(0 0 52% 0);
+    clip-path: inset(0 0 0% 0);
   }
+}
+
+/* ========================================================
+   SECTIONS 2 THROUGH 5: CONTINUOUS MOUNTAIN CANVAS (bb.png)
+   Continuous vertical background spanning Sections 2, 3, 4, 5
+   ======================================================== */
+.home-bb-continuous-wrapper {
+  position: relative;
+  width: 100%;
+  background-color: #0b110e;
+  background-image: 
+    linear-gradient(180deg, 
+      rgba(8, 14, 20, 0.25) 0%, 
+      rgba(10, 16, 22, 0.10) 15%, 
+      rgba(12, 18, 15, 0.18) 30%, 
+      rgba(8, 13, 10, 0.45) 55%, 
+      rgba(6, 10, 8, 0.72) 78%, 
+      rgba(5, 8, 7, 0.92) 100%), 
+    url('../../assets/bb.png');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Atmospheric Mountain Valley Mist Layer (Ethereal Fog Band) */
+.home-valley-mist-band {
+  position: absolute;
+  top: 520px;
+  left: -10%;
+  width: 120%;
+  height: 600px;
+  background: radial-gradient(ellipse 70% 50% at 50% 45%, rgba(220, 238, 248, 0.24) 0%, rgba(185, 215, 230, 0.10) 45%, transparent 75%);
+  filter: blur(20px);
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* =========================================
@@ -212,70 +390,80 @@
 .destinations-section {
   position: relative;
   width: 100%;
-  background-color: #0f1218;
-  padding: 90px 5% 120px;
+  min-height: 100vh;
+  background: transparent;
+  padding: 120px 5% 140px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  overflow: hidden;
   z-index: 5;
 }
 
-.destinations-section::before {
-  content: "";
+.decorative-path-container {
   position: absolute;
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0;
-  background-image: url('../../assets/h1.png');
-  background-size: cover;
-  background-position: center;
-  opacity: 0.12;
-  filter: blur(12px);
-  z-index: -1;
-}
-
-.decorative-path {
-  position: absolute;
-  top: 50%;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 400px;
-  transform: translateY(-50%);
+  height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 3;
+}
+
+.flight-svg-path {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.flying-aircraft-node {
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7));
 }
 
 .cards-wrapper {
   display: flex;
-  gap: 32px;
+  gap: 36px;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1260px;
   width: 100%;
   position: relative;
-  z-index: 1;
 }
 
 .destination-card {
-  background-color: #fcf9f2;
-  border-radius: 48px;
-  width: 330px;
+  background-color: #f7f0e7;
+  border-radius: 90px 90px 44px 44px;
+  width: 360px;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  position: relative;
+  z-index: 2;
+}
+
+/* Card 1 and Card 3 are layered ABOVE path container (4 > 3), so path passes behind them and does not overlap in third image */
+.destination-card:first-child,
+.destination-card:nth-child(3) {
+  z-index: 4;
+}
+
+/* ONLY Card 2 is layered BELOW path container (2 < 3), so path and plane overlap on top of Card 2 */
+.destination-card:nth-child(2) {
+  z-index: 2;
 }
 
 .destination-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.6);
+  transform: translateY(-14px);
+  box-shadow: 0 34px 75px rgba(0, 0, 0, 0.65);
 }
 
 .card-img-wrapper {
   width: 100%;
-  height: 290px;
-  padding: 12px;
+  height: 310px;
+  padding: 14px 14px 0 14px;
   box-sizing: border-box;
 }
 
@@ -283,49 +471,54 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 38px 38px 12px 12px;
+  border-radius: 80px 80px 22px 22px;
 }
 
 .card-content {
-  padding: 10px 30px 40px;
+  padding: 16px 28px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  flex-grow: 1;
 }
 
 .card-content h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 700;
   color: #1a1a1a;
-  margin: 15px 0 12px;
+  margin: 14px 0 14px;
+  letter-spacing: -0.01em;
 }
 
 .card-content p {
   font-family: 'Outfit', sans-serif;
-  font-size: 11.5px;
-  color: #555555;
+  font-size: 13px;
+  color: #4a4a4a;
   line-height: 1.65;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
+  flex-grow: 1;
 }
 
 .card-btn {
   background: transparent;
   border: 1px solid #1a1a1a;
   color: #1a1a1a;
-  padding: 10px 22px;
-  border-radius: 25px;
+  padding: 11px 26px;
+  border-radius: 30px;
   font-family: 'Outfit', sans-serif;
-  font-size: 11px;
+  font-size: 12.5px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .card-btn:hover {
   background-color: #1a1a1a;
-  color: #fcf9f2;
+  color: #f7f0e7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive adjustments */
@@ -345,6 +538,33 @@
   }
   .hero-bg-text {
     font-size: clamp(3.5rem, 16vw, 6rem);
+  }
+  .hero-editorial-content {
+    padding: 100px 16px 0;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    margin-bottom: 16px;
+  }
+  .hero-main-title {
+    font-size: clamp(2.4rem, 9vw, 3.4rem);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .hero-description {
+    font-size: 13.5px;
+    line-height: 1.55;
+    margin-bottom: 28px;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+    gap: 12px;
+  }
+  .hero-cta-btn {
+    width: 100%;
   }
   .hero-flight-img {
     height: 120vh;

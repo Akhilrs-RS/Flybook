@@ -4,17 +4,29 @@
 .featured-destinations-section {
   position: relative;
   width: 100%;
-  padding: 100px 5% 90px;
-  background-color: #0b0f15;
-  background-image: linear-gradient(180deg, rgba(11, 15, 21, 0.88) 0%, rgba(11, 15, 21, 0.94) 100%), url('../../assets/forest_bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  padding: 60px 4% 85px;
+  background: transparent;
   box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Atmospheric Mountain Mist Fog Layer */
+.featured-destinations-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 380px;
+  background: radial-gradient(ellipse 70% 55% at 50% 28%, rgba(220, 238, 248, 0.2) 0%, rgba(180, 210, 225, 0.08) 50%, transparent 80%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .destinations-container {
-  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+  max-width: 1240px;
   margin: 0 auto;
   width: 100%;
 }
@@ -24,94 +36,96 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 45px;
+  margin-bottom: 34px;
   gap: 30px;
 }
 
 .destinations-subtitle {
   font-family: 'Outfit', sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 2.5px;
-  color: #dfb76c;
+  letter-spacing: 2.8px;
+  color: #e59a3a;
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
 .destinations-heading {
   font-family: 'Playfair Display', serif;
-  font-size: 38px;
+  font-size: 50px;
   font-weight: 700;
-  color: #dfb76c;
+  color: #e5933a;
   margin: 0;
-  line-height: 1.15;
+  line-height: 1.08;
+  letter-spacing: -0.2px;
 }
 
 .destinations-desc {
   font-family: 'Outfit', sans-serif;
-  font-size: 12px;
-  color: #8b929e;
-  max-width: 320px;
-  line-height: 1.6;
+  font-size: 13.5px;
+  color: rgba(230, 236, 242, 0.82);
+  max-width: 290px;
+  line-height: 1.55;
   text-align: right;
   margin: 0;
+  padding-bottom: 4px;
 }
 
-/* Grid Layout */
+/* Destinations Grid */
 .destinations-grid {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
 }
 
 .destinations-top-row {
   display: flex;
-  gap: 24px;
+  gap: 22px;
   width: 100%;
 }
 
 .dest-card-large {
-  flex: 1.65;
-  height: 380px;
+  flex: 1.88;
+  height: 372px;
 }
 
 .dest-side-stack {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
 }
 
 .dest-card-medium {
-  height: 178px;
+  height: 175px;
   width: 100%;
 }
 
 .destinations-bottom-row {
   display: flex;
-  gap: 24px;
+  gap: 22px;
   width: 100%;
 }
 
 .dest-card-small {
   flex: 1;
-  height: 190px;
+  height: 215px;
 }
 
 /* Base Card Styling */
 .dest-card {
   position: relative;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
 }
 
 .dest-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65);
 }
 
 .dest-card-img {
@@ -123,7 +137,36 @@
 }
 
 .dest-card:hover .dest-card-img {
-  transform: scale(1.06);
+  transform: scale(1.05);
+}
+
+/* Slideshow Container & Fade Animation for First Card */
+.dest-slideshow-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.dest-slide-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 4.5s ease-out;
+  pointer-events: none;
+  display: block;
+}
+
+.dest-slide-img.active {
+  opacity: 1;
+  transform: scale(1.04);
+  pointer-events: auto;
 }
 
 .dest-card-overlay {
@@ -131,34 +174,54 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 24px 22px 18px;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 35%, rgba(0, 0, 0, 0.88) 100%);
+  padding: 24px 24px 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.45) 30%, rgba(0, 0, 0, 0.94) 100%);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  z-index: 3;
 }
 
-.dest-tag {
-  font-family: 'Outfit', sans-serif;
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  color: #dfb76c;
-  margin-bottom: 2px;
-  text-transform: uppercase;
+.dest-tag,
+.featured-destinations-section .dest-card .dest-tag {
+  font-family: 'Outfit', sans-serif !important;
+  font-size: 9.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  color: #e59c3c !important;
+  margin-bottom: 3px !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important;
 }
 
-.dest-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 21px;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: 0.3px;
+.dest-title,
+.featured-destinations-section .dest-card .dest-title {
+  font-family: 'Playfair Display', serif !important;
+  font-size: 24px;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin: 0 !important;
+  letter-spacing: 0.2px !important;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9) !important;
+}
+
+.featured-destinations-section .dest-card-large .dest-title {
+  font-size: 26px !important;
+}
+
+.featured-destinations-section .dest-card-medium .dest-title {
+  font-size: 22px !important;
+}
+
+.featured-destinations-section .dest-card-small .dest-title {
+  font-size: 23px !important;
 }
 
 /* Responsive */
 @media (max-width: 960px) {
+  .featured-destinations-section {
+    padding: 70px 5% 80px;
+  }
   .destinations-top-row {
     flex-direction: column;
   }
@@ -174,9 +237,11 @@
   .destinations-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 15px;
   }
   .destinations-desc {
     text-align: left;
+    max-width: 100%;
   }
 }
 
@@ -191,6 +256,7 @@
     height: 180px;
   }
   .destinations-heading {
-    font-size: 30px;
+    font-size: 34px;
   }
 }
+

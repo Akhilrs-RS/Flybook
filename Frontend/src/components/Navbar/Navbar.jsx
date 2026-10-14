@@ -1,23 +1,20 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${isHome ? 'navbar-home' : ''}`}>
       <div className="navbar-brand-space">
         <Link to="/" className="navbar-brand-link">
-          <div className="navbar-logo-badge">
-            <span>F</span>
-          </div>
-          <span className="navbar-brand-title">Flybook</span>
+          <span className="navbar-brand-title">FlyBook</span>
         </Link>
       </div>
 
       <div className="navbar-links-pill">
-        <NavLink to="/" end className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-          Home
-        </NavLink>
         <NavLink to="/about" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           About
         </NavLink>

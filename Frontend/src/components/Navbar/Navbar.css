@@ -22,37 +22,21 @@
 .navbar-brand-link {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
   cursor: pointer;
 }
 
-.navbar-logo-badge {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: rgba(9, 28, 48, 0.35);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.3s ease;
-}
-
-.navbar-logo-badge span {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
 .navbar-brand-title {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 28px;
   font-weight: 700;
   color: #ffffff;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.2px;
+  transition: color 0.3s ease;
+}
+
+.navbar.navbar-home .navbar-brand-title {
+  color: #11141a;
 }
 
 .navbar-links-pill {
@@ -61,23 +45,23 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  background-color: rgba(9, 28, 48, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
-  padding: 8px 24px;
+  background-color: rgba(90, 105, 120, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  padding: 9px 28px;
   border-radius: 40px;
-  gap: 20px;
+  gap: 24px;
 }
 
 .navbar-links-pill .nav-item {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   font-family: 'Outfit', sans-serif;
   font-weight: 500;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   padding: 4px 6px;
   border-radius: 12px;
   transition: all 0.2s ease;
@@ -98,15 +82,15 @@
   color: #171717;
   border: none;
   text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 11px 22px;
+  border-radius: 8px;
   font-weight: 600;
   font-family: 'Outfit', sans-serif;
-  font-size: 12.5px;
+  font-size: 13px;
   letter-spacing: 0.2px;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -115,7 +99,7 @@
 .navbar-btn:hover {
   background-color: #ebd18e;
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 @media (max-width: 1024px) {
