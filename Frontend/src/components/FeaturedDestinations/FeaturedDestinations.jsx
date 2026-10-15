@@ -26,6 +26,7 @@ const FeaturedDestinations = () => {
   return (
     <section className="featured-destinations-section">
       {/* Multi-layered Atmospheric Mountain Valley Mist Layers */}
+      <div className="dest-mist-full-veil" aria-hidden="true" />
       <div className="dest-mist-glow" aria-hidden="true" />
       <div className="dest-mist-band-primary" aria-hidden="true" />
       <div className="dest-mist-band-secondary" aria-hidden="true" />
