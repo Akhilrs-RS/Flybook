@@ -89,7 +89,8 @@ const Destinations = () => {
         title="Where will you go next?"
         tagline="From sun-drenched coastal bluffs to snow-crested sanctuaries, explore destinations curated for genuine discovery."
         bgImage={d1Img}
-        minHeight="62vh"
+        minHeight="58vh"
+        align="left"
       />
 
       {/* 2. Search & Region Filters */}

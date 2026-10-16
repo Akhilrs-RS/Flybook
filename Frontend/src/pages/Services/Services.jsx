@@ -5,9 +5,9 @@ import s1Img from '../../assets/s1.jpg';
 import t1Img from '../../assets/t1.jpg';
 import t5Img from '../../assets/t5.jpg';
 import t2Img from '../../assets/t2.jpg';
-import t3Img from '../../assets/t3.jpg';
 import a1Img from '../../assets/a1.jpg';
 import t4Img from '../../assets/t4.jpg';
+import d5Img from '../../assets/d5.jpg';
 import './Services.css';
 
 const servicesList = [
@@ -37,12 +37,12 @@ const servicesList = [
     category: 'ADVISORY & PAPERWORK',
     title: 'Visa Assistance',
     desc: 'End-to-end documentation handling, embassy liaison, express filing, and comprehensive international travel protection.',
-    image: t3Img
+    image: d5Img
   },
   {
     num: '05',
     category: 'ROMANCE & RETREATS',
-    title: 'Honeymoon Stays',
+    title: 'Honeymoons',
     desc: 'Enchanting romantic sanctuaries, private overwater dining, sunset boat charters, and curated couple wellness rituals.',
     image: a1Img
   },
@@ -61,10 +61,11 @@ const Services = () => {
       {/* 1. Hero */}
       <PageHero
         subtitle="END-TO-END TRAVEL CONCIERGE"
-        title="Every detail, beautifully handled."
+        title="Every detail beautifully handled."
         tagline="Considered service at every step. From the first spark of inspiration until your safe return home."
         bgImage={s1Img}
-        minHeight="60vh"
+        minHeight="58vh"
+        align="left"
       />
 
       {/* 2. Services Section */}

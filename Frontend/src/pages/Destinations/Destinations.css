@@ -195,14 +195,16 @@
   display: block;
 }
 
+.destinations-page .dest-title,
 .dest-title,
 .dest-showcase-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(28px, 3.2vw, 38px);
-  font-weight: 600;
-  color: #171d24;
-  margin: 0 0 10px;
-  line-height: 1.2;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: clamp(28px, 3.2vw, 38px) !important;
+  font-weight: 600 !important;
+  color: #171d24 !important;
+  margin: 0 0 10px !important;
+  line-height: 1.2 !important;
+  text-shadow: none !important;
 }
 
 .dest-tagline,

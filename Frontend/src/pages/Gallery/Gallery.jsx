@@ -69,7 +69,8 @@ const Gallery = () => {
         title="A world worth seeing."
         tagline="A curated photographic collection of quiet moments, dramatic horizons, and bespoke journeys."
         bgImage={g1Img}
-        minHeight="60vh"
+        minHeight="58vh"
+        align="center"
       />
 
       {/* 2. Gallery Section */}

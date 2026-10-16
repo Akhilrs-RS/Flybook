@@ -112,7 +112,8 @@ const Tours = () => {
         title="Curated journeys made for you."
         tagline="Handcrafted itineraries balancing unhurried discovery, authentic local intimacy, and effortless luxury."
         bgImage={t1Img}
-        minHeight="60vh"
+        minHeight="58vh"
+        align="left"
       />
 
       {/* 2. Catalog Section */}

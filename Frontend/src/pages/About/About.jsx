@@ -4,13 +4,14 @@ import PageHero from '../../components/Common/PageHero';
 import a1Img from '../../assets/a1.jpg';
 import a2Img from '../../assets/a2.jpg';
 import a3Img from '../../assets/a3.jpg';
+import aboutPagodaImg from '../../assets/about_pagoda.jpg';
 import './About.css';
 
 const statsData = [
-  { value: '20+', label: 'Years of Curation' },
-  { value: '150+', label: 'Global Destinations' },
-  { value: '98%', label: 'Client Satisfaction' },
-  { value: '15,000+', label: 'Travellers Guided' }
+  { index: '[01]', value: '20+', label: 'Years of Curation' },
+  { index: '[02]', value: '150+', label: 'Global Destinations' },
+  { index: '[03]', value: '98%', label: 'Client Satisfaction' },
+  { index: '[04]', value: '15,000+', label: 'Travellers Guided' }
 ];
 
 const valuesData = [
@@ -37,10 +38,11 @@ const About = () => {
       {/* 1. Hero */}
       <PageHero
         subtitle="OUR PHILOSOPHY & STORY"
-        title="About Flybook"
+        title="About Flybbok"
         tagline="We don't simply book destinations. We curate transformative human experiences."
         bgImage={a1Img}
-        minHeight="60vh"
+        minHeight="58vh"
+        align="left"
       />
 
       {/* 2. Philosophy Intro */}
@@ -61,23 +63,30 @@ const About = () => {
         </div>
       </section>
 
-      {/* 3. Split Mission Block (Matching Figma About Artboard) */}
+      {/* 3. Split Mission Block (Matching Figma About Artboard with Dual Stacked Images) */}
       <section className="about-mission-section">
-        <div className="about-mission-split">
-          <div className="about-mission-img-wrap">
-            <img src={a2Img} alt="Kyoto Golden Sanctuary" className="about-mission-img" />
-          </div>
-          <div className="about-mission-text-block">
-            <span className="mission-tag">MISSION</span>
-            <h2 className="mission-statement">
-              To make the world feel closer, richer, and more human.
-            </h2>
-            <p className="mission-body">
-              Whether you seek the tranquil stillness of a mountain sanctuary, the timeless warmth of a Mediterranean cliffside, or the private grandeur of Rajasthan’s royal havelis, every journey we compose is attuned to your personal cadence.
-            </p>
-            <div className="vision-sub-block">
-              <span className="vision-tag">VISION</span>
-              <p>Setting the benchmark for conscientious, ultra-bespoke luxury exploration worldwide.</p>
+        <div className="about-mission-container">
+          <div className="about-mission-split">
+            <div className="about-mission-images-stack">
+              <div className="about-mission-img-card top-img-card">
+                <img src={aboutPagodaImg || a2Img} alt="Kyoto Sanctuary" className="about-mission-img" />
+              </div>
+              <div className="about-mission-img-card bottom-img-card">
+                <img src={a3Img} alt="Mediterranean Coastline" className="about-mission-img" />
+              </div>
+            </div>
+            <div className="about-mission-text-block">
+              <span className="mission-tag">MISSION</span>
+              <h2 className="mission-statement">
+                To make the world feel closer, richer, and more human.
+              </h2>
+              <p className="mission-body">
+                Whether you seek the tranquil stillness of a mountain sanctuary, the timeless warmth of a Mediterranean cliffside, or the private grandeur of Rajasthan’s royal havelis, every journey we compose is attuned to your personal cadence.
+              </p>
+              <div className="vision-sub-block">
+                <span className="vision-tag">VISION</span>
+                <p>Setting the benchmark for conscientious, ultra-bespoke luxury exploration worldwide.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -93,6 +102,7 @@ const About = () => {
           <div className="stats-grid">
             {statsData.map((stat, idx) => (
               <div key={idx} className="stat-card">
+                <span className="stat-index">{stat.index}</span>
                 <span className="stat-number">{stat.value}</span>
                 <span className="stat-label">{stat.label}</span>
               </div>
