@@ -4,12 +4,46 @@
 .quote-banner-section {
   position: relative;
   width: 100%;
-  height: 420px;
+  height: 440px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+  background-color: #080c11;
+}
+
+/* Individual Slide Layer */
+.quote-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 1800ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+/* Incoming Active Slide: Fades in on top */
+.quote-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 3;
+  transition: opacity 1800ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Outgoing Prev Slide: Stays visible underneath while incoming slide fades in */
+.quote-slide.prev {
+  opacity: 1;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 1800ms cubic-bezier(0.4, 0, 0.2, 1) 300ms;
 }
 
 .quote-bg-wrap {
@@ -19,6 +53,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
+  overflow: hidden;
 }
 
 .quote-bg-img {
@@ -27,34 +62,69 @@
   object-fit: cover;
   object-position: center 35%;
   display: block;
+  transform: scale(1);
+  transition: transform 7500ms cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
 }
 
+.quote-slide.active .quote-bg-img {
+  transform: scale(1.05);
+}
+
+.quote-slide.prev .quote-bg-img {
+  transform: scale(1.05);
+}
+
+/* Soft Feathered Edge Vignette */
 .quote-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(8, 12, 17, 0.70) 0%, rgba(8, 12, 17, 0.60) 50%, rgba(8, 12, 17, 0.85) 100%);
+  background: linear-gradient(
+    180deg, 
+    #080c11 0%, 
+    rgba(8, 12, 17, 0.45) 20%, 
+    rgba(8, 12, 17, 0.35) 50%, 
+    rgba(8, 12, 17, 0.60) 80%, 
+    #080c11 100%
+  );
+  pointer-events: none;
 }
 
 .quote-content-container {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 820px;
   margin: 0 auto;
   padding: 0 5%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 900ms ease, transform 900ms ease;
+}
+
+.quote-slide.active .quote-content-container {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1200ms ease 350ms, transform 1200ms ease 350ms;
+}
+
+.quote-slide.prev .quote-content-container {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 800ms ease, transform 800ms ease;
 }
 
 .quote-subtitle {
   font-family: 'Outfit', sans-serif;
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: 2.5px;
+  letter-spacing: 2.8px;
   color: #dfb76c;
   margin-bottom: 14px;
   text-transform: uppercase;
@@ -64,7 +134,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 42px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.22;
   margin: 0 0 16px;
   letter-spacing: 0.3px;
 }
@@ -79,18 +149,156 @@
 
 .quote-desc {
   font-family: 'Outfit', sans-serif;
-  font-size: 12.5px;
+  font-size: 13px;
   color: #b0b8c2;
-  line-height: 1.65;
-  max-width: 580px;
+  line-height: 1.68;
+  max-width: 600px;
   margin: 0 auto;
+}
+
+/* Navigation Chevrons */
+.quote-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(8, 12, 17, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 300ms ease;
+  user-select: none;
+}
+
+.quote-banner-section:hover .quote-nav-arrow {
+  opacity: 0.85;
+}
+
+.quote-nav-arrow:hover {
+  opacity: 1 !important;
+  background: rgba(223, 183, 108, 0.25);
+  border-color: #dfb76c;
+  color: #dfb76c;
+}
+
+.quote-nav-arrow.prev {
+  left: 28px;
+}
+
+.quote-nav-arrow.next {
+  right: 28px;
+}
+
+/* Sequential Story Reel Progress Bars */
+.quote-story-progress-bar {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  max-width: 420px;
+  padding: 8px 16px;
+  background: rgba(8, 12, 17, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.story-segment {
+  flex: 1;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  border: none;
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: height 250ms ease, background 250ms ease;
+}
+
+.story-segment:hover {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.story-fill {
+  height: 100%;
+  width: 0%;
+  background: #dfb76c;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(223, 183, 108, 0.7);
+}
+
+/* Completed slide in current cycle stays fully filled */
+.story-segment.completed .story-fill {
+  width: 100%;
+}
+
+/* Active slide smoothly fills over 5000ms duration */
+.story-segment.active .story-fill {
+  animation: storyProgress 5000ms linear forwards;
+}
+
+/* Upcoming slide in current cycle is empty */
+.story-segment.upcoming .story-fill {
+  width: 0%;
+}
+
+@keyframes storyProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
   .quote-banner-section {
-    height: 360px;
+    height: 380px;
   }
   .quote-title {
-    font-size: 32px;
+    font-size: 30px;
+  }
+  .quote-desc {
+    font-size: 12px;
+  }
+  .quote-story-progress-bar {
+    bottom: 16px;
+    max-width: 320px;
+    gap: 6px;
+    padding: 6px 12px;
+  }
+  .quote-nav-arrow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-slide,
+  .quote-bg-img,
+  .quote-content-container,
+  .story-fill {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
   }
 }
