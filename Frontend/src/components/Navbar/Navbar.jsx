@@ -5,9 +5,10 @@ import './Navbar.css';
 const Navbar = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const isContact = location.pathname === '/contact';
 
   return (
-    <nav className={`navbar ${isHome ? 'navbar-home' : ''}`}>
+    <nav className={`navbar ${isHome ? 'navbar-home' : ''} ${isContact ? 'navbar-contact' : ''}`}>
       <div className="navbar-brand-space">
         <Link to="/" className="navbar-brand-link">
           <span className="navbar-brand-title">FlyBook</span>

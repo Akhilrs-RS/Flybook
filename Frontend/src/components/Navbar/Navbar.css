@@ -35,7 +35,8 @@
   transition: color 0.3s ease;
 }
 
-.navbar.navbar-home .navbar-brand-title {
+.navbar.navbar-home .navbar-brand-title,
+.navbar.navbar-contact .navbar-brand-title {
   color: #11141a;
 }
 

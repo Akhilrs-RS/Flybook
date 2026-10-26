@@ -6,104 +6,108 @@ body:has(.contact-page) .navbar .navbar-brand-title {
   color: #121820;
 }
 
-body:has(.contact-page) .navbar .navbar-logo-badge {
-  border-color: rgba(18, 24, 32, 0.4);
-}
-
-body:has(.contact-page) .navbar .navbar-logo-badge span {
-  color: #121820;
-}
-
 .contact-page {
   width: 100%;
   background-color: #ffffff;
-  color: #171d24;
+  color: #121820;
   overflow-x: hidden;
 }
 
 /* ============================================================
-   1. HERO SECTION
+   1. HERO SECTION (Full Cover Background matching Figma)
    ============================================================ */
 .contact-hero-section {
   position: relative;
   width: 100%;
-  min-height: 580px;
-  background-size: cover;
-  background-position: right 15% center;
-  background-repeat: no-repeat;
+  height: 614px;
+  min-height: 614px;
+  overflow: hidden;
   display: flex;
-  align-items: center;
-  padding: 160px 8% 100px;
+  align-items: flex-start;
   box-sizing: border-box;
 }
 
-.contact-hero-overlay {
+.contact-hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(244, 247, 250, 0.94) 0%,
-    rgba(244, 247, 250, 0.85) 45%,
-    rgba(244, 247, 250, 0.3) 72%,
-    transparent 100%
-  );
+  width: 100%;
+  height: 100%;
   z-index: 1;
+}
+
+.contact-hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+  display: block;
+}
+
+.contact-hero-overlay {
+  display: none;
 }
 
 .contact-hero-container {
   position: relative;
-  max-width: 1180px;
+  max-width: 1240px;
   width: 100%;
   margin: 0 auto;
-  z-index: 2;
+  padding: 152px 6% 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.contact-hero-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 620px;
 }
 
 .contact-hero-eyebrow {
   font-family: 'Outfit', sans-serif;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 2.5px;
-  color: #64748b;
+  letter-spacing: 3.5px;
+  color: #556070;
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
 .contact-hero-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(38px, 4.6vw, 62px);
+  font-size: clamp(48px, 5.2vw, 76px);
   font-weight: 400;
-  color: #171d24;
-  line-height: 1.15;
-  margin: 0 0 16px;
-  letter-spacing: -0.5px;
+  color: #11141a;
+  line-height: 1.08;
+  margin: 0 0 24px;
+  letter-spacing: -0.8px;
 }
 
 .contact-hero-tagline {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(14px, 1.25vw, 16px);
-  font-weight: 300;
-  color: #4b5563;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: #434c5a;
   line-height: 1.6;
-  max-width: 440px;
+  max-width: 480px;
   margin: 0;
 }
 
 /* ============================================================
-   2. MAIN TWO-COLUMN SECTION
+   2. MAIN TWO-COLUMN SECTION (Info + Travel Enquiry Card)
    ============================================================ */
 .contact-main-section {
-  padding: 90px 8% 110px;
+  padding: 96px 6% 110px;
   background-color: #ffffff;
+  box-sizing: border-box;
 }
 
 .contact-container {
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.85fr 1.35fr;
+  grid-template-columns: 0.88fr 1.32fr;
   gap: 70px;
   align-items: flex-start;
 }
@@ -119,7 +123,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2.5px;
-  color: #64748b;
+  color: #7b8794;
   text-transform: uppercase;
   margin-bottom: 14px;
 }
@@ -127,8 +131,8 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 .contact-info-heading {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(32px, 3.2vw, 42px);
-  font-weight: 500;
-  color: #171d24;
+  font-weight: 400;
+  color: #121820;
   line-height: 1.2;
   margin: 0 0 44px;
   letter-spacing: -0.3px;
@@ -148,31 +152,31 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 
 .detail-label {
   font-family: 'Outfit', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 10.5px;
+  font-weight: 700;
   letter-spacing: 2px;
-  color: #64748b;
+  color: #7b8794;
   text-transform: uppercase;
 }
 
 .detail-value {
   font-family: 'Outfit', sans-serif;
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 400;
-  color: #171d24;
+  color: #121820;
   line-height: 1.55;
   margin: 0;
 }
 
 .detail-link {
   text-decoration: none;
-  color: #171d24;
+  color: #121820;
   transition: color 0.2s ease;
   width: fit-content;
 }
 
 .detail-link:hover {
-  color: #e3952f;
+  color: #e88024;
 }
 
 /* Right Column Travel Enquiry Card */
@@ -182,14 +186,15 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   border-radius: 16px;
   padding: 44px 48px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
 }
 
 .enquiry-card-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #171d24;
+  color: #121820;
   margin: 0 0 34px;
   text-transform: uppercase;
 }
@@ -221,7 +226,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 1.8px;
-  color: #171d24;
+  color: #121820;
   text-transform: uppercase;
 }
 
@@ -231,10 +236,10 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   border: none;
   border-bottom: 1px solid #e2e8f0;
   border-radius: 0;
-  padding: 7px 0 9px;
+  padding: 8px 0 10px;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
-  color: #171d24;
+  color: #121820;
   outline: none;
   transition: border-bottom-color 0.25s ease;
   box-sizing: border-box;
@@ -247,7 +252,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 }
 
 .field-input:focus {
-  border-bottom-color: #e3952f;
+  border-bottom-color: #e88024;
 }
 
 /* Dropdown select */
@@ -262,19 +267,20 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   border: none;
   border-bottom: 1px solid #e2e8f0;
   border-radius: 0;
-  padding: 7px 24px 9px 0;
+  padding: 8px 24px 10px 0;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
-  color: #171d24;
+  color: #121820;
   outline: none;
   cursor: pointer;
   appearance: none;
+  -webkit-appearance: none;
   transition: border-bottom-color 0.25s ease;
   box-sizing: border-box;
 }
 
 .field-select:focus {
-  border-bottom-color: #e3952f;
+  border-bottom-color: #e88024;
 }
 
 .select-arrow {
@@ -294,13 +300,13 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   border: none;
   border-bottom: 1px solid #e2e8f0;
   border-radius: 0;
-  padding: 7px 0 9px;
+  padding: 8px 0 10px;
   font-family: 'Outfit', sans-serif;
   font-size: 14px;
-  color: #171d24;
+  color: #121820;
   outline: none;
-  resize: vertical;
-  min-height: 44px;
+  resize: none;
+  min-height: 48px;
   transition: border-bottom-color 0.25s ease;
   box-sizing: border-box;
 }
@@ -312,7 +318,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 }
 
 .field-textarea:focus {
-  border-bottom-color: #e3952f;
+  border-bottom-color: #e88024;
 }
 
 .form-action-row {
@@ -320,10 +326,10 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 }
 
 .enquiry-submit-btn {
-  background: #e3952f;
+  background: #e88024;
   color: #ffffff;
   font-family: 'Outfit', sans-serif;
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
   padding: 13px 26px;
@@ -334,13 +340,13 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   align-items: center;
   gap: 8px;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(227, 149, 47, 0.28);
+  box-shadow: 0 4px 14px rgba(232, 128, 36, 0.25);
 }
 
 .enquiry-submit-btn:hover {
-  background: #d48722;
+  background: #d47019;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(227, 149, 47, 0.35);
+  box-shadow: 0 6px 18px rgba(232, 128, 36, 0.32);
 }
 
 /* Success Banner */
@@ -353,7 +359,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: #e3952f;
+  background: #e88024;
   color: #ffffff;
   font-size: 22px;
   display: flex;
@@ -366,7 +372,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 .form-success-banner h4 {
   font-family: 'Playfair Display', serif;
   font-size: 22px;
-  color: #171d24;
+  color: #121820;
   margin: 0 0 10px;
 }
 
@@ -380,7 +386,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 }
 
 .reset-form-btn {
-  background: #171d24;
+  background: #121820;
   color: #ffffff;
   font-family: 'Outfit', sans-serif;
   font-size: 12px;
@@ -398,20 +404,20 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 }
 
 /* ============================================================
-   3. STUDIO MAP SECTION
+   3. STUDIO MAP SECTION (#F5F0E8 background matching Figma)
    ============================================================ */
 .contact-studio-section {
-  background-color: #d9d5c8;
-  padding: 80px 8%;
+  background-color: #F5F0E8;
+  padding: 84px 6%;
   width: 100%;
   box-sizing: border-box;
 }
 
 .contact-studio-container {
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.9fr 1.35fr;
+  grid-template-columns: 0.9fr 1.3fr;
   gap: 60px;
   align-items: center;
 }
@@ -426,16 +432,16 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 2.5px;
-  color: #595e68;
+  color: #7b8794;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .studio-heading {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(32px, 3.5vw, 44px);
   font-weight: 400;
-  color: #171d24;
+  color: #121820;
   line-height: 1.2;
   margin: 0 0 16px;
   letter-spacing: -0.3px;
@@ -446,7 +452,7 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
   font-size: 13.5px;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #595e68;
+  color: #7b8794;
   margin: 0;
 }
 
@@ -458,20 +464,20 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 
 .studio-map-image {
   width: 100%;
-  max-width: 640px;
+  max-width: 620px;
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 14px;
   display: block;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 /* ============================================================
    RESPONSIVE DESIGN
    ============================================================ */
-@media (max-width: 960px) {
+@media (max-width: 992px) {
   .contact-container {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -482,6 +488,10 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
     gap: 40px;
   }
 
+  .studio-map-col {
+    justify-content: center;
+  }
+
   .travel-enquiry-card {
     padding: 36px 30px;
   }
@@ -489,9 +499,12 @@ body:has(.contact-page) .navbar .navbar-logo-badge span {
 
 @media (max-width: 640px) {
   .contact-hero-section {
-    padding: 130px 6% 70px;
-    min-height: 480px;
-    background-position: center;
+    height: 540px;
+    min-height: 540px;
+  }
+
+  .contact-hero-container {
+    padding-top: 100px;
   }
 
   .form-grid-row {

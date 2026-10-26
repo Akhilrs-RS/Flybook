@@ -11,7 +11,7 @@ const Contact = () => {
     destination: '',
     travelDate: '',
     travelers: '',
-    package: '',
+    travelClass: '',
     message: ''
   });
 
@@ -24,20 +24,27 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-      {/* 1. Hero Section */}
-      <section 
-        className="contact-hero-section"
-        style={{ backgroundImage: `url(${c1Img})` }}
-      >
-        <div className="contact-hero-overlay"></div>
+      {/* 1. Hero Section (Full Cover Background Image) */}
+      <section className="contact-hero-section">
+        <div className="contact-hero-bg">
+          <img 
+            src={c1Img} 
+            alt="London Big Ben Westminster" 
+            className="contact-hero-bg-img" 
+          />
+          <div className="contact-hero-overlay"></div>
+        </div>
+
         <div className="contact-hero-container">
-          <span className="contact-hero-eyebrow">START A CONVERSATION</span>
-          <h1 className="contact-hero-title">
-            Let's plan your<br />next journey.
-          </h1>
-          <p className="contact-hero-tagline">
-            Tell us what you're dreaming of. Our travel designers will take it from here.
-          </p>
+          <div className="contact-hero-content">
+            <span className="contact-hero-eyebrow">BEGIN A CONVERSATION</span>
+            <h1 className="contact-hero-title">
+              Let's plan your<br />next journey.
+            </h1>
+            <p className="contact-hero-tagline">
+              Tell us what you're dreaming of. Our travel designers will take<br />it from here.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -73,7 +80,7 @@ const Contact = () => {
                 <span className="detail-label">HOURS</span>
                 <p className="detail-value">
                   Monday—Saturday<br />
-                  9:30 AM—7:00 PM
+                  9:00 AM—7:00 PM
                 </p>
               </div>
 
@@ -107,11 +114,11 @@ const Contact = () => {
                   {/* Row 1: Full Name & Email */}
                   <div className="form-grid-row">
                     <div className="form-field-group">
-                      <label className="field-label">FULL NAME</label>
+                      <label className="field-label">YOUR NAME</label>
                       <input
                         type="text"
                         required
-                        placeholder="Your name"
+                        placeholder="Full name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="field-input"
@@ -136,7 +143,7 @@ const Contact = () => {
                       <label className="field-label">PHONE NUMBER</label>
                       <input
                         type="tel"
-                        placeholder="+91 00 0000"
+                        placeholder="+91 ..."
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="field-input"
@@ -154,7 +161,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Row 3: Travel Date & Number of Travelers */}
+                  {/* Row 3: Travel Date & Number of Travellers */}
                   <div className="form-grid-row">
                     <div className="form-field-group">
                       <label className="field-label">TRAVEL DATE</label>
@@ -167,10 +174,10 @@ const Contact = () => {
                       />
                     </div>
                     <div className="form-field-group">
-                      <label className="field-label">NUMBER OF TRAVELERS</label>
+                      <label className="field-label">NUMBER OF TRAVELLERS</label>
                       <input
                         type="text"
-                        placeholder="e.g. 2 travelers"
+                        placeholder="e.g. 2 travellers"
                         value={formData.travelers}
                         onChange={(e) => setFormData({ ...formData, travelers: e.target.value })}
                         className="field-input"
@@ -178,21 +185,19 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Row 4: Preferred Package */}
+                  {/* Row 4: Preferred Class */}
                   <div className="form-field-group full-width">
-                    <label className="field-label">PREFERRED PACKAGE</label>
+                    <label className="field-label">PREFERRED CLASS</label>
                     <div className="select-wrapper">
                       <select
-                        value={formData.package}
-                        onChange={(e) => setFormData({ ...formData, package: e.target.value })}
+                        value={formData.travelClass}
+                        onChange={(e) => setFormData({ ...formData, travelClass: e.target.value })}
                         className="field-select"
                       >
-                        <option value="">Select a curated tour</option>
-                        <option value="amalfi">Amalfi Coast & Southern Italy</option>
-                        <option value="kyoto">Kyoto & Traditional Japan</option>
-                        <option value="maldives">Maldives Luxury Overwater Atolls</option>
-                        <option value="swiss">Swiss Alps & Glacier Scenic Rail</option>
-                        <option value="rajasthan">Royal Rajasthan Heritage & Palaces</option>
+                        <option value="">Select travel class</option>
+                        <option value="luxury">Luxury Suite / First Class</option>
+                        <option value="business">Premium Business Class</option>
+                        <option value="economy">Premium Economy</option>
                         <option value="bespoke">Bespoke Custom Expedition</option>
                       </select>
                       <span className="select-arrow">▾</span>
