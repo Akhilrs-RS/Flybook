@@ -5,3 +5,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.admin-main-wrapper-route {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

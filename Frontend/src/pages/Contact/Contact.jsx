@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import c1Img from '../../assets/c1.png';
 import c2Img from '../../assets/c2.png';
+import { enquiryService } from '../../services/enquiryService';
 import './Contact.css';
 
 const Contact = () => {
@@ -19,6 +20,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    enquiryService.addEnquiry(formData);
     setSubmitted(true);
   };
 
