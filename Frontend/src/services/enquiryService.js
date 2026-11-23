@@ -104,12 +104,18 @@ export const enquiryService = {
   addEnquiry(formData) {
     try {
       const current = this.getEnquiries();
+      const phoneFull = formData.phone
+        ? (formData.countryCode ? `${formData.countryCode} ${formData.phone}`.trim() : formData.phone)
+        : '';
+
       const newEnquiry = {
         id: 'ENQ-' + Math.random().toString(36).substring(2, 8).toUpperCase(),
         name: formData.name || 'Valued Traveller',
         email: formData.email || '',
-        phone: formData.phone || '',
-        destination: formData.destination || 'Unspecified',
+        phone: phoneFull,
+        countryCode: formData.countryCode || '+91',
+        destination: formData.destination || formData.service || 'General Inquiry',
+        service: formData.service || '',
         travelDate: formData.travelDate || 'Flexible',
         travelers: formData.travelers || '1',
         travelClass: formData.travelClass || 'luxury',
@@ -117,7 +123,12 @@ export const enquiryService = {
         status: 'New',
         createdAt: new Date().toISOString(),
         notes: [
-          { text: 'Enquiry submitted directly from public website form.', timestamp: new Date().toISOString() }
+          { 
+            text: formData.service 
+              ? `Query received regarding: ${formData.service}` 
+              : 'Enquiry submitted directly from public website form.', 
+            timestamp: new Date().toISOString() 
+          }
         ]
       };
 

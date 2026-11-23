@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/Common/PageHero';
+import FlightSearchWidget from '../../components/FlightSearchWidget/FlightSearchWidget';
 import t1Img from '../../assets/t1.jpg';
 import t2Img from '../../assets/t2.jpg';
 import t3Img from '../../assets/t3.jpg';
@@ -115,6 +116,9 @@ const Tours = () => {
         minHeight="58vh"
         align="left"
       />
+
+      {/* Flight Search Widget (Exact Match to Skyscanner/OTA design) */}
+      <FlightSearchWidget />
 
       {/* 2. Catalog Section */}
       <section className="tours-catalog-section">

@@ -122,8 +122,10 @@ const EnquiryDetailModal = ({ enquiry, onClose, onUpdateStatus, onAddNote }) => 
               <div className="spec-item">
                 <MdOutlineLocationOn className="spec-icon" />
                 <div className="spec-content">
-                  <span className="spec-label">DESTINATION</span>
-                  <span className="spec-val highlight">{enquiry.destination || 'Unspecified'}</span>
+                  <span className="spec-label">{enquiry.service ? 'SERVICE / DESTINATION' : 'DESTINATION'}</span>
+                  <span className="spec-val highlight">
+                    {enquiry.service ? enquiry.service : (enquiry.destination || 'Unspecified')}
+                  </span>
                 </div>
               </div>
 

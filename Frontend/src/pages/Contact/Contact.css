@@ -189,14 +189,146 @@ body:has(.contact-page) .navbar .navbar-brand-title {
   box-sizing: border-box;
 }
 
-.enquiry-card-title {
+/* Tab Switcher */
+.contact-form-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: #f8fafc;
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid #edf2f7;
+}
+
+.contact-form-tab {
+  flex: 1;
+  padding: 9px 12px;
   font-family: 'Outfit', sans-serif;
-  font-size: 12.5px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.contact-form-tab.active {
+  background: #ffffff;
+  color: #121820;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form-tab:hover:not(.active) {
+  color: #121820;
+}
+
+/* Card Header */
+.enquiry-card-header {
+  margin-bottom: 28px;
+}
+
+.enquiry-card-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10.5px;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #121820;
-  margin: 0 0 34px;
+  color: #e88024;
   text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.enquiry-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 500;
+  color: #121820;
+  margin: 0 0 8px;
+  letter-spacing: -0.3px;
+  text-transform: none;
+}
+
+.enquiry-card-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Phone Composite Input */
+.phone-input-composite {
+  display: grid;
+  grid-template-columns: 145px 1fr;
+  gap: 16px;
+  align-items: flex-end;
+}
+
+.phone-country-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.phone-country-select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e2e8f0;
+  border-radius: 0;
+  padding: 8px 20px 10px 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #121820;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-bottom-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.phone-country-select:focus {
+  border-bottom-color: #e88024;
+}
+
+.phone-select-arrow {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  color: #64748b;
+  pointer-events: none;
+}
+
+.phone-number-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  transition: border-bottom-color 0.25s ease;
+}
+
+.phone-number-wrapper:focus-within {
+  border-bottom-color: #e88024;
+}
+
+.phone-prefix-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #e88024;
+  padding-right: 8px;
+  user-select: none;
+}
+
+.phone-number-input {
+  border-bottom: none !important;
+  padding-left: 0;
 }
 
 .travel-enquiry-form {
@@ -510,6 +642,11 @@ body:has(.contact-page) .navbar .navbar-brand-title {
   .form-grid-row {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .phone-input-composite {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .contact-main-section,
