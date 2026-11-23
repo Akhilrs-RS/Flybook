@@ -13,9 +13,9 @@ import './Services.css';
 const servicesList = [
   {
     num: '01',
-    category: 'FLIGHTS & AVIATION',
-    title: 'Flight Booking',
-    desc: 'Bespoke routing for first, business, and private jet charters with seamless transfers, priority lounges, and baggage concierge.',
+    category: 'FLIGHTS & TICKETING',
+    title: 'Flight Tickets & Aviation',
+    desc: 'Best-fare domestic and international flight ticketing, business routing, seat allocation, and priority baggage concierge.',
     image: t1Img
   },
   {
@@ -35,8 +35,8 @@ const servicesList = [
   {
     num: '04',
     category: 'ADVISORY & PAPERWORK',
-    title: 'Visa Assistance',
-    desc: 'End-to-end documentation handling, embassy liaison, express filing, and comprehensive international travel protection.',
+    title: 'Visa & Passport Assistance',
+    desc: 'Specialized visit visa processing for UAE, Bahrain, Saudi Arabia, Australia, and 50+ countries, with end-to-end passport issuance and renewal assistance.',
     image: d5Img
   },
   {
@@ -55,6 +55,40 @@ const servicesList = [
   }
 ];
 
+const focusAreas = [
+  {
+    icon: '✈️',
+    tag: 'AIR TICKETING',
+    title: 'Flight Tickets',
+    desc: 'Domestic & international flight reservations with instant PNR, best fare discovery, and rescheduling support.'
+  },
+  {
+    icon: '🚆',
+    tag: 'RAIL RESERVATION',
+    title: 'Train Tickets',
+    desc: 'Hassle-free train ticket bookings, Tatkal reservations, confirmed berth assistance, and scenic rail journeys.'
+  },
+  {
+    icon: '🛂',
+    tag: 'DOCUMENTATION',
+    title: 'Passport Assistance',
+    desc: 'End-to-end guidance for fresh passport applications, renewals, Tatkal appointments, and document verification.'
+  },
+  {
+    icon: '🌐',
+    tag: 'VISA SPECIALISTS',
+    title: 'Visit Visa Services',
+    desc: 'Express visit and tourist visa processing with guaranteed documentation compliance and embassy coordination.',
+    countries: [
+      { name: 'UAE', flag: '🇦🇪' },
+      { name: 'Bahrain', flag: '🇧🇭' },
+      { name: 'Saudi Arabia', flag: '🇸🇦' },
+      { name: 'Australia', flag: '🇦🇺' },
+      { name: '+ Worldwide', flag: '🌍' }
+    ]
+  }
+];
+
 const Services = () => {
   return (
     <div className="services-page">
@@ -68,7 +102,48 @@ const Services = () => {
         align="left"
       />
 
-      {/* 2. Services Section */}
+      {/* 2. Main Focus & Specialization Banner */}
+      <section className="services-focus-section">
+        <div className="services-focus-container">
+          <div className="services-focus-header">
+            <span className="services-focus-badge">✦ CORE SPECIALIZATION & FOCUS</span>
+            <h2 className="services-focus-title">
+              Main focus: Flight Tickets, Train Tickets, Passport Assistance, Visit Visa for UAE, BAHRAIN, SAUDI ARABIA, AUSTRALIA & beyond.
+            </h2>
+            <p className="services-focus-subtitle">
+              Reliable, expedited ticketing and embassy paperwork solutions handled with precision, licensed liaison, and end-to-end client peace of mind.
+            </p>
+          </div>
+
+          <div className="services-focus-grid">
+            {focusAreas.map((item, idx) => (
+              <div key={idx} className="services-focus-card">
+                <div className="focus-card-top">
+                  <span className="focus-card-icon">{item.icon}</span>
+                  <span className="focus-card-tag">{item.tag}</span>
+                </div>
+                <h3 className="focus-card-title">{item.title}</h3>
+                <p className="focus-card-desc">{item.desc}</p>
+                {item.countries && (
+                  <div className="focus-country-pills">
+                    {item.countries.map((c, i) => (
+                      <span key={i} className="focus-country-pill">
+                        <span className="country-flag">{c.flag}</span>
+                        <span className="country-name">{c.name}</span>
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <Link to="/contact" className="focus-card-link">
+                  Inquire Now &rarr;
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Services Section */}
       <section className="services-list-section">
         <div className="services-list-container">
           
