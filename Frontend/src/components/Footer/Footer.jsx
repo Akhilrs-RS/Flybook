@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FlybookLogo from '../Common/FlybookLogo';
 import './Footer.css';
-import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
-import { MdOutlineLocationOn, MdOutlinePhone, MdOutlineEmail } from 'react-icons/md';
+import { FaInstagram, FaFacebookF, FaTwitter, FaLinkedinIn, FaWhatsapp } from 'react-icons/fa';
+import { MdOutlineLocationOn, MdOutlinePhone, MdOutlineEmail, MdOutlineAccessTime } from 'react-icons/md';
 import { FiArrowUp } from 'react-icons/fi';
 
 const Footer = () => {
@@ -20,13 +21,9 @@ const Footer = () => {
         {/* Column 1: Brand */}
         <div className="footer-column brand-column">
           <div className="footer-logo-section">
-            <Link to="/" className="footer-logo-badge" style={{ textDecoration: 'none' }}>
-              <span>F</span>
+            <Link to="/" title="Flybook Tours & Travels" style={{ textDecoration: 'none' }}>
+              <FlybookLogo variant="transparent" height={58} />
             </Link>
-            <div className="footer-logo-text">
-              <h2>Flybook</h2>
-              <p>TOURS & TRAVELS</p>
-            </div>
           </div>
           <p className="brand-description">
             The premier curator of human experience. We design journeys that linger long after the flight home.
@@ -64,6 +61,7 @@ const Footer = () => {
             <li><Link to="/services">Air Ticketing</Link></li>
             <li><Link to="/services">Rail & Bus Ticketing</Link></li>
             <li><Link to="/services">Cab & Transport</Link></li>
+            <li><Link to="/attestation">Document Attestation</Link></li>
             <li><Link to="/services">Travel Documentation</Link></li>
           </ul>
         </div>
@@ -74,17 +72,58 @@ const Footer = () => {
           <ul className="footer-contact-info">
             <li>
               <MdOutlineLocationOn className="contact-icon" />
-              <span>Flybook Tours & Travels, Connaught<br />Place, New Delhi, India</span>
+              <span>
+                1st Floor, Kumaravel Nadar Building,<br />
+                North Street Road, Opp. Appavonadar Textile,<br />
+                Marthandam, Tamil Nadu
+              </span>
+            </li>
+            <li>
+              <MdOutlineAccessTime className="contact-icon" />
+              <span>
+                Monday—Saturday<br />
+                9:00 AM—8:00 PM
+              </span>
             </li>
             <li>
               <MdOutlinePhone className="contact-icon" />
-              <span>+91 98765 43210</span>
+              <div className="footer-phones-list">
+                <a href="tel:04651272575" className="footer-contact-link">
+                  04651-272575 <span className="phone-tag">(Office)</span>
+                </a>
+                <a href="https://wa.me/919865232346" target="_blank" rel="noopener noreferrer" className="footer-contact-link footer-wa-link">
+                  <FaWhatsapp className="footer-wa-icon" /> +91 98652 32346 <span className="phone-tag">(Mobile / WhatsApp)</span>
+                </a>
+                <a href="tel:+918148021275" className="footer-contact-link">
+                  +91 81480 21275 <span className="phone-tag">(Helpline)</span>
+                </a>
+              </div>
             </li>
             <li>
               <MdOutlineEmail className="contact-icon" />
-              <span>journeys@flybooktravels.com</span>
+              <a href="mailto:journeys@flybook.in" className="footer-contact-link footer-email-link">
+                journeys@flybook.in
+              </a>
             </li>
           </ul>
+        </div>
+      </div>
+
+      {/* Document Attestation in India | UAE | Saudi | Qatar | Dubai Banner */}
+      <div className="footer-attestation-banner">
+        <div className="footer-attestation-left">
+          <span className="footer-attestation-tag">EMBASSY LEGALIZATION & APOSTILLE</span>
+          <h4 className="footer-attestation-heading">
+            Document Attestation in India | UAE | Saudi | Qatar | Dubai
+          </h4>
+          <p className="footer-attestation-desc">
+            Authorized authentication for educational, personal, and commercial certificates with State HRD, MEA, Embassy, and MOFA coordination.
+          </p>
+        </div>
+        <div className="footer-attestation-action">
+          <Link to="/attestation" className="footer-attestation-btn">
+            Inquire for Attestation &rarr;
+          </Link>
         </div>
       </div>
 

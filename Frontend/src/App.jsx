@@ -13,6 +13,7 @@ import Services from './pages/Services/Services';
 import Gallery from './pages/Gallery/Gallery';
 import Contact from './pages/Contact/Contact';
 import Admin from './pages/Admin/Admin';
+import Attestation from './pages/Attestation/Attestation';
 
 function AppContent() {
   const location = useLocation();
@@ -31,6 +32,8 @@ function AppContent() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/attestation" element={<Attestation />} />
+          <Route path="/services/attestation" element={<Attestation />} />
         </Routes>
       </main>
       {!isAdmin && <Footer />}

@@ -1,0 +1,31 @@
+/* FlybookLogo.css */
+.flybook-brand-logo {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  vertical-align: middle;
+}
+
+.flybook-brand-logo:hover {
+  transform: scale(1.02);
+  opacity: 0.95;
+}
+
+.flybook-logo-image {
+  height: 100%;
+  width: auto;
+  max-width: 280px;
+  object-fit: contain;
+  display: block;
+}
+
+.flybook-logo-image.transparent-brand-logo {
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+}
+
+.flybook-logo-image.card-badge {
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(0, 51, 204, 0.2);
+  border: 1px solid rgba(0, 51, 204, 0.15);
+}

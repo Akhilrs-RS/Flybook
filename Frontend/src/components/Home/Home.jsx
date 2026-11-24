@@ -20,10 +20,10 @@ const Home = () => {
 
   useEffect(() => {
     setVideoActive(false);
-    // Trigger video fade-in right as flight accelerates off-screen
+    // Trigger video fade-in and blue curtain dissolve right as FLYBOOK sinks downwards
     const timer = setTimeout(() => {
       setVideoActive(true);
-    }, 3600);
+    }, 4600);
     return () => clearTimeout(timer);
   }, [animKey]);
 
@@ -54,14 +54,17 @@ const Home = () => {
         {/* Brand Overlay Scrim for Text Legibility & Contrast */}
         <div className="hero-video-overlay" />
 
-        {/* Animated FLYBOOK Typography (Takeoff intro) */}
-        <div className={`hero-bg-text-wrapper ${videoActive ? 'intro-hidden' : ''}`}>
-          <h1 className="hero-bg-text">FLYBOOK</h1>
-        </div>
+        {/* Blue Intro Curtain (5-Frame Sequential Animation matching Figma) */}
+        <div className={`hero-intro-curtain ${videoActive ? 'curtain-fade-out' : ''}`}>
+          {/* Animated FLYBOOK Typography (Takeoff intro -> Horizontal -> Downward Sink) */}
+          <div className="hero-bg-text-wrapper">
+            <h1 className="hero-bg-text">FLYBOOK</h1>
+          </div>
 
-        {/* Upward Flying Aircraft & Contrails */}
-        <div className={`flight-animation-wrapper ${videoActive ? 'flight-done' : ''}`}>
-          <img src={flightImg} alt="Flight" className="hero-flight-img" />
+          {/* Upward Flying Aircraft & Contrails */}
+          <div className="flight-animation-wrapper">
+            <img src={flightImg} alt="Flight" className="hero-flight-img" />
+          </div>
         </div>
 
         {/* Exact Editorial Hero Content Revealed with Looping Video (Figma) */}

@@ -73,9 +73,34 @@
 }
 
 /* ===================================================
+   BLUE INTRO CURTAIN (5-Frame Animation Sequence)
+   Covers hero during frames 1-5, then smoothly dissolves
+   as the FLYBOOK word sinks downwards to reveal video & editorial
+   =================================================== */
+.hero-intro-curtain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  background: linear-gradient(180deg, #024677 0%, #457699 100%);
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+}
+
+.hero-intro-curtain.curtain-fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===================================================
    BACKGROUND TYPOGRAPHY (FLYBOOK)
    Starts hidden, appears vertically inside smoke,
-   rotates (-90deg -> -35deg -> 0deg), then fades out as editorial content appears
+   rotates (-90deg -> -35deg -> 0deg), settles horizontally,
+   then sinks downwards off bottom edge as blue curtain dissolves
    =================================================== */
 .hero-bg-text-wrapper {
   position: absolute;
@@ -83,19 +108,13 @@
   left: 50%;
   width: 100%;
   text-align: center;
-  z-index: 3;
+  z-index: 6;
   pointer-events: none;
   user-select: none;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.8s ease;
-}
-
-.hero-bg-text-wrapper.intro-hidden {
-  opacity: 0;
-  pointer-events: none;
 }
 
 /* ===================================================
@@ -217,55 +236,79 @@
   font-size: clamp(5.5rem, 15vw, 13.5rem);
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   margin: 0;
   line-height: 1;
   white-space: nowrap;
-  text-shadow: 0 10px 40px rgba(0, 30, 60, 0.35);
+  text-shadow: 0 4px 24px rgba(0, 30, 60, 0.45);
   transform-origin: center center;
-  animation: flybookSequentialRotate 5.5s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+  animation: flybookSequentialRotate 5.6s cubic-bezier(0.25, 1, 0.35, 1) forwards;
   will-change: transform, opacity;
 }
 
 @keyframes flybookSequentialRotate {
-  /* 0% - 18%: Flight-only phase, word is not visible */
+  /* Frame 1 (0% - 16%): Flight-only stationary phase, word is hidden */
   0% {
-    transform: rotate(-90deg) scale(0.95);
+    transform: rotate(-90deg) scale(0.48);
     opacity: 0;
   }
-  18% {
-    transform: rotate(-90deg) scale(0.95);
+  16% {
+    transform: rotate(-90deg) scale(0.48);
     opacity: 0;
   }
-  /* 24% - 38%: Smoke shoots down, word reveals fully written vertically (-90deg) */
-  24% {
-    transform: rotate(-90deg) scale(1);
+  /* Frame 2 (20% - 38%): Sized to fit cleanly inside contrail channel without overlapping smoke */
+  22% {
+    transform: rotate(-90deg) scale(0.48);
     opacity: 1;
   }
   38% {
-    transform: rotate(-90deg) scale(1);
+    transform: rotate(-90deg) scale(0.48);
     opacity: 1;
   }
-  /* 39% - 54%: Aircraft takes off, word rotates diagonally (-35deg) */
-  50% {
-    transform: rotate(-35deg) scale(1);
+  /* Frame 3 (44% - 54%): Full vertical "FLYBOOK" fully visible, framed by contrails on both sides */
+  46% {
+    transform: rotate(-90deg) scale(0.48);
     opacity: 1;
   }
-  /* 58% - 100%: Word settles flat horizontally (0deg) and remains locked in place over video */
-  62% {
-    transform: rotate(0deg) scale(1);
+  54% {
+    transform: rotate(-90deg) scale(0.48);
     opacity: 1;
+  }
+  /* Smooth rotation and scaling up as smoke dissolves away */
+  60% {
+    transform: rotate(-35deg) scale(0.75);
+    opacity: 1;
+  }
+  /* Frame 4 (66% - 74%): Fully scaled horizontal headline in lower-middle screen matching Image 4 */
+  66% {
+    transform: rotate(0deg) translateY(14vh) scale(1);
+    opacity: 1;
+  }
+  74% {
+    transform: rotate(0deg) translateY(14vh) scale(1);
+    opacity: 1;
+  }
+  /* Frame 5 (82% - 88%): Sinks DOWNWARDS off the bottom edge, only letter tops visible matching Image 5 */
+  84% {
+    transform: rotate(0deg) translateY(42vh) scale(1);
+    opacity: 0.95;
+  }
+  /* Completely descends off-screen as blue screen curtain dissolves */
+  92% {
+    transform: rotate(0deg) translateY(68vh) scale(1);
+    opacity: 0;
   }
   100% {
-    transform: rotate(0deg) scale(1);
-    opacity: 1;
+    transform: rotate(0deg) translateY(68vh) scale(1);
+    opacity: 0;
   }
 }
 
 /* ===================================================
    FLIGHT TAKEOFF & VERTICAL MOTION
-   Starts centered with flight only, takes off upwards,
-   exits top, then stays cleared as scenic video plays
+   Frame 1: Stationed centered/lower with clipped contrails
+   Frame 2: Climbs steadily upwards
+   Frame 3: Exits top of viewport
    =================================================== */
 .flight-animation-wrapper {
   position: absolute;
@@ -278,46 +321,46 @@
   align-items: flex-start;
   z-index: 4;
   pointer-events: none;
-  animation: flightMotionTakeoff 5.5s cubic-bezier(0.25, 1, 0.35, 1) forwards;
+  animation: flightMotionTakeoff 5.6s cubic-bezier(0.25, 1, 0.35, 1) forwards;
   will-change: transform, opacity;
 }
 
-.flight-animation-wrapper.flight-done {
-  pointer-events: none;
-  visibility: hidden;
-  transition: visibility 0s 5.5s;
-}
-
 @keyframes flightMotionTakeoff {
-  /* 0% - 38%: Aircraft is stationed in the center of the hero */
+  /* Frame 1 (0% - 18%): Aircraft is stationed lower/center */
   0% {
-    transform: translate(-50%, -15vh);
+    transform: translate(-50%, 4vh);
     opacity: 1;
   }
+  18% {
+    transform: translate(-50%, 4vh);
+    opacity: 1;
+  }
+  /* Frame 2 (20% - 38%): Climbs upwards towards top */
   38% {
-    transform: translate(-50%, -15vh);
+    transform: translate(-50%, -48vh);
     opacity: 1;
   }
-  /* 39% - 62%: Takes off rapidly upwards, exiting past top edge */
-  52% {
-    transform: translate(-50%, -75vh);
-    opacity: 0.95;
+  /* Frame 3 (46% - 56%): Accelerates past top edge of viewport */
+  48% {
+    transform: translate(-50%, -105vh);
+    opacity: 0.9;
   }
-  65% {
-    transform: translate(-50%, -140vh);
+  56% {
+    transform: translate(-50%, -145vh);
     opacity: 0;
   }
-  /* 66% - 100%: Stays completely off-screen while scenic video loops */
+  /* Stays completely off-screen while video loops */
   100% {
-    transform: translate(-50%, -140vh);
+    transform: translate(-50%, -145vh);
     opacity: 0;
   }
 }
 
 /* ===================================================
    SMOKE / CONTRAIL EMERGENCE ANIMATION
-   At first: Flight ONLY (smoke clipped at engines).
-   Then: Smoke shoots downward rapidly.
+   Frame 1: Contrails clipped right at engines (tail only)
+   Frame 2-3: Contrails shoot downward to full length
+   Frame 4: Contrails fade out as word rotates
    =================================================== */
 .hero-flight-img {
   height: 140vh;
@@ -326,25 +369,41 @@
   object-fit: contain;
   margin-top: -12vh;
   filter: drop-shadow(0 15px 35px rgba(0, 20, 50, 0.35));
-  animation: smokeEmergence 5.5s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
-  will-change: clip-path;
+  animation: smokeEmergence 5.6s cubic-bezier(0.2, 0.8, 0.25, 1) forwards;
+  will-change: clip-path, opacity;
 }
 
 @keyframes smokeEmergence {
-  /* 0% - 18%: FLIGHT ONLY. Smoke clipped right at the engines/tail */
+  /* Frame 1 (0% - 18%): Smoke clipped right at engines */
   0% {
-    clip-path: inset(0 0 52% 0);
+    clip-path: inset(0 0 54% 0);
+    opacity: 1;
   }
   18% {
-    clip-path: inset(0 0 52% 0);
+    clip-path: inset(0 0 54% 0);
+    opacity: 1;
   }
-  /* 19% - 34%: Smoke shoots downwards to full length */
-  32% {
+  /* Frame 2-3 (24% - 48%): Smoke shoots downward to full length */
+  34% {
     clip-path: inset(0 0 0% 0);
+    opacity: 1;
   }
-  /* 35% - 100%: Contrails remain full as flight climbs */
+  48% {
+    clip-path: inset(0 0 0% 0);
+    opacity: 1;
+  }
+  /* Frame 4 (54% - 60%): Contrails smoothly dissolve as word becomes horizontal */
+  56% {
+    clip-path: inset(0 0 0% 0);
+    opacity: 0.6;
+  }
+  62% {
+    clip-path: inset(0 0 0% 0);
+    opacity: 0;
+  }
   100% {
     clip-path: inset(0 0 0% 0);
+    opacity: 0;
   }
 }
 

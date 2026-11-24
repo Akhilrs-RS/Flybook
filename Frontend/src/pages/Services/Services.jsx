@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../../components/Common/PageHero';
+import AttestationGuideModal from '../../components/AttestationGuide/AttestationGuideModal';
 import s1Img from '../../assets/s1.jpg';
 import t1Img from '../../assets/t1.jpg';
 import t5Img from '../../assets/t5.jpg';
@@ -90,6 +91,8 @@ const focusAreas = [
 ];
 
 const Services = () => {
+  const [isAttestationOpen, setIsAttestationOpen] = useState(false);
+
   return (
     <div className="services-page">
       {/* 1. Hero */}
@@ -134,9 +137,15 @@ const Services = () => {
                     ))}
                   </div>
                 )}
-                <Link to="/contact" className="focus-card-link">
-                  Inquire Now &rarr;
-                </Link>
+                {item.tag === 'VISA SPECIALISTS' || item.tag === 'DOCUMENTATION' ? (
+                  <Link to="/attestation" className="focus-card-link">
+                    Learn More Guide &rarr;
+                  </Link>
+                ) : (
+                  <Link to="/contact" className="focus-card-link">
+                    Inquire Now &rarr;
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -166,9 +175,15 @@ const Services = () => {
                   <span className="service-num-tag">{service.num} / {service.category}</span>
                   <h3 className="service-row-title">{service.title}</h3>
                   <p className="service-row-desc">{service.desc}</p>
-                  <Link to="/contact" className="service-row-btn">
-                    Learn More &rarr;
-                  </Link>
+                  {service.num === '04' ? (
+                    <Link to="/attestation" className="service-row-btn">
+                      Learn More &rarr;
+                    </Link>
+                  ) : (
+                    <Link to="/contact" className="service-row-btn">
+                      Learn More &rarr;
+                    </Link>
+                  )}
                 </div>
                 <div className="service-row-right">
                   <img src={service.image} alt={service.title} className="service-row-img" />
@@ -198,6 +213,12 @@ const Services = () => {
           </div>
         </div>
       </section>
+
+      {/* 4. Interactive Attestation & Legalization Guide Modal */}
+      <AttestationGuideModal 
+        isOpen={isAttestationOpen} 
+        onClose={() => setIsAttestationOpen(false)} 
+      />
     </div>
   );
 };

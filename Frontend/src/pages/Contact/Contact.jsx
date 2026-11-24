@@ -120,9 +120,9 @@ const Contact = () => {
               <div className="contact-detail-block">
                 <span className="detail-label">VISIT</span>
                 <p className="detail-value">
-                  42 Residency Road<br />
-                  Bengaluru,<br />
-                  Karnataka 560025
+                  1st Floor, Kumaravel Nadar Building<br />
+                  North Street Road, Opp. Appavonadar Textile<br />
+                  Marthandam, Tamil Nadu
                 </p>
               </div>
 
@@ -130,14 +130,20 @@ const Contact = () => {
                 <span className="detail-label">HOURS</span>
                 <p className="detail-value">
                   Monday—Saturday<br />
-                  9:00 AM—7:00 PM
+                  9:00 AM—8:00 PM
                 </p>
               </div>
 
               <div className="contact-detail-block">
-                <span className="detail-label">CALL</span>
-                <a href="tel:+919876543210" className="detail-value detail-link">
-                  +91 98765 43210
+                <span className="detail-label">CALL & WHATSAPP</span>
+                <a href="tel:04651272575" className="detail-value detail-link">
+                  04651-272575 (Office)
+                </a>
+                <a href="tel:+919865232346" className="detail-value detail-link">
+                  +91 98652 32346 (Mobile / WhatsApp)
+                </a>
+                <a href="tel:+918148021275" className="detail-value detail-link">
+                  +91 81480 21275 (Helpline)
                 </a>
               </div>
             </div>
@@ -362,11 +368,11 @@ const Contact = () => {
       <section className="contact-studio-section">
         <div className="contact-studio-container">
           <div className="studio-text-col">
-            <span className="studio-eyebrow">OUR STUDIO</span>
+            <span className="studio-eyebrow">OUR MAIN OFFICE</span>
             <h2 className="studio-heading">
-              In the heart of<br />Bengaluru.
+              In the heart of<br />Marthandam.
             </h2>
-            <p className="studio-coords">12.9716° N, 77.5946° E</p>
+            <p className="studio-coords">Kumaravel Nadar Building, North Street Road</p>
           </div>
 
           <div className="studio-map-col">

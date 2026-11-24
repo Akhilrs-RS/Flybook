@@ -1,0 +1,806 @@
+/* Attestation.css - Full Dedicated Document Attestation & Legalization Page */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
+.attestation-page {
+  width: 100%;
+  background-color: #ffffff;
+  color: #171d24;
+  overflow-x: hidden;
+  font-family: 'Outfit', sans-serif;
+}
+
+/* 2. Corridor Highlight Bar */
+.attestation-corridor-bar {
+  background: #09121d;
+  color: #ffffff;
+  padding: 18px 8%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.corridor-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.corridor-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #dfb76c;
+  text-transform: uppercase;
+}
+
+.corridor-chips {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.corridor-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #e2e8f0;
+}
+
+/* 3. Main Section */
+.attestation-main-section {
+  padding: 60px 8% 100px;
+  background-color: #f8fafc;
+}
+
+.attestation-container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Navigation Tabs */
+.attestation-tabs-nav {
+  display: flex;
+  gap: 8px;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  margin-bottom: 40px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.attestation-tab-btn {
+  flex: 1;
+  padding: 12px 18px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.attestation-tab-btn:hover:not(.active) {
+  color: #121820;
+  background: #f1f5f9;
+}
+
+.attestation-tab-btn.active {
+  background: #09121d;
+  color: #dfb76c;
+  box-shadow: 0 4px 12px rgba(9, 18, 29, 0.18);
+}
+
+/* Tab Content */
+.attestation-tab-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  animation: attestationFade 0.3s ease-out;
+}
+
+@keyframes attestationFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.attestation-intro-text h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 2.5vw, 32px);
+  color: #121820;
+  margin: 0 0 8px;
+}
+
+.attestation-intro-text p {
+  font-size: 15px;
+  color: #64748b;
+  margin: 0;
+}
+
+/* ============================================================
+   TAB 1: OVERVIEW STYLES
+   ============================================================ */
+.attestation-feature-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 36px 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.attestation-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #b08d5c;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.attestation-content-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(22px, 2.2vw, 28px);
+  color: #121820;
+  margin: 0 0 16px;
+}
+
+.attestation-feature-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 14px;
+}
+
+.attestation-feature-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* Comparison Grid */
+.attestation-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.comparison-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 34px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+.comparison-card.highlight {
+  border-color: #dfb76c;
+  background: linear-gradient(180deg, #ffffff 0%, #fffdf8 100%);
+  box-shadow: 0 6px 24px rgba(223, 183, 108, 0.12);
+}
+
+.comp-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 5px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 14px;
+}
+
+.comp-badge.gold {
+  color: #926620;
+  background: #fef3c7;
+}
+
+.comparison-card h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #121820;
+  margin: 0 0 12px;
+}
+
+.comparison-card p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.comp-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.comp-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.chk-ico {
+  font-size: 18px;
+  color: #b08d5c;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Purposes Box */
+.attestation-purposes-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 32px 36px;
+}
+
+.attestation-purposes-box h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: #121820;
+  margin: 0 0 20px;
+}
+
+.purposes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.purpose-pill {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.p-icon {
+  font-size: 24px;
+}
+
+.purpose-pill strong {
+  font-size: 13.5px;
+  color: #121820;
+}
+
+.purpose-pill p {
+  font-size: 12px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ============================================================
+   TAB 2: 3 DOCUMENT TYPES
+   ============================================================ */
+.doc-types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.doc-type-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px 26px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  display: flex;
+  flex-direction: column;
+}
+
+.dt-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.dt-icon {
+  font-size: 36px;
+  color: #b08d5c;
+  flex-shrink: 0;
+}
+
+.dt-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  color: #94a3b8;
+  display: block;
+}
+
+.dt-header h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: #121820;
+  margin: 2px 0 0;
+}
+
+.dt-summary {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+
+.dt-docs {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 12.5px;
+  color: #334155;
+  line-height: 1.55;
+  margin-bottom: 20px;
+  border: 1px solid #edf2f7;
+}
+
+.dt-docs strong {
+  display: block;
+  color: #b08d5c;
+  margin-bottom: 4px;
+}
+
+.dt-purposes strong {
+  font-size: 12px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #121820;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.dt-purposes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dt-purposes li {
+  font-size: 12.5px;
+  color: #64748b;
+  line-height: 1.45;
+  position: relative;
+  padding-left: 16px;
+}
+
+.dt-purposes li::before {
+  content: '•';
+  color: #b08d5c;
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ============================================================
+   TAB 3: 4-TIER PIPELINE
+   ============================================================ */
+.pipeline-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 26px 30px;
+  transition: all 0.25s ease;
+}
+
+.pipeline-step:hover {
+  border-color: #b08d5c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #09121d;
+  color: #dfb76c;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.step-body {
+  flex: 1;
+}
+
+.step-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #b08d5c;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.step-body h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: #121820;
+  margin: 0 0 8px;
+}
+
+.step-body p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.pipeline-summary-box {
+  background: #09121d;
+  border-radius: 12px;
+  padding: 20px 26px;
+  font-size: 14px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.route-text {
+  color: #dfb76c;
+  font-weight: 600;
+}
+
+/* ============================================================
+   TAB 4: COUNTRY GUIDES
+   ============================================================ */
+.country-guides-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.cg-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+}
+
+.cg-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.cg-flag {
+  font-size: 32px;
+}
+
+.cg-header h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 21px;
+  color: #121820;
+  margin: 0 0 2px;
+}
+
+.cg-sub {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.cg-card p {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.cg-details strong {
+  font-size: 12.5px;
+  color: #121820;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cg-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cg-details li {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 16px;
+}
+
+.cg-details li::before {
+  content: '✓';
+  color: #b08d5c;
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cg-subnote {
+  margin-top: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12.5px;
+  color: #334155;
+  border-left: 3px solid #b08d5c;
+}
+
+/* ============================================================
+   TAB 5: CHECKLIST & SUPPORT
+   ============================================================ */
+.checklist-support-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.checklist-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.checklist-box h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #121820;
+  margin: 0 0 22px;
+}
+
+.check-list-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.check-list-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.chk-icon {
+  font-size: 24px;
+  color: #b08d5c;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.check-list-items strong {
+  display: block;
+  font-size: 14px;
+  color: #121820;
+  margin-bottom: 3px;
+}
+
+.check-list-items span {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.support-perks-box {
+  background: #09121d;
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 8px 30px rgba(9, 18, 29, 0.15);
+}
+
+.perk-tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #dfb76c;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.support-perks-box h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.support-perks-box p {
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0 0 22px;
+}
+
+.perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.perk-gold-bullet {
+  color: #dfb76c;
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.perk-item strong {
+  font-size: 14px;
+  color: #ffffff;
+  display: block;
+}
+
+.perk-item p {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 2px 0 0;
+  line-height: 1.45;
+}
+
+/* CTA Banner */
+.attestation-cta-banner {
+  background: linear-gradient(135deg, #09121d 0%, #162438 100%);
+  border: 1px solid rgba(223, 183, 108, 0.35);
+  border-radius: 16px;
+  padding: 30px 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 14px;
+}
+
+.cta-banner-text h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.cta-banner-text p {
+  font-size: 14px;
+  color: #cbd5e1;
+  margin: 0;
+}
+
+.cta-banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.cta-primary-btn {
+  background-color: #dfb76c;
+  color: #0b1118;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.cta-primary-btn:hover {
+  background-color: #eed08f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(223, 183, 108, 0.35);
+}
+
+.cta-secondary-btn {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 11px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+}
+
+.cta-secondary-btn:hover {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================================================
+   RESPONSIVE DESIGN
+   ============================================================ */
+@media (max-width: 1024px) {
+  .purposes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .doc-types-grid {
+    grid-template-columns: 1fr;
+  }
+  .attestation-comparison-grid,
+  .country-guides-grid,
+  .checklist-support-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .attestation-main-section {
+    padding: 40px 6% 80px;
+  }
+  .attestation-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+  }
+  .cta-banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cta-primary-btn,
+  .cta-secondary-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}

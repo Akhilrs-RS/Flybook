@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import FlybookLogo from '../Common/FlybookLogo';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -10,8 +11,8 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${isHome ? 'navbar-home' : ''} ${isContact ? 'navbar-contact' : ''}`}>
       <div className="navbar-brand-space">
-        <Link to="/" className="navbar-brand-link">
-          <span className="navbar-brand-title">FlyBook</span>
+        <Link to="/" className="navbar-brand-link" title="Flybook Tours & Travels">
+          <FlybookLogo variant="transparent" height={54} />
         </Link>
       </div>
 
