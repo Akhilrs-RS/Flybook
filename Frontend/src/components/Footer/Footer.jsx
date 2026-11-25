@@ -62,7 +62,6 @@ const Footer = () => {
             <li><Link to="/services">Rail & Bus Ticketing</Link></li>
             <li><Link to="/services">Cab & Transport</Link></li>
             <li><Link to="/attestation">Document Attestation</Link></li>
-            <li><Link to="/services">Travel Documentation</Link></li>
           </ul>
         </div>
 

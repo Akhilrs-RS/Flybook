@@ -150,7 +150,7 @@ const Home = () => {
                 <p>
                   Leave the ordinary behind and step into experiences that make your heart race. From breathtaking mountain trails and scenic road trips to thrilling outdoor adventures, every journey is designed to awaken your adventurous spirit.
                 </p>
-                <button className="card-btn">Explore Adventures &rarr;</button>
+                <Link to="/tours" className="card-btn">Explore Adventures &rarr;</Link>
               </div>
             </div>
 
@@ -164,21 +164,21 @@ const Home = () => {
                 <p>
                   Escape to beautiful places and create memories with the one who matters most. From peaceful beaches and dreamy resorts to breathtaking mountain escapes, every detail is thoughtfully planned for your perfect getaway. Let your journey be filled with romance, comfort, and unforgettable moments.
                 </p>
-                <button className="card-btn">Explore Adventures &rarr;</button>
+                <Link to="/tours" className="card-btn">Explore Getaways &rarr;</Link>
               </div>
             </div>
 
             {/* Card 3 */}
             <div className="destination-card">
               <div className="card-img-wrapper">
-                <img src={h3Img} alt="Romantic Getaways" />
+                <img src={h3Img} alt="Seamless Global Travel" />
               </div>
               <div className="card-content">
-                <h3>Romantic Getaways</h3>
+                <h3>Seamless Global Travel</h3>
                 <p>
-                  Escape to beautiful places and create memories with the one who matters most. From peaceful beaches and dreamy resorts to breathtaking mountain escapes, every detail is thoughtfully planned for your perfect getaway. Let your journey be filled with romance, comfort, and unforgettable moments.
+                  Step into new horizons with effortless international travel. From smooth flight ticketing and fast-track visa processing to curated global itineraries, we handle every detail from departure gate to destination so you can explore the world with total confidence.
                 </p>
-                <button className="card-btn">Explore Adventures &rarr;</button>
+                <Link to="/tours" className="card-btn">Explore Journeys &rarr;</Link>
               </div>
             </div>
           </div>

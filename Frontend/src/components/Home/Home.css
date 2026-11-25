@@ -562,6 +562,8 @@
 }
 
 .card-btn {
+  display: inline-block;
+  text-decoration: none;
   background: transparent;
   border: 1px solid #1a1a1a;
   color: #1a1a1a;
@@ -572,6 +574,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.25s ease;
+  line-height: normal;
 }
 
 .card-btn:hover {
