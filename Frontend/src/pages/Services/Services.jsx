@@ -17,42 +17,48 @@ const servicesList = [
     category: 'FLIGHTS & TICKETING',
     title: 'Flight Tickets & Aviation',
     desc: 'Best-fare domestic and international flight ticketing, business routing, seat allocation, and priority baggage concierge.',
-    image: t1Img
+    image: t1Img,
+    link: '/attestation'
   },
   {
     num: '02',
     category: 'ACCOMMODATION',
     title: 'Hotels & Villas',
     desc: 'Hand-picked five-star sanctuaries, private island retreats, and historic palazzos with complimentary upgrades and welcome amenities.',
-    image: t5Img
+    image: t5Img,
+    link: '/contact'
   },
   {
     num: '03',
     category: 'CURATED TOURS',
     title: 'Tailor-made Tours',
     desc: 'Private itineraries composed from scratch around your personal pace, secret landmark access, and licensed master guides.',
-    image: t2Img
+    image: t2Img,
+    link: '/contact'
   },
   {
     num: '04',
     category: 'ADVISORY & PAPERWORK',
     title: 'Visa & Passport Assistance',
     desc: 'Specialized visit visa processing for UAE, Bahrain, Saudi Arabia, Australia, and 50+ countries, with end-to-end passport issuance and renewal assistance.',
-    image: d5Img
+    image: d5Img,
+    link: '/attestation'
   },
   {
     num: '05',
     category: 'ROMANCE & RETREATS',
     title: 'Honeymoons',
     desc: 'Enchanting romantic sanctuaries, private overwater dining, sunset boat charters, and curated couple wellness rituals.',
-    image: a1Img
+    image: a1Img,
+    link: '/contact'
   },
   {
     num: '06',
     category: 'EXECUTIVE EXPEDITIONS',
     title: 'Corporate Travel',
     desc: 'Precision planning for leadership summits, high-stakes retreats, delegation logistics, and consolidated enterprise billing.',
-    image: t4Img
+    image: t4Img,
+    link: '/contact'
   }
 ];
 
@@ -137,7 +143,7 @@ const Services = () => {
                     ))}
                   </div>
                 )}
-                {item.tag === 'VISA SPECIALISTS' || item.tag === 'DOCUMENTATION' ? (
+                {item.tag === 'VISA SPECIALISTS' || item.tag === 'DOCUMENTATION' || item.tag === 'AIR TICKETING' ? (
                   <Link to="/attestation" className="focus-card-link">
                     Learn More Guide &rarr;
                   </Link>
@@ -175,15 +181,9 @@ const Services = () => {
                   <span className="service-num-tag">{service.num} / {service.category}</span>
                   <h3 className="service-row-title">{service.title}</h3>
                   <p className="service-row-desc">{service.desc}</p>
-                  {service.num === '04' ? (
-                    <Link to="/attestation" className="service-row-btn">
-                      Learn More &rarr;
-                    </Link>
-                  ) : (
-                    <Link to="/contact" className="service-row-btn">
-                      Learn More &rarr;
-                    </Link>
-                  )}
+                  <Link to={service.link || '/contact'} className="service-row-btn">
+                    Learn More &rarr;
+                  </Link>
                 </div>
                 <div className="service-row-right">
                   <img src={service.image} alt={service.title} className="service-row-img" />
