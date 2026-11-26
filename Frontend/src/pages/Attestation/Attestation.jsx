@@ -517,6 +517,52 @@ const Attestation = () => {
 
         </div>
       </section>
+
+      {/* State Certificate Attestation Cross-Link */}
+      <section className="attestation-cert-crosslink-section">
+        <div className="attestation-corridor-highlight-container">
+          <div className="attestation-cert-crosslink-box">
+            <div className="attestation-cert-crosslink-left">
+              <span className="attestation-cert-crosslink-tag">STATE & INSTITUTIONAL PRE-AUTHENTICATION</span>
+              <h3 className="attestation-cert-crosslink-heading">
+                Need Education, Commercial, NORKA, HRD, or Mantralaya Attestation?
+              </h3>
+              <p className="attestation-cert-crosslink-desc">
+                Before embassy legalization, documents must be verified by state authorities. Explore our dedicated Certificate Attestation Services page for Education, Commercial, NORKA (Kerala), State HRD, Home Department, and Mantralaya (Mumbai).
+              </p>
+            </div>
+            <div className="attestation-cert-crosslink-action">
+              <Link to="/certificate-attestation" className="attestation-cert-crosslink-btn">
+                Certificate Attestation Page &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Embassy Legalization & Apostille Corridor Banner */}
+      <section className="attestation-corridor-highlight-section">
+        <div className="attestation-corridor-highlight-container">
+          <div className="attestation-corridor-highlight-banner">
+            <div className="attestation-corridor-highlight-left">
+              <span className="attestation-corridor-highlight-tag">
+                EMBASSY LEGALIZATION & APOSTILLE
+              </span>
+              <h3 className="attestation-corridor-highlight-heading">
+                Document Attestation in India | UAE | Saudi | Qatar | Dubai
+              </h3>
+              <p className="attestation-corridor-highlight-desc">
+                Authorized authentication for educational, personal, and commercial certificates with State HRD, MEA, Embassy, and MOFA coordination.
+              </p>
+            </div>
+            <div className="attestation-corridor-highlight-action">
+              <Link to="/contact" className="attestation-corridor-highlight-btn">
+                Inquire for Attestation &rarr;
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

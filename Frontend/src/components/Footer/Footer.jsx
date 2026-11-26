@@ -41,11 +41,10 @@ const Footer = () => {
           <h3 className="footer-heading">NAVIGATE</h3>
           <ul className="footer-links">
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About</Link></li>
             <li><Link to="/tours">Tours & Packages</Link></li>
-            <li><Link to="/destinations">Destinations</Link></li>
             <li><Link to="/services">Services</Link></li>
             <li><Link to="/gallery">Gallery</Link></li>
+            <li><Link to="/about">About</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
@@ -61,7 +60,8 @@ const Footer = () => {
             <li><Link to="/services">Air Ticketing</Link></li>
             <li><Link to="/services">Rail & Bus Ticketing</Link></li>
             <li><Link to="/services">Cab & Transport</Link></li>
-            <li><Link to="/attestation">Document Attestation</Link></li>
+            <li><Link to="/certificate-attestation">Certificate Attestation (HRD/NORKA)</Link></li>
+            <li><Link to="/attestation">Embassy Legalization & Apostille</Link></li>
           </ul>
         </div>
 
@@ -105,24 +105,6 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-        </div>
-      </div>
-
-      {/* Document Attestation in India | UAE | Saudi | Qatar | Dubai Banner */}
-      <div className="footer-attestation-banner">
-        <div className="footer-attestation-left">
-          <span className="footer-attestation-tag">EMBASSY LEGALIZATION & APOSTILLE</span>
-          <h4 className="footer-attestation-heading">
-            Document Attestation in India | UAE | Saudi | Qatar | Dubai
-          </h4>
-          <p className="footer-attestation-desc">
-            Authorized authentication for educational, personal, and commercial certificates with State HRD, MEA, Embassy, and MOFA coordination.
-          </p>
-        </div>
-        <div className="footer-attestation-action">
-          <Link to="/attestation" className="footer-attestation-btn">
-            Inquire for Attestation &rarr;
-          </Link>
         </div>
       </div>
 

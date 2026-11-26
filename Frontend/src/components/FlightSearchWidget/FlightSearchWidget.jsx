@@ -13,7 +13,7 @@ const popularDestinations = [
   'Delhi (DEL)'
 ];
 
-const FlightSearchWidget = () => {
+const FlightSearchWidget = ({ variant = 'default' }) => {
   // Compute default dates (Depart: +7 days, Return: +14 days)
   const todayStr = new Date().toISOString().split('T')[0];
   const defaultDepart = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
@@ -83,7 +83,7 @@ const FlightSearchWidget = () => {
   };
 
   return (
-    <section className="flight-search-section">
+    <section className={`flight-search-section ${variant === 'hero' ? 'hero-variant' : ''}`}>
       <div className="flight-search-container">
         
         {/* Main Heading */}
@@ -95,10 +95,6 @@ const FlightSearchWidget = () => {
             <p className="flight-search-subheading">
               Search live fares & schedules directly on Google Flights with Flybook’s curated routing.
             </p>
-          </div>
-          <div className="google-flights-powered-badge">
-            <span className="gf-dot"></span>
-            <span>Live on Google Flights</span>
           </div>
         </div>
 

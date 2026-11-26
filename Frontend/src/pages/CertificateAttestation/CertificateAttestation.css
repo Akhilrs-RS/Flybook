@@ -1,0 +1,727 @@
+/* CertificateAttestation.css - Dedicated Certificate Attestation Services */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
+
+.cert-attestation-page {
+  width: 100%;
+  background-color: #f8fafc;
+  color: #1e293b;
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+.ca-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================================
+   1. TRUST BAR
+   ========================================= */
+.ca-trust-bar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 24px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.ca-trust-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.ca-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  min-width: 260px;
+}
+
+.ca-trust-ico {
+  font-size: 32px;
+  color: #dfb76c;
+  flex-shrink: 0;
+}
+
+.ca-trust-item strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.ca-trust-item span {
+  display: block;
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* =========================================
+   2. SECTION HEADERS
+   ========================================= */
+.ca-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 40px;
+}
+
+.ca-eyebrow {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: #b08d5c;
+  margin-bottom: 10px;
+}
+
+.ca-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.ca-section-desc {
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* =========================================
+   3. MAIN INTERACTIVE SERVICES SHOWCASE
+   ========================================= */
+.ca-main-section {
+  padding: 70px 0 80px;
+}
+
+/* Horizontal Service Buttons Nav */
+.ca-services-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 35px;
+}
+
+.ca-srv-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: #475569;
+  text-align: center;
+}
+
+.ca-srv-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
+}
+
+.ca-srv-btn.active {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+  transform: translateY(-2px);
+}
+
+.ca-srv-btn-icon {
+  font-size: 26px;
+  color: #dfb76c;
+  transition: transform 0.2s ease;
+}
+
+.ca-srv-btn.active .ca-srv-btn-icon {
+  transform: scale(1.1);
+}
+
+.ca-srv-btn-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+}
+
+/* Active Service Detail Card */
+.ca-service-detail-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 44px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+}
+
+.ca-card-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ca-card-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  margin-bottom: 12px;
+}
+
+.ca-card-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.ca-card-summary {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 780px;
+}
+
+.ca-card-speed-badge {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 20px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.ca-speed-label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+}
+
+.ca-speed-val {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.ca-card-body-text {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.7;
+  padding-bottom: 28px;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 32px;
+}
+
+/* 3-Column Info Grid */
+.ca-info-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-bottom: 36px;
+}
+
+.ca-info-col {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.ca-info-col.highlight-col {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.ca-info-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ca-bullet {
+  color: #dfb76c;
+  font-size: 12px;
+}
+
+.ca-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.ca-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.ca-list-ico {
+  font-size: 18px;
+  color: #0284c7;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ca-list-ico.green {
+  color: #059669;
+}
+
+/* Stepper Pipeline */
+.ca-pipeline-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 36px;
+}
+
+.ca-pipeline-heading {
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #64748b;
+  margin: 0 0 18px;
+}
+
+.ca-pipeline-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  position: relative;
+}
+
+.ca-pipe-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ca-pipe-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #dfb76c;
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ca-pipe-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+/* CTA Row inside Card */
+.ca-card-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.ca-card-cta-btn {
+  background-color: #dfb76c;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ca-card-cta-btn:hover {
+  background-color: #ebd18e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 183, 108, 0.35);
+}
+
+.ca-card-phone-btn {
+  background: transparent;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.ca-card-phone-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  border-color: #94a3b8;
+}
+
+/* =========================================
+   4. QUICK COMPARISON MATRIX TABLE
+   ========================================= */
+.ca-matrix-section {
+  padding: 40px 0 80px;
+  background-color: #ffffff;
+}
+
+.ca-matrix-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.ca-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14px;
+  min-width: 780px;
+}
+
+.ca-matrix-table th {
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 16px 20px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.ca-matrix-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.ca-matrix-table tr:hover td {
+  background: #f8fafc;
+}
+
+.ca-matrix-table td.row-title {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.ca-matrix-table td.row-docs {
+  max-width: 260px;
+  font-size: 13px;
+}
+
+.speed-pill {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+/* =========================================
+   5. CROSS-LINK TO EMBASSY LEGALIZATION
+   ========================================= */
+.ca-embassy-crosslink-section {
+  padding: 30px 0 60px;
+  background-color: #ffffff;
+}
+
+.ca-crosslink-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  border-radius: 18px;
+  padding: 36px 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+}
+
+.ca-crosslink-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #dfb76c;
+  margin-bottom: 8px;
+}
+
+.ca-crosslink-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.ca-crosslink-desc {
+  font-size: 14.5px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0;
+}
+
+.ca-crosslink-btn {
+  background: #dfb76c;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+.ca-crosslink-btn:hover {
+  background: #ebd18e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 183, 108, 0.35);
+}
+
+/* =========================================
+   6. DOORSTEP SAFETY & GUARANTEE
+   ========================================= */
+.ca-safety-section {
+  padding: 60px 0 80px;
+  background-color: #f8fafc;
+}
+
+.ca-safety-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.ca-safety-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease;
+}
+
+.ca-safety-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.ca-safety-icon-wrap {
+  font-size: 32px;
+  margin-bottom: 14px;
+}
+
+.ca-safety-card h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.ca-safety-card p {
+  font-size: 13.5px;
+  color: #64748b;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* =========================================
+   7. BOTTOM CTA
+   ========================================= */
+.ca-bottom-cta {
+  padding: 0 0 90px;
+  background-color: #f8fafc;
+}
+
+.ca-bottom-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.ca-bottom-text h3 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.ca-bottom-text p {
+  font-size: 14.5px;
+  color: #64748b;
+  margin: 0;
+}
+
+.ca-bottom-buttons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.ca-btn-gold {
+  background: #dfb76c;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 14px 26px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.ca-btn-gold:hover {
+  background: #ebd18e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 183, 108, 0.35);
+}
+
+.ca-btn-outline {
+  background: transparent;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 13px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.ca-btn-outline:hover {
+  background: #f1f5f9;
+}
+
+/* =========================================
+   RESPONSIVE QUERIES
+   ========================================= */
+@media (max-width: 1024px) {
+  .ca-info-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .ca-safety-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ca-pipeline-steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .ca-crosslink-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .ca-service-detail-card {
+    padding: 26px 20px;
+  }
+
+  .ca-card-top-row {
+    flex-direction: column;
+  }
+
+  .ca-card-speed-badge {
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ca-safety-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ca-pipeline-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .ca-bottom-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 22px;
+  }
+
+  .ca-bottom-buttons {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ca-btn-gold, .ca-btn-outline {
+    text-align: center;
+    justify-content: center;
+  }
+}

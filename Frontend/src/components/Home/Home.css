@@ -17,13 +17,24 @@
   width: 100%;
   height: 100vh;
   min-height: 750px;
-  max-height: 1024px;
   background: linear-gradient(180deg, #024677 0%, #457699 100%);
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.hero-section.video-active {
+  min-height: 100vh;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 120px 4% 65px;
 }
 
 /* ===================================================
@@ -130,7 +141,7 @@
   align-items: center;
   text-align: center;
   max-width: 900px;
-  padding: 85px 24px 0;
+  padding: 20px 24px 0;
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -139,6 +150,30 @@
 }
 
 .hero-section.video-active .hero-editorial-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ===================================================
+   HERO FLIGHT SEARCH WRAPPER (Last Section of First Page)
+   Fades in over looping video background when videoActive
+   =================================================== */
+.hero-flight-search-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1240px;
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  cursor: default;
+  box-sizing: border-box;
+}
+
+.hero-flight-search-wrapper.visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;

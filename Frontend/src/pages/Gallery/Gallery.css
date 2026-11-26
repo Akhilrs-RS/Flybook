@@ -1,4 +1,4 @@
-/* Gallery.css */
+/* Gallery.css - Consolidated Visual Chronicles & Curated Destinations */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap');
 
 .gallery-page {
@@ -8,9 +8,330 @@
   overflow-x: hidden;
 }
 
-.gallery-main-section {
-  padding: 50px 8% 100px;
+/* Common Section Headers */
+.gallery-section-intro {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.gallery-section-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 2.8px;
+  color: #b08d5c;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.gallery-section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 600;
+  color: #121820;
+  margin: 0 0 14px;
+  line-height: 1.25;
+}
+
+.gallery-section-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  color: #64748b;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* =========================================================
+   1. CURATED DESTINATIONS SECTION
+   ========================================================= */
+.gallery-destinations-section {
+  padding: 70px 8% 80px;
   background-color: #ffffff;
+}
+
+/* Search Bar & Region Pills */
+.destinations-filter-container {
+  max-width: 1100px;
+  margin: 0 auto 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+
+.dest-search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 20px;
+  font-size: 15px;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 45px 14px 48px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 40px;
+  color: #1a202c;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.search-input:focus {
+  border-color: #dfb76c;
+  box-shadow: 0 4px 16px rgba(223, 183, 108, 0.2);
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+}
+
+.clear-search {
+  position: absolute;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.region-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.region-pill {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.region-pill:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+
+.region-pill.active {
+  background-color: #dfb76c;
+  color: #121820;
+  border-color: #dfb76c;
+  font-weight: 600;
+  box-shadow: 0 3px 12px rgba(223, 183, 108, 0.25);
+}
+
+/* Alternating Split Showcases */
+.destinations-list-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 75px;
+}
+
+.dest-showcase-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  background: #ffffff;
+  padding: 0;
+  transition: transform 0.35s ease;
+}
+
+.row-reversed {
+  direction: rtl;
+}
+
+.row-reversed .dest-showcase-content,
+.row-reversed .dest-showcase-img-wrap {
+  direction: ltr;
+}
+
+.dest-showcase-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.dest-showcase-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.dest-showcase-row:hover .dest-showcase-img {
+  transform: scale(1.04);
+}
+
+.dest-showcase-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: rgba(17, 24, 39, 0.85);
+  backdrop-filter: blur(8px);
+  color: #dfb76c;
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dest-showcase-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dest-region-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #b08d5c;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.dest-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 600;
+  color: #171d24;
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+
+.dest-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: #64748b;
+  margin: 0 0 16px;
+  line-height: 1.5;
+}
+
+.dest-description {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: #475569;
+  margin: 0 0 24px;
+}
+
+.dest-highlights-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 18px;
+  margin-bottom: 28px;
+}
+
+.dest-highlight-item {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12.5px;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dest-highlight-item .bullet {
+  color: #dfb76c;
+  font-size: 10px;
+}
+
+.dest-explore-btn {
+  align-self: flex-start;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #b08d5c;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  position: relative;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(176, 141, 92, 0.4);
+}
+
+.dest-explore-btn:hover {
+  color: #171d24;
+  border-bottom-color: #171d24;
+  gap: 10px;
+}
+
+.no-destinations-found {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+}
+
+.no-destinations-found h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #171d24;
+  margin-bottom: 10px;
+}
+
+.reset-btn {
+  margin-top: 16px;
+  background: #dfb76c;
+  color: #121820;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.reset-btn:hover {
+  background: #eed08f;
+}
+
+/* =========================================================
+   2. PHOTOGRAPHIC MASONRY GALLERY SECTION
+   ========================================================= */
+.gallery-masonry-section {
+  padding: 80px 8% 100px;
+  background-color: #f8fafc;
+  border-top: 1px solid #edf2f7;
 }
 
 .gallery-container {
@@ -18,17 +339,17 @@
   margin: 0 auto;
 }
 
-/* Filter Navigation */
+/* Category Filter Bar */
 .gallery-filter-bar {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
 }
 
 .gallery-filter-btn {
-  background: #f8fafc;
+  background: #ffffff;
   border: 1px solid #e2e8f0;
   color: #64748b;
   font-family: 'Outfit', sans-serif;
@@ -38,6 +359,7 @@
   border-radius: 25px;
   cursor: pointer;
   transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
 }
 
 .gallery-filter-btn:hover {
@@ -53,7 +375,7 @@
   box-shadow: 0 3px 12px rgba(223, 183, 108, 0.25);
 }
 
-/* 3 Columns Grid */
+/* 3-Column Masonry Grid */
 .gallery-columns-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -127,7 +449,77 @@
   margin: 0;
 }
 
-/* Lightbox Modal */
+/* =========================================================
+   3. BOTTOM CALL TO ACTION BANNER
+   ========================================================= */
+.gallery-cta-banner {
+  background: linear-gradient(135deg, #091a2c 0%, #102d4d 100%);
+  color: #ffffff;
+  padding: 85px 8%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-cta-content {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-cta-eyebrow {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  color: #dfb76c;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.gallery-cta-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(30px, 3.4vw, 42px);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+
+.gallery-cta-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 15px;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin: 0 0 32px;
+}
+
+.gallery-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #dfb76c;
+  color: #0b1522;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 34px;
+  border-radius: 30px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.gallery-cta-btn:hover {
+  background-color: #ecd59b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   4. LIGHTBOX MODAL
+   ========================================================= */
 .gallery-lightbox-modal {
   position: fixed;
   inset: 0;
@@ -204,7 +596,21 @@
   to { opacity: 1; }
 }
 
-@media (max-width: 860px) {
+/* Responsive */
+@media (max-width: 900px) {
+  .dest-showcase-row {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .row-reversed {
+    direction: ltr;
+  }
+  .dest-showcase-img-wrap {
+    height: 300px;
+  }
+  .dest-highlights-list {
+    grid-template-columns: 1fr;
+  }
   .gallery-columns-grid {
     grid-template-columns: 1fr;
   }

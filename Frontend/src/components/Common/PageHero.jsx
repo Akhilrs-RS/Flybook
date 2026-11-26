@@ -7,13 +7,23 @@ const PageHero = ({
   tagline, 
   bgImage, 
   minHeight = '65vh',
-  align = 'center' 
+  align = 'center',
+  noBottomFade = false,
+  bgPosition = 'center',
+  overlay
 }) => {
+  const gradient = overlay 
+    ? overlay 
+    : noBottomFade
+      ? 'linear-gradient(180deg, rgba(8, 14, 22, 0.48) 0%, rgba(8, 14, 22, 0.18) 50%, rgba(8, 14, 22, 0) 100%)'
+      : 'linear-gradient(180deg, rgba(8, 14, 22, 0.45) 0%, rgba(8, 14, 22, 0.65) 60%, rgba(11, 17, 24, 0.95) 100%)';
+
   return (
     <section 
-      className={`page-hero-section page-hero-align-${align}`} 
+      className={`page-hero-section page-hero-align-${align} ${noBottomFade ? 'no-bottom-fade' : ''}`} 
       style={{ 
-        backgroundImage: `linear-gradient(180deg, rgba(8, 14, 22, 0.45) 0%, rgba(8, 14, 22, 0.65) 60%, rgba(11, 17, 24, 0.95) 100%), url(${bgImage})`,
+        backgroundImage: `${gradient}, url(${bgImage})`,
+        backgroundPosition: bgPosition,
         minHeight 
       }}
     >

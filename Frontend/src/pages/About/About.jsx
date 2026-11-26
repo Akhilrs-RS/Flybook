@@ -38,7 +38,7 @@ const About = () => {
       {/* 1. Hero */}
       <PageHero
         subtitle="OUR PHILOSOPHY & STORY"
-        title="About Flybbok"
+        title="About Flybook"
         tagline="We don't simply book destinations. We curate transformative human experiences."
         bgImage={a1Img}
         minHeight="58vh"

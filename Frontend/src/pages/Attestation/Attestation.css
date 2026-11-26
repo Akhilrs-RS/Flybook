@@ -804,3 +804,205 @@
     justify-content: center;
   }
 }
+
+/* State Certificate Attestation Cross-Link */
+.attestation-cert-crosslink-section {
+  padding: 0 8% 30px;
+  background-color: #09131e;
+}
+
+.attestation-cert-crosslink-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.attestation-cert-crosslink-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #0284c7;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.attestation-cert-crosslink-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(19px, 2vw, 23px);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 8px;
+}
+
+.attestation-cert-crosslink-desc {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+.attestation-cert-crosslink-action {
+  flex-shrink: 0;
+}
+
+.attestation-cert-crosslink-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 28px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
+}
+
+.attestation-cert-crosslink-btn:hover {
+  background: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.3);
+}
+
+@media (max-width: 860px) {
+  .attestation-cert-crosslink-box {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 18px;
+  }
+
+  .attestation-cert-crosslink-action {
+    width: 100%;
+  }
+
+  .attestation-cert-crosslink-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   EMBASSY LEGALIZATION & APOSTILLE CORRIDOR HIGHLIGHT BANNER
+   ============================================================ */
+.attestation-corridor-highlight-section {
+  background: #09131e;
+  padding: 0 8% 65px;
+}
+
+.attestation-corridor-highlight-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.attestation-corridor-highlight-banner {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(223, 183, 108, 0.28);
+  border-radius: 14px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s ease;
+}
+
+.attestation-corridor-highlight-banner:hover {
+  border-color: rgba(223, 183, 108, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.attestation-corridor-highlight-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.attestation-corridor-highlight-tag {
+  font-family: 'Outfit', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  color: #dfb76c;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.attestation-corridor-highlight-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px;
+  letter-spacing: -0.2px;
+}
+
+.attestation-corridor-highlight-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 820px;
+}
+
+.attestation-corridor-highlight-action {
+  flex-shrink: 0;
+}
+
+.attestation-corridor-highlight-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #dfb76c;
+  color: #0b1118;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 12px 26px;
+  border-radius: 28px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(223, 183, 108, 0.25);
+}
+
+.attestation-corridor-highlight-btn:hover {
+  background: #ecd399;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(223, 183, 108, 0.35);
+}
+
+@media (max-width: 860px) {
+  .attestation-corridor-highlight-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .attestation-corridor-highlight-action {
+    width: 100%;
+  }
+
+  .attestation-corridor-highlight-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

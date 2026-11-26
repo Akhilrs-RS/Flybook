@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FlightSearchWidget from '../FlightSearchWidget/FlightSearchWidget';
 import FeaturedDestinations from '../FeaturedDestinations/FeaturedDestinations';
 import ConciergeServices from '../ConciergeServices/ConciergeServices';
 import TravelExperience from '../TravelExperience/TravelExperience';
@@ -14,31 +15,32 @@ import h1Img from '../../assets/h1.png';
 import h2Img from '../../assets/h2.png';
 import h3Img from '../../assets/h3.png';
 
+// In-memory flag that resets only on browser page reload / fresh load
+let hasPlayedHeroIntro = false;
+
 const Home = () => {
-  const [animKey, setAnimKey] = useState(0);
-  const [videoActive, setVideoActive] = useState(false);
+  const [videoActive, setVideoActive] = useState(hasPlayedHeroIntro);
 
   useEffect(() => {
-    setVideoActive(false);
+    // If the animation has already played in this browser session, skip immediately
+    if (hasPlayedHeroIntro) {
+      setVideoActive(true);
+      return;
+    }
+
     // Trigger video fade-in and blue curtain dissolve right as FLYBOOK sinks downwards
     const timer = setTimeout(() => {
       setVideoActive(true);
+      hasPlayedHeroIntro = true;
     }, 4600);
     return () => clearTimeout(timer);
-  }, [animKey]);
-
-  const handleReplay = () => {
-    setAnimKey(prev => prev + 1);
-  };
+  }, []);
 
   return (
     <div className="home-container">
       {/* 1. Hero Section with Sequential Animation transitioning to continuous looping video */}
       <section 
-        className={`hero-section ${videoActive ? 'video-active' : ''}`} 
-        key={animKey}
-        onClick={handleReplay}
-        title="Click to replay animation"
+        className={`hero-section ${videoActive ? 'video-active' : ''}`}
       >
         {/* Continuous Looping Scenic Video */}
         <video 
@@ -54,18 +56,20 @@ const Home = () => {
         {/* Brand Overlay Scrim for Text Legibility & Contrast */}
         <div className="hero-video-overlay" />
 
-        {/* Blue Intro Curtain (5-Frame Sequential Animation matching Figma) */}
-        <div className={`hero-intro-curtain ${videoActive ? 'curtain-fade-out' : ''}`}>
-          {/* Animated FLYBOOK Typography (Takeoff intro -> Horizontal -> Downward Sink) */}
-          <div className="hero-bg-text-wrapper">
-            <h1 className="hero-bg-text">FLYBOOK</h1>
-          </div>
+        {/* Blue Intro Curtain (Renders only once on load/refresh, bypassed on SPA navigation) */}
+        {!hasPlayedHeroIntro && (
+          <div className={`hero-intro-curtain ${videoActive ? 'curtain-fade-out' : ''}`}>
+            {/* Animated FLYBOOK Typography (Takeoff intro -> Horizontal -> Downward Sink) */}
+            <div className="hero-bg-text-wrapper">
+              <h1 className="hero-bg-text">FLYBOOK</h1>
+            </div>
 
-          {/* Upward Flying Aircraft & Contrails */}
-          <div className="flight-animation-wrapper">
-            <img src={flightImg} alt="Flight" className="hero-flight-img" />
+            {/* Upward Flying Aircraft & Contrails */}
+            <div className="flight-animation-wrapper">
+              <img src={flightImg} alt="Flight" className="hero-flight-img" />
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Exact Editorial Hero Content Revealed with Looping Video (Figma) */}
         <div className={`hero-editorial-content ${videoActive ? 'visible' : ''}`}>
@@ -86,6 +90,14 @@ const Home = () => {
               Explore Packages
             </Link>
           </div>
+        </div>
+
+        {/* Last Section of First Page: Flight Search Section (Revealed with Looping Video) */}
+        <div 
+          className={`hero-flight-search-wrapper ${videoActive ? 'visible' : ''}`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <FlightSearchWidget variant="hero" />
         </div>
       </section>
 

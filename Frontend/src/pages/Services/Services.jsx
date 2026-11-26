@@ -5,9 +5,6 @@ import AttestationGuideModal from '../../components/AttestationGuide/Attestation
 import s1Img from '../../assets/s1.jpg';
 import t1Img from '../../assets/t1.jpg';
 import t5Img from '../../assets/t5.jpg';
-import t2Img from '../../assets/t2.jpg';
-import a1Img from '../../assets/a1.jpg';
-import t4Img from '../../assets/t4.jpg';
 import d5Img from '../../assets/d5.jpg';
 import './Services.css';
 
@@ -30,35 +27,11 @@ const servicesList = [
   },
   {
     num: '03',
-    category: 'CURATED TOURS',
-    title: 'Tailor-made Tours',
-    desc: 'Private itineraries composed from scratch around your personal pace, secret landmark access, and licensed master guides.',
-    image: t2Img,
-    link: '/contact'
-  },
-  {
-    num: '04',
     category: 'ADVISORY & PAPERWORK',
     title: 'Visa & Passport Assistance',
     desc: 'Specialized visit visa processing for UAE, Bahrain, Saudi Arabia, Australia, and 50+ countries, with end-to-end passport issuance and renewal assistance.',
     image: d5Img,
     link: '/attestation'
-  },
-  {
-    num: '05',
-    category: 'ROMANCE & RETREATS',
-    title: 'Honeymoons',
-    desc: 'Enchanting romantic sanctuaries, private overwater dining, sunset boat charters, and curated couple wellness rituals.',
-    image: a1Img,
-    link: '/contact'
-  },
-  {
-    num: '06',
-    category: 'EXECUTIVE EXPEDITIONS',
-    title: 'Corporate Travel',
-    desc: 'Precision planning for leadership summits, high-stakes retreats, delegation logistics, and consolidated enterprise billing.',
-    image: t4Img,
-    link: '/contact'
   }
 ];
 
@@ -93,6 +66,19 @@ const focusAreas = [
       { name: 'Australia', flag: '🇦🇺' },
       { name: '+ Worldwide', flag: '🌍' }
     ]
+  },
+  {
+    icon: '📜',
+    tag: 'CERTIFICATE ATTESTATION',
+    title: 'Certificate Attestation Services',
+    desc: 'Authorized certificate authentication covering Educational, Commercial, NORKA (Kerala), State HRD, Home Department, and Mantralaya (Mumbai).',
+    link: '/certificate-attestation',
+    countries: [
+      { name: 'State HRD & NORKA', flag: '🇮🇳' },
+      { name: 'Mantralaya Mumbai', flag: '🏛️' },
+      { name: 'UAE & Saudi', flag: '🇦🇪' },
+      { name: 'Qatar & Kuwait', flag: '🇶🇦' }
+    ]
   }
 ];
 
@@ -109,6 +95,7 @@ const Services = () => {
         bgImage={s1Img}
         minHeight="58vh"
         align="left"
+        noBottomFade={true}
       />
 
       {/* 2. Main Focus & Specialization Banner */}
@@ -143,7 +130,11 @@ const Services = () => {
                     ))}
                   </div>
                 )}
-                {item.tag === 'VISA SPECIALISTS' || item.tag === 'DOCUMENTATION' || item.tag === 'AIR TICKETING' ? (
+                {item.link ? (
+                  <Link to={item.link} className="focus-card-link">
+                    Explore Services &rarr;
+                  </Link>
+                ) : item.tag === 'VISA SPECIALISTS' || item.tag === 'DOCUMENTATION' || item.tag === 'AIR TICKETING' ? (
                   <Link to="/attestation" className="focus-card-link">
                     Learn More Guide &rarr;
                   </Link>
