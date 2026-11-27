@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { buildGoogleFlightsUrl } from '../../utils/googleFlightsHelper';
+import { fetchLiveFlightOffers } from '../../services/flightApiService';
+import FlightResultsDashboard from '../FlightResults/FlightResultsDashboard';
 import './FlightSearchWidget.css';
 
 const popularDestinations = [
@@ -31,15 +32,16 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
   const [returnDate, setReturnDate] = useState(defaultReturn);
   const [travellers, setTravellers] = useState('1 Adult, Economy');
 
-  // Checkbox states
-  const [nearbyFrom, setNearbyFrom] = useState(false);
-  const [nearbyTo, setNearbyTo] = useState(false);
+  // Checkbox states - Streamlined to only Direct flights and Nearby airports
   const [directOnly, setDirectOnly] = useState(false);
-  const [placeToStay, setPlaceToStay] = useState(true);
+  const [nearbyAirports, setNearbyAirports] = useState(false);
 
-  // Validation & Live Redirect state
+  // Validation & Search state
   const [toInputError, setToInputError] = useState(false);
-  const [redirectInfo, setRedirectInfo] = useState(null);
+  const [searchCriteria, setSearchCriteria] = useState(null);
+  const [flightOffers, setFlightOffers] = useState([]);
+  const [isLoadingFlights, setIsLoadingFlights] = useState(false);
+  const [searchPerformed, setSearchPerformed] = useState(false);
 
   // Swap From and To
   const handleSwap = (e) => {
@@ -50,36 +52,38 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
     if (temp) setToInputError(false);
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
     if (!toLoc.trim()) {
       setToInputError(true);
       return;
     }
     setToInputError(false);
+    setIsLoadingFlights(true);
+    setSearchPerformed(true);
 
-    // Build live Google Flights deep-link URL
-    const url = buildGoogleFlightsUrl({
+    const criteria = {
       fromLoc,
       toLoc,
       departDate,
       returnDate: tripType === 'One way' ? '' : returnDate,
       tripType,
       directOnly,
+      nearbyAirports,
       travellers,
       currency: 'INR'
-    });
+    };
+    setSearchCriteria(criteria);
 
-    setRedirectInfo({
-      origin: fromLoc,
-      destination: toLoc,
-      url,
-      tripType,
-      directOnly
-    });
-
-    // Launch Google Flights in a new browser tab
-    window.open(url, '_blank', 'noopener,noreferrer');
+    try {
+      const results = await fetchLiveFlightOffers(criteria);
+      setFlightOffers(results);
+    } catch (err) {
+      console.error('Error fetching live flight offers:', err);
+      setFlightOffers([]);
+    } finally {
+      setIsLoadingFlights(false);
+    }
   };
 
   return (
@@ -93,7 +97,7 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
               Millions of cheap flights. One simple search.
             </h2>
             <p className="flight-search-subheading">
-              Search live fares & schedules directly on Google Flights with Flybook’s curated routing.
+              Search and compare real-time airline fares & schedules across hundreds of carriers with Flybook.
             </p>
           </div>
         </div>
@@ -259,10 +263,9 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
 
           </div>
 
-          {/* Search Button with Google Flights Link Indicator */}
-          <button type="submit" className="fsw-search-submit-btn" title="Search live fares on Google Flights">
-            <span className="fsw-btn-title">Search</span>
-            <span className="fsw-btn-sub">Google Flights ↗</span>
+          {/* Search Submit Button */}
+          <button type="submit" className="fsw-search-submit-btn" title="Search live fares">
+            <span className="fsw-btn-title">Search flights</span>
           </button>
         </form>
 
@@ -286,109 +289,50 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
           </div>
         </div>
 
-        {/* Bottom Checkbox Options Grid */}
-        <div className="fsw-bottom-row">
-          
-          {/* Left Checkboxes (aligned under From & To) */}
-          <div className="fsw-bottom-left-group">
-            <div className="fsw-checkbox-cols">
-              
-              {/* Column 1: Under From */}
-              <div className="fsw-col-under-from">
-                <label className="fsw-checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={nearbyFrom}
-                    onChange={(e) => setNearbyFrom(e.target.checked)}
-                    className="fsw-custom-checkbox"
-                  />
-                  <span>Add nearby airports</span>
-                </label>
-
-                <label className="fsw-checkbox-label direct-flights-label">
-                  <input
-                    type="checkbox"
-                    checked={directOnly}
-                    onChange={(e) => setDirectOnly(e.target.checked)}
-                    className="fsw-custom-checkbox"
-                  />
-                  <span>Direct flights only</span>
-                </label>
-              </div>
-
-              {/* Column 2: Under To */}
-              <div className="fsw-col-under-to">
-                <label className="fsw-checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={nearbyTo}
-                    onChange={(e) => setNearbyTo(e.target.checked)}
-                    className="fsw-custom-checkbox"
-                  />
-                  <span>Add nearby airports</span>
-                </label>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Right Checkbox (aligned under Travellers and Cabin Class) */}
-          <div className="fsw-bottom-right-group">
-            <label className="fsw-checkbox-label place-to-stay-label">
-              <input
-                type="checkbox"
-                checked={placeToStay}
-                onChange={(e) => setPlaceToStay(e.target.checked)}
-                className="fsw-custom-checkbox checked-accent"
-              />
-              <span>Add a place to stay</span>
-            </label>
-          </div>
-
+        {/* Bottom Checkbox Options - Streamlined to only Direct flights and Nearby airports */}
+        <div className="fsw-bottom-row streamlined">
+          <label className="fsw-checkbox-label">
+            <input
+              type="checkbox"
+              checked={directOnly}
+              onChange={(e) => setDirectOnly(e.target.checked)}
+              className="fsw-custom-checkbox"
+            />
+            <span>Direct flights only</span>
+          </label>
+          <label className="fsw-checkbox-label">
+            <input
+              type="checkbox"
+              checked={nearbyAirports}
+              onChange={(e) => setNearbyAirports(e.target.checked)}
+              className="fsw-custom-checkbox"
+            />
+            <span>Add nearby airports</span>
+          </label>
         </div>
 
-        {/* Live Google Flights Redirect Confirmation Banner */}
-        {redirectInfo && (
-          <div className="fsw-redirect-card">
-            <div className="fsw-redirect-header">
-              <div className="fsw-redirect-left">
-                <span className="fsw-redirect-pulse"></span>
-                <span className="fsw-redirect-tag">GOOGLE FLIGHTS DEEP-LINK</span>
-              </div>
-              <button 
-                type="button" 
-                className="fsw-redirect-close-btn"
-                onClick={() => setRedirectInfo(null)}
-                aria-label="Dismiss banner"
-              >
-                ✕
-              </button>
+        {/* Loading Radar Scanner State */}
+        {isLoadingFlights && (
+          <div className="fsw-loading-scanner-box">
+            <div className="fsw-radar-spinner">
+              <span className="fsw-radar-sweep"></span>
+              <span className="fsw-radar-icon">✈️</span>
             </div>
-
-            <div className="fsw-redirect-body">
-              <div className="fsw-redirect-main">
-                <h4 className="fsw-redirect-title">
-                  Searching {redirectInfo.directOnly ? 'Direct' : ''} Flights: {redirectInfo.origin} &rarr; {redirectInfo.destination}
-                </h4>
-                <p className="fsw-redirect-desc">
-                  We opened your flight search on Google Flights in a new tab. If it did not open automatically, click below:
-                </p>
-                <div className="fsw-redirect-action-row">
-                  <a 
-                    href={redirectInfo.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="fsw-open-google-btn"
-                  >
-                    Open Live Results on Google Flights ↗
-                  </a>
-                  <Link to="/contact" className="fsw-concierge-assist-btn">
-                    Book via Flybook Concierge (Offline Rates & Visa Support) &rarr;
-                  </Link>
-                </div>
-              </div>
-            </div>
+            <h4>Searching real-time airfares...</h4>
+            <p>Comparing live seat availability and fares across 25+ global carriers</p>
           </div>
+        )}
+
+        {/* Real-time Flight Fare Comparison & Filtration Dashboard */}
+        {searchPerformed && !isLoadingFlights && (
+          <FlightResultsDashboard
+            offers={flightOffers}
+            searchCriteria={searchCriteria}
+            onResetSearch={() => {
+              setSearchPerformed(false);
+              setFlightOffers([]);
+            }}
+          />
         )}
 
       </div>
