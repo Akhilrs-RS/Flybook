@@ -709,24 +709,26 @@
 @media (max-width: 868px) {
   .fsw-search-form {
     flex-direction: column;
+    gap: 12px;
   }
 
   .fsw-bar-wrapper {
     flex-wrap: wrap;
     min-height: auto;
+    width: 100%;
   }
 
   .fsw-from-cell,
   .fsw-to-cell {
     flex: 1 1 50%;
-    min-width: 200px;
+    min-width: 180px;
     border-bottom: 1px solid #e2e8f0;
   }
 
   .fsw-depart-cell,
   .fsw-return-cell {
     flex: 1 1 50%;
-    min-width: 140px;
+    min-width: 130px;
     border-bottom: 1px solid #e2e8f0;
   }
 
@@ -739,15 +741,126 @@
     height: 52px;
     min-height: 52px;
   }
+}
 
-  .fsw-bottom-row {
-    flex-direction: column;
-    gap: 16px;
+@media (max-width: 640px) {
+  .flight-search-heading {
+    font-size: clamp(20px, 6vw, 24px);
+    line-height: 1.25;
   }
 
-  .fsw-checkbox-cols {
-    grid-template-columns: 1fr;
-    gap: 10px;
+  .flight-search-subheading {
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .flight-search-top-pills {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .fsw-pill-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .fsw-bar-wrapper {
+    flex-direction: column;
+    border-radius: 10px;
+  }
+
+  .fsw-from-cell,
+  .fsw-to-cell {
+    flex: 1 1 100%;
+    width: 100%;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .fsw-from-cell {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .fsw-to-cell {
+    border-radius: 0;
+  }
+
+  .fsw-depart-cell,
+  .fsw-return-cell {
+    flex: 1 1 50%;
+    width: 50%;
+    min-width: 0;
+  }
+
+  /* Keep Depart and Return side-by-side in a 50/50 split */
+  .fsw-depart-cell {
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .fsw-return-cell {
+    border-right: none;
+  }
+
+  .fsw-travellers-cell {
+    flex: 1 1 100%;
+    width: 100%;
+    border-right: none;
+    border-bottom: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  .fsw-cell {
+    padding: 10px 14px;
+  }
+
+  .fsw-cell-label {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  .fsw-cell-input {
+    font-size: 15px;
+  }
+
+  .fsw-popular-chips-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+    gap: 6px;
+  }
+
+  .fsw-popular-chips-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .fsw-chips-list {
+    flex-wrap: nowrap;
+    gap: 6px;
+  }
+
+  .fsw-chip-btn {
+    white-space: nowrap;
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+
+  .fsw-bottom-row.streamlined {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .fsw-search-submit-btn {
+    height: 50px;
+    min-height: 50px;
+    font-size: 15px;
+    border-radius: 10px;
   }
 }
 

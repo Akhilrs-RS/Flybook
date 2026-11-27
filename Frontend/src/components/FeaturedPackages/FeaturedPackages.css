@@ -192,3 +192,22 @@
     height: 380px;
   }
 }
+
+@media (max-width: 640px) {
+  .featured-packages-section {
+    padding: 50px 5% 45px;
+  }
+  .packages-heading {
+    font-size: clamp(24px, 6.5vw, 28px);
+  }
+  .package-card {
+    height: 320px;
+    border-radius: 16px;
+  }
+  .package-content {
+    padding: 18px 16px;
+  }
+  .package-title {
+    font-size: 1.15rem;
+  }
+}

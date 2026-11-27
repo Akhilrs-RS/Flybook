@@ -377,3 +377,17 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 540px) {
+  .about-story-section,
+  .about-mission-section,
+  .about-stats-section,
+  .about-values-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

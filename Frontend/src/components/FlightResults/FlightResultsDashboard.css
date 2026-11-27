@@ -1002,7 +1002,42 @@
   .frd-summary-header {
     flex-direction: column;
     align-items: flex-start;
-    padding: 18px 20px;
+    padding: 18px 16px;
+    gap: 16px;
+  }
+
+  .frd-main-route {
+    font-size: 20px;
+    word-break: break-word;
+  }
+
+  .frd-filter-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  .frd-filter-bar-left {
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .frd-filter-toggle-pill {
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+
+  .frd-fare-card {
+    padding: 16px 14px;
+    border-radius: 12px;
+  }
+
+  .frd-card-top-strip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .frd-form-row {
@@ -1013,6 +1048,14 @@
     grid-template-columns: 1fr;
   }
 
+  .frd-modal-box {
+    width: 94vw;
+    max-width: 94vw;
+    padding: 20px 16px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
   .frd-modal-actions {
     flex-direction: column;
   }
@@ -1021,5 +1064,39 @@
     width: 100%;
     justify-content: center;
     box-sizing: border-box;
+    min-height: 46px;
+  }
+
+  .frd-submit-booking-btn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .frd-price-action-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .frd-price-wrap {
+    text-align: left;
+  }
+
+  .frd-select-fare-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    min-height: 46px;
+  }
+
+  .frd-point .frd-time {
+    font-size: 18px;
+  }
+
+  .frd-point .frd-airport-code {
+    font-size: 13px;
   }
 }

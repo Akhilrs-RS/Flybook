@@ -370,3 +370,48 @@
     padding: 24px 20px;
   }
 }
+
+@media (max-width: 640px) {
+  .tours-container {
+    padding: 50px 4% 60px;
+  }
+  .tours-filter-bar {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  .tours-filter-bar::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-pill {
+    white-space: nowrap;
+    padding: 7px 14px;
+    font-size: 12.5px;
+  }
+  .tour-wide-img-wrap {
+    height: 200px;
+  }
+  .tour-wide-card {
+    border-radius: 14px;
+  }
+  .tour-wide-content {
+    padding: 18px 16px;
+  }
+  .tour-wide-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .tour-wide-book-btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    min-height: 44px;
+  }
+}
