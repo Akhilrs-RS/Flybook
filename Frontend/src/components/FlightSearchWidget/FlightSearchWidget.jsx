@@ -15,29 +15,30 @@ const popularDestinations = [
 ];
 
 const FlightSearchWidget = ({ variant = 'default' }) => {
-  // Compute default dates (Depart: +7 days, Return: +14 days)
   const todayStr = new Date().toISOString().split('T')[0];
-  const defaultDepart = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-  const defaultReturn = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
 
-  // State for search fields
+  // State for search fields - Unfilled clean default state
   const [tripType, setTripType] = useState('Return');
   const [showTripMenu, setShowTripMenu] = useState(false);
   const [bags, setBags] = useState('Bags');
   const [showBagsMenu, setShowBagsMenu] = useState(false);
 
-  const [fromLoc, setFromLoc] = useState('Thiruvananthapuram (TRV)');
+  const [fromLoc, setFromLoc] = useState('');
   const [toLoc, setToLoc] = useState('');
-  const [departDate, setDepartDate] = useState(defaultDepart);
-  const [returnDate, setReturnDate] = useState(defaultReturn);
-  const [travellers, setTravellers] = useState('1 Adult, Economy');
+  const [departDate, setDepartDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
+  const [travellers, setTravellers] = useState('');
 
   // Checkbox states - Streamlined to only Direct flights and Nearby airports
   const [directOnly, setDirectOnly] = useState(false);
   const [nearbyAirports, setNearbyAirports] = useState(false);
 
   // Validation & Search state
+  const [fromInputError, setFromInputError] = useState(false);
   const [toInputError, setToInputError] = useState(false);
+  const [departDateError, setDepartDateError] = useState(false);
+  const [returnDateError, setReturnDateError] = useState(false);
+
   const [searchCriteria, setSearchCriteria] = useState(null);
   const [flightOffers, setFlightOffers] = useState([]);
   const [isLoadingFlights, setIsLoadingFlights] = useState(false);
@@ -47,30 +48,58 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
   const handleSwap = (e) => {
     e.stopPropagation();
     const temp = fromLoc;
-    setFromLoc(toLoc || 'Thiruvananthapuram (TRV)');
+    setFromLoc(toLoc);
     setToLoc(temp);
+    if (toLoc) setFromInputError(false);
     if (temp) setToInputError(false);
   };
 
   const handleSearch = async (e) => {
     e.preventDefault();
+    let hasError = false;
+
+    if (!fromLoc.trim()) {
+      setFromInputError(true);
+      hasError = true;
+    } else {
+      setFromInputError(false);
+    }
+
     if (!toLoc.trim()) {
       setToInputError(true);
-      return;
+      hasError = true;
+    } else {
+      setToInputError(false);
     }
-    setToInputError(false);
+
+    if (!departDate) {
+      setDepartDateError(true);
+      hasError = true;
+    } else {
+      setDepartDateError(false);
+    }
+
+    if (tripType !== 'One way' && !returnDate) {
+      setReturnDateError(true);
+      hasError = true;
+    } else {
+      setReturnDateError(false);
+    }
+
+    if (hasError) return;
+
     setIsLoadingFlights(true);
     setSearchPerformed(true);
 
     const criteria = {
-      fromLoc,
-      toLoc,
+      fromLoc: fromLoc.trim(),
+      toLoc: toLoc.trim(),
       departDate,
       returnDate: tripType === 'One way' ? '' : returnDate,
       tripType,
       directOnly,
       nearbyAirports,
-      travellers,
+      travellers: travellers.trim() || '1 Adult, Economy',
       currency: 'INR'
     };
     setSearchCriteria(criteria);
@@ -177,17 +206,22 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
 
         {/* Main 5-Cell Search Bar Row */}
         <form className="fsw-search-form" onSubmit={handleSearch}>
-          <div className={`fsw-bar-wrapper ${toInputError ? 'has-error' : ''}`}>
+          <div className={`fsw-bar-wrapper ${fromInputError || toInputError || departDateError || returnDateError ? 'has-error' : ''}`}>
             
             {/* Segment 1: From */}
-            <div className="fsw-cell fsw-from-cell">
-              <span className="fsw-cell-label">From</span>
+            <div className={`fsw-cell fsw-from-cell ${fromInputError ? 'cell-error' : ''}`}>
+              <span className="fsw-cell-label">
+                From {fromInputError && <span className="label-error-text">— Enter origin</span>}
+              </span>
               <input
                 type="text"
-                className="fsw-cell-input"
+                className={`fsw-cell-input ${fromInputError ? 'input-error' : ''}`}
                 value={fromLoc}
-                onChange={(e) => setFromLoc(e.target.value)}
-                placeholder="Country, city or airport"
+                onChange={(e) => {
+                  setFromLoc(e.target.value);
+                  if (e.target.value.trim()) setFromInputError(false);
+                }}
+                placeholder="Where from? (e.g. TRV, Kochi, London)"
               />
 
               {/* Floating Circular Swap Button */}
@@ -207,7 +241,7 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
             {/* Segment 2: To */}
             <div className={`fsw-cell fsw-to-cell ${toInputError ? 'cell-error' : ''}`}>
               <span className="fsw-cell-label">
-                To {toInputError && <span className="label-error-text">— Please enter destination</span>}
+                To {toInputError && <span className="label-error-text">— Enter destination</span>}
               </span>
               <input
                 type="text"
@@ -217,35 +251,43 @@ const FlightSearchWidget = ({ variant = 'default' }) => {
                   setToLoc(e.target.value);
                   if (e.target.value.trim()) setToInputError(false);
                 }}
-                placeholder="Country, city or airport (e.g. Dubai, London)"
-                required
+                placeholder="Where to? (e.g. Dubai, Singapore, Delhi)"
               />
             </div>
 
             {/* Segment 3: Depart */}
-            <div className="fsw-cell fsw-depart-cell">
-              <span className="fsw-cell-label">Depart</span>
+            <div className={`fsw-cell fsw-depart-cell ${departDateError ? 'cell-error' : ''}`}>
+              <span className="fsw-cell-label">
+                Depart {departDateError && <span className="label-error-text">— Select date</span>}
+              </span>
               <input
                 type="date"
                 min={todayStr}
-                className="fsw-cell-input date-input"
+                className={`fsw-cell-input date-input ${departDateError ? 'input-error' : ''}`}
                 value={departDate}
-                onChange={(e) => setDepartDate(e.target.value)}
+                onChange={(e) => {
+                  setDepartDate(e.target.value);
+                  if (e.target.value) setDepartDateError(false);
+                }}
               />
             </div>
 
             {/* Segment 4: Return */}
-            <div className={`fsw-cell fsw-return-cell ${tripType === 'One way' ? 'disabled-cell' : ''}`}>
+            <div className={`fsw-cell fsw-return-cell ${tripType === 'One way' ? 'disabled-cell' : ''} ${returnDateError ? 'cell-error' : ''}`}>
               <span className="fsw-cell-label">
                 {tripType === 'One way' ? 'Return (One-way)' : 'Return'}
+                {returnDateError && <span className="label-error-text">— Select date</span>}
               </span>
               <input
                 type="date"
                 min={departDate || todayStr}
                 disabled={tripType === 'One way'}
-                className="fsw-cell-input date-input"
+                className={`fsw-cell-input date-input ${returnDateError ? 'input-error' : ''}`}
                 value={tripType === 'One way' ? '' : returnDate}
-                onChange={(e) => setReturnDate(e.target.value)}
+                onChange={(e) => {
+                  setReturnDate(e.target.value);
+                  if (e.target.value) setReturnDateError(false);
+                }}
               />
             </div>
 

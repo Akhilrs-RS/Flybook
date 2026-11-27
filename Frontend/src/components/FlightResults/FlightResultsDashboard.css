@@ -124,291 +124,116 @@
 }
 
 /* =========================================
-   2. MAIN 2-COLUMN GRID (FILTERS + FEED)
+   2. CUSTOMER FILTRATION BAR (STREAMLINED)
    ========================================= */
-.frd-main-grid {
-  display: grid;
-  grid-template-columns: 290px 1fr;
-  gap: 24px;
-  align-items: flex-start;
-}
-
-/* =========================================
-   LEFT SIDEBAR: CUSTOMER FILTERS
-   ========================================= */
-.frd-filters-sidebar {
-  position: sticky;
-  top: 90px;
-}
-
-.frd-filter-box {
+.frd-filter-bar {
   background: rgba(11, 23, 40, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 22px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-}
-
-.frd-filter-header-row {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  padding: 14px 22px;
+  margin-bottom: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
 }
 
-.frd-filter-main-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #ffffff;
+.frd-filter-bar-left {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 
-.frd-reset-btn {
-  background: none;
-  border: none;
-  color: #dfb76c;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  padding: 0;
-  text-decoration: underline;
-}
-
-.frd-filter-section {
-  margin-bottom: 22px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.frd-filter-section:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border-bottom: none;
-}
-
-.frd-section-title-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
-
-.frd-filter-label {
+.frd-filter-bar-label {
   font-size: 13px;
   font-weight: 700;
-  color: #e2e8f0;
-  display: block;
-  margin-bottom: 10px;
-  letter-spacing: -0.1px;
-}
-
-.frd-mini-clear {
-  background: none;
-  border: none;
-  color: #94a3b8;
-  font-size: 11px;
-  cursor: pointer;
-  padding: 0;
-}
-
-.frd-mini-clear:hover {
   color: #dfb76c;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-right: 4px;
 }
 
-/* Sort Pills */
-.frd-sort-pills {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.frd-filter-toggle-pill {
+  display: inline-flex;
+  align-items: center;
   gap: 8px;
-}
-
-.frd-sort-pill {
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #cbd5e1;
-  font-size: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
   font-weight: 600;
-  padding: 8px 10px;
-  border-radius: 8px;
+  padding: 8px 16px;
+  border-radius: 24px;
   cursor: pointer;
-  text-align: center;
+  user-select: none;
   transition: all 0.2s ease;
 }
 
-.frd-sort-pill:hover {
-  background: rgba(255, 255, 255, 0.15);
+.frd-filter-toggle-pill:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
 }
 
-.frd-sort-pill.active {
-  background: #dfb76c;
-  color: #0b1728;
+.frd-filter-toggle-pill.active {
+  background: rgba(223, 183, 108, 0.16);
   border-color: #dfb76c;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(223, 183, 108, 0.35);
-}
-
-/* Radio & Checkbox Groups */
-.frd-radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
-}
-
-.frd-checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  color: #cbd5e1;
-  cursor: pointer;
-}
-
-.frd-checkbox-row input {
-  accent-color: #dfb76c;
-  cursor: pointer;
-  width: 15px;
-  height: 15px;
-}
-
-/* Airlines List */
-.frd-airlines-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-height: 220px;
-  overflow-y: auto;
-  padding-right: 4px;
-}
-
-.frd-airline-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  cursor: pointer;
-  font-size: 12.5px;
-  padding: 4px 0;
-}
-
-.frd-airline-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  overflow: hidden;
-}
-
-.frd-airline-left input {
-  accent-color: #dfb76c;
-  cursor: pointer;
-}
-
-.frd-airline-tag-pill {
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
   color: #ffffff;
-  font-size: 10px;
-  font-weight: 800;
-  display: flex;
+  box-shadow: 0 0 14px rgba(223, 183, 108, 0.25);
+}
+
+.frd-pill-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 4px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-
-.frd-airline-title {
-  color: #e2e8f0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.frd-airline-price {
   font-size: 11px;
-  font-weight: 600;
-  color: #dfb76c;
-  white-space: nowrap;
-}
-
-/* Time Slots */
-.frd-time-slots-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.frd-time-slot-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 8px 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
+  font-weight: 800;
+  color: #0b1728;
+  background: transparent;
   transition: all 0.2s ease;
-  color: #cbd5e1;
 }
 
-.frd-time-slot-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-.frd-time-slot-btn.active {
-  background: rgba(223, 183, 108, 0.2);
+.frd-filter-toggle-pill.active .frd-pill-checkbox {
+  background: #dfb76c;
   border-color: #dfb76c;
-  color: #ffffff;
+  color: #0b1728;
 }
 
-.frd-ts-label {
+.frd-clear-filters-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
   font-size: 12.5px;
   font-weight: 600;
-}
-
-.frd-ts-range {
-  font-size: 11px;
-  color: #94a3b8;
-}
-
-.frd-time-slot-btn.active .frd-ts-range {
-  color: #dfb76c;
-}
-
-/* Price Slider */
-.frd-price-slider-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 8px;
-}
-
-.frd-price-val {
-  font-size: 14px;
-  color: #dfb76c;
-  font-weight: 700;
-}
-
-.frd-range-slider {
-  width: 100%;
-  accent-color: #dfb76c;
   cursor: pointer;
-  margin-bottom: 6px;
+  text-decoration: underline;
+  padding: 4px 8px;
+  transition: color 0.2s;
 }
 
-.frd-slider-ends {
-  display: flex;
-  justify-content: space-between;
-  font-size: 11px;
-  color: #94a3b8;
+.frd-clear-filters-btn:hover {
+  color: #dfb76c;
+}
+
+/* Nearby Airport Badge */
+.frd-badge.nearby {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
 }
 
 /* =========================================
-   RIGHT FEED: FARE COMPARISON CARDS
+   FARE COMPARISON CARDS FEED (FULL WIDTH)
    ========================================= */
 .frd-offers-feed {
   display: flex;
@@ -1141,14 +966,6 @@
    RESPONSIVE QUERIES
    ========================================= */
 @media (max-width: 1024px) {
-  .frd-main-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .frd-filters-sidebar {
-    position: static;
-  }
-
   .frd-journey-row {
     grid-template-columns: 1fr 1fr;
     gap: 16px;
